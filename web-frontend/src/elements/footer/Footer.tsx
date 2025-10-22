@@ -76,7 +76,7 @@ function Footer({
           <Col span={colSpan}>Version: {version}</Col>
           <Col span={colSpan}>
             <a
-              href=""
+              href="https://github.com/ECharria/mycomsbase"
               target="_blank"
               title="Find us on GitHub"
             >
