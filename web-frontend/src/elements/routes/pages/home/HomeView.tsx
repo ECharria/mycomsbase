@@ -22,7 +22,7 @@ function HomeView() {
   const elementLabels: string[] = [];
 
   elements.push(<MassBankInfo />);
-  elementLabels.push('MassBank');
+  elementLabels.push('MycoMSBase');
   elements.push(
     <Content>
       <SectionDivider label="Features" />

@@ -15,7 +15,7 @@ function FeaturesOverview() {
       'Compound Search',
       'Spectral Search',
       'Structure Search',
-      'MassBank API',
+      'MycoMSBase API',
     ];
     return (
       <Content
@@ -43,9 +43,8 @@ function FeaturesOverview() {
             }}
           >
             <Text>
-              The MassBank system provides a variety of functionalities to
-              access, filter and search for data within its knowledge base. The
-              following key features are available.
+              MycoMSbase lets you <strong>browse and search (read-only)</strong> curated fungal metabolite MS/MS spectra and CCS values.
+              Filter by compound metadata, run spectral and structure searches, and access the REST API.
             </Text>
           </Paragraph>
           <List
@@ -96,7 +95,7 @@ function FeaturesOverview() {
           }}
         >
           <Text>
-            Visit the MassBank{' '}
+            Visit the MycoMSBase{' '}
             <a
               href={backendUrl}
               target="_blank"
@@ -104,7 +103,7 @@ function FeaturesOverview() {
             >
               API documentation
             </a>{' '}
-            to learn more about available endpoints and how to use them.
+            to gain advanced insights about the code base and their usage.
           </Text>
         </Content>
       </Content>

@@ -44,7 +44,7 @@ function Header({ height }: InputProps) {
           <a href={baseUrl + '/'} target="_self">
             <img
               src={logo}
-              alt="MassBank Europe"
+              alt="MycoMSBase"
               style={{
                 height:
                   typeof height === 'number'
