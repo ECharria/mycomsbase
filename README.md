@@ -14,7 +14,10 @@
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-burgundy?color=%237b1c1c"/>
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-66%25-blue"/>
   <img alt="Go" src="https://img.shields.io/badge/Go-31%25-00ADD8"/>
+  <img alt="Status" src="https://img.shields.io/badge/status-under%20construction-orange"/>
 </div>
+
+> **Work in progress** — MycoMSBase is actively being developed. Features and data coverage are growing. Feedback, suggestions, and contributions are very welcome (see [Contributing](#contributing)).
 
 ---
 
@@ -26,6 +29,7 @@
 - [Configuration reference](#configuration-reference)
 - [Data format](#data-format)
 - [Development](#development)
+- [Contributing](#contributing)
 - [Citing](#citing)
 
 ---
@@ -176,6 +180,17 @@ The full OpenAPI specification is at [`config-openapi.yaml`](config-openapi.yaml
 | `/similarity` | POST | Cosine similarity search against the library |
 | `/export/mgf` | POST | Export selected records as MGF |
 | `/version` | GET | Service version and loaded library size |
+
+---
+
+## Contributing
+
+MycoMSBase is under active development and we warmly welcome contributions of all kinds — bug reports, feature ideas, or code improvements.
+
+- **Open a pull request** — for code changes or new records, fork the repo and submit a PR
+- **Open an issue** — for bug reports or feature requests
+- **Send us your samples** — if you have fungal samples or extracts that could expand the library, we would love to hear from you
+- **Get in touch** — for questions, sample contributions, or collaboration: [esteban.charriagiron@wur.nl](mailto:esteban.charriagiron@wur.nl)
 
 ---
 
