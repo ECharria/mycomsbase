@@ -77,8 +77,7 @@ function Segmented({
           width,
           height,
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          flexDirection: 'column',
         }}
       >
         <SegmentedAntD<string>
@@ -86,20 +85,15 @@ function Segmented({
           options={options}
           value={activeSegment}
           onChange={handleOnChange}
-          vertical
-          style={{
-            width: segmentedWidth,
-            height,
-          }}
+          style={{ width: '100%', flexShrink: 0 }}
         />
         <Content
           style={{
+            flex: 1,
             width: '100%',
-            height: '100%',
             display: 'block',
-            justifyContent: 'center',
-            alignItems: 'center',
-            overflow: 'scroll',
+            overflowY: 'auto',
+            overflowX: 'hidden',
             backgroundColor: 'white',
           }}
         >

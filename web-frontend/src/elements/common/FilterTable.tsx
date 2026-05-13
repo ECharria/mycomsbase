@@ -75,8 +75,8 @@ function FilterTable({
         <Content
           style={{
             width: '100%',
-            height,
-            overflow: 'scroll',
+            height: Math.min(height, filterOptions.length * 36),
+            overflow: 'auto',
           }}
         >
           <Form.Item
@@ -101,15 +101,17 @@ function FilterTable({
             />
           </Form.Item>
         </Content>
-        <Button
-          children={allSelected ? 'Unselect' : 'Select'}
-          onClick={(e: MouseEvent<HTMLButtonElement>) => {
-            e.preventDefault();
-            e.stopPropagation();
+        {filterOptions.length > 1 && (
+          <Button
+            children={allSelected ? 'Unselect' : 'Select'}
+            onClick={(e: MouseEvent<HTMLButtonElement>) => {
+              e.preventDefault();
+              e.stopPropagation();
 
-            handleOnSelectAll();
-          }}
-        />
+              handleOnSelectAll();
+            }}
+          />
+        )}
       </Content>
     ),
     [allSelected, filterName, handleOnSelectAll, height, label, options],

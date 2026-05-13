@@ -3,6 +3,7 @@ export default interface Hit {
   accession: string;
   atomcount: number;
   score?: number;
+  matchSupport?: number;
   peakPairs?: string[];
   record?: Record;
 }

@@ -1,41 +1,41 @@
-import { Divider as DividerAntD, DividerProps } from 'antd';
 import { CSSProperties } from 'react';
 
 type InputProps = {
   label: string;
   componentStyle?: CSSProperties;
   labelStyle?: CSSProperties;
-  orientation?: DividerProps['orientation'];
 };
 
 function SectionDivider({
   label,
   componentStyle = {},
   labelStyle = {},
-  orientation = 'left',
 }: InputProps) {
   return (
-    <DividerAntD
+    <div
       style={{
-        color: 'rgb(5, 109, 220)',
-        borderColor: 'rgb(5, 109, 220)',
         marginTop: 30,
         marginBottom: 30,
+        paddingLeft: 16,
         ...componentStyle,
       }}
-      orientation={orientation}
     >
-      <p
+      <span
         style={{
+          display: 'inline-block',
+          backgroundColor: '#2d2d2d',
+          color: '#fff',
           fontWeight: 'bold',
-          fontSize: 18,
-          color: 'rgb(5, 109, 220)',
+          fontSize: 14,
+          letterSpacing: '0.05em',
+          padding: '4px 16px',
+          borderRadius: 20,
           ...labelStyle,
         }}
       >
         {label}
-      </p>
-    </DividerAntD>
+      </span>
+    </div>
   );
 }
 

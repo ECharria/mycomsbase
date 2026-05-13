@@ -1,21 +1,15 @@
-$color: rgb(223, 223, 223); //#f3ece0
-$highlight-color: lightblue;
-
 .ant-segmented {
-  border: 1px solid lightgrey !important;
+  background-color: #f5f5f5 !important;
   border-radius: 0 !important;
-
-  background-color: $color !important;
-}
-
-.ant-segmented-item {
-  transition: $highlight-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+  border-bottom: 1px solid #e8e0e0 !important;
 }
 
 .ant-segmented-item-selected {
-  background-color: $highlight-color !important;
+  background-color: #fff !important;
+  color: #7b1c1c !important;
+  font-weight: 600;
 }
 
 .ant-segmented-thumb {
-  background-color: $highlight-color !important;
+  background-color: #fff !important;
 }

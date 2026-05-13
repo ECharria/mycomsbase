@@ -74,7 +74,7 @@ function SearchPanelForm({
               style={{
                 width: '100%',
                 height: '100%',
-                overflow: 'scroll',
+                overflow: 'auto',
                 border: 'none',
                 backgroundColor: 'transparent',
               }}
@@ -91,7 +91,11 @@ function SearchPanelForm({
                 height: submitButtonHeight - 10,
                 marginTop: 5,
                 marginBottom: 5,
-                backgroundColor: 'rgb(167, 199, 254)',
+                backgroundColor: '#7b1c1c',
+                borderColor: '#7b1c1c',
+                color: '#fff',
+                fontWeight: 600,
+                borderRadius: 6,
               }}
             >
               Search

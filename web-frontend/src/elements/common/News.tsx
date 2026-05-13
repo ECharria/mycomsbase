@@ -8,8 +8,7 @@ import {
   useState,
 } from 'react';
 
-const templateUrl =
-  'https://massbank.github.io/MassBank-documentation/news.html';
+const templateUrl = '';
 
 type InputProps = {
   styles?: CSSProperties;

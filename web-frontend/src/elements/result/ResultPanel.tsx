@@ -1,6 +1,6 @@
 import './Pagination.scss';
 
-import { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import ResultTable from './ResultTable';
 import Hit from '../../types/Hit';
 import Peak from '../../types/peak/Peak';
@@ -9,8 +9,6 @@ import Placeholder from '../basic/Placeholder';
 import fetchData from '../../utils/request/fetchData';
 import {
   Button,
-  Dropdown,
-  MenuProps,
   Modal,
   Pagination,
   Select,
@@ -48,7 +46,7 @@ function ResultPanel({
   widthOverview = width,
   heightOverview = height,
 }: InputProps) {
-  const { backendUrl, exportServiceUrl } = usePropertiesContext();
+  const { backendUrl } = usePropertiesContext();
 
   const [isRequesting, setIsRequesting] = useState<boolean>(false);
   const [isRequestingDownload, setIsRequestingDownload] =
@@ -153,9 +151,9 @@ function ResultPanel({
         hits={hitsWithRecords || []}
         height={height - paginationHeight}
         onDoubleClick={handleOnDoubleClick}
-        rowHeight={150}
-        chartWidth={250}
-        imageWidth={250}
+        rowHeight={110}
+        chartWidth={220}
+        imageWidth={150}
       />
     ),
     [reference, hitsWithRecords, height, handleOnDoubleClick],
@@ -212,72 +210,27 @@ function ResultPanel({
     [onSort],
   );
 
-  const handleOnDownloadResult = useCallback(
-    async (format: string) => {
-      setIsRequestingDownload(true);
-      const host = exportServiceUrl;
-      const url = `${host}/convert`;
+  const similarityBaseUrl = backendUrl.replace(/\/[^/]+$/, '/similarity');
 
-      const resp = await axios.post(
-        url,
-        {
-          record_list: hits.map((h) => h.accession),
-          format,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/octet-stream',
-          },
-        },
-      );
-      if (resp.status === 200) {
-        const data = await resp.data;
-        const fileType = format.split('_')[1];
-        const filename = `massbank_result.${format}.${fileType}`;
-        const blob = new Blob([data], {
-          type: 'application/octet-stream',
-        });
-        saveAs(blob, filename);
-      }
-
-      setIsRequestingDownload(false);
-    },
-    [exportServiceUrl, hits],
-  );
-
-  const buildDownloadOptionLabel = useCallback(
-    (label: string, format: string) => (
-      <label
-        onClick={(e: MouseEvent<HTMLLabelElement>) => {
-          e.preventDefault();
-          handleOnDownloadResult(format);
-        }}
-        style={{
-          width: 100,
-          marginLeft: 10,
-          marginRight: 10,
-        }}
-      >
-        {label}
-      </label>
-    ),
-    [handleOnDownloadResult],
-  );
-
-  const items: MenuProps['items'] = useMemo(
-    () => [
+  const handleOnDownloadMgf = useCallback(async () => {
+    setIsRequestingDownload(true);
+    const url = `${similarityBaseUrl}/export/mgf`;
+    const resp = await axios.post(
+      url,
+      { record_list: hits.map((h) => h.accession) },
       {
-        key: '0_nist_msp_download',
-        label: buildDownloadOptionLabel('NIST MSP', 'nist_msp'),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/octet-stream',
+        },
       },
-      {
-        key: '1_riken_msp_download',
-        label: buildDownloadOptionLabel('RIKEN MSP', 'riken_msp'),
-      },
-    ],
-    [buildDownloadOptionLabel],
-  );
+    );
+    if (resp.status === 200) {
+      const blob = new Blob([resp.data], { type: 'application/octet-stream' });
+      saveAs(blob, 'mycomsbase_export.mgf');
+    }
+    setIsRequestingDownload(false);
+  }, [similarityBaseUrl, hits]);
 
   const paginationContainer = useMemo(() => {
     return (
@@ -286,85 +239,68 @@ function ResultPanel({
           width: '100%',
           height: paginationHeight,
           display: 'flex',
-          justifyContent: 'space-evenly',
           alignItems: 'center',
+          gap: 12,
+          paddingLeft: 12,
+          paddingRight: 12,
+          borderBottom: '1px solid #f0ebe8',
+          backgroundColor: '#fdfaf9',
         }}
       >
+        <span
+          style={{
+            fontWeight: 700,
+            fontSize: 13,
+            color: '#7b1c1c',
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
+          }}
+        >
+          {hits.length} records
+        </span>
         <Pagination
           className="result-panel-pagination"
           total={hits.length}
           pageSize={pageLimit}
-          showTotal={(total) => (
-            <Content
-              style={{
-                textWrap: 'nowrap',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                color: 'brown',
-                width: 150,
-                height: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >{`${total} Results`}</Content>
-          )}
           onChange={handleOnSelectPage}
           current={resultPageIndex + 1}
-          showTitle
           showSizeChanger={false}
           showQuickJumper
           locale={{ jump_to: 'Page', page: '' }}
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textWrap: 'nowrap',
-          }}
+          style={{ flex: 1, display: 'flex', justifyContent: 'center' }}
+          size="small"
         />
         {sortOptions.length > 0 && (
           <Select
             defaultValue={selectedSortOption}
-            style={{ width: 200 }}
-            placeholder={<p style={{ color: 'black' }}>Sort by</p>}
+            style={{ width: 160, flexShrink: 0 }}
+            placeholder="Sort by"
             optionFilterProp="label"
-            filterSort={(optionA, optionB) =>
-              (optionA?.label ?? '')
-                .toLowerCase()
-                .localeCompare((optionB?.label ?? '').toLowerCase())
-            }
             options={sortOptions}
             onSelect={handleOnSelect}
+            size="small"
           />
         )}
-        <Dropdown menu={{ items }} trigger={['click']}>
-          <Button
-            style={{
-              width: 100,
-              marginLeft: 10,
-            }}
-          >
-            Download
-          </Button>
-        </Dropdown>
+        <Button
+          size="small"
+          onClick={handleOnDownloadMgf}
+          style={{
+            flexShrink: 0,
+            backgroundColor: '#7b1c1c',
+            borderColor: '#7b1c1c',
+            color: '#fff',
+            fontWeight: 600,
+            borderRadius: 6,
+          }}
+        >
+          Download MGF
+        </Button>
         <Tooltip
-          title={
-            'Double click on a row in the result table to open the carousel view. In addition to clicking through the results, it also offers an interactive chart or mirror chart (similarity/peak search). In case of a neutral loss search it provides an additional interactive result table.'
-          }
+          title="Double-click a row to open the carousel view with interactive chart and comparison tools."
           placement="left"
         >
           <QuestionCircleTwoTone
-            style={{
-              width: '50px',
-              fontSize: '18px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 10,
-              marginRight: 20,
-            }}
+            style={{ fontSize: 16, flexShrink: 0, cursor: 'help' }}
           />
         </Tooltip>
       </Content>
@@ -376,7 +312,7 @@ function ResultPanel({
     sortOptions,
     selectedSortOption,
     handleOnSelect,
-    items,
+    handleOnDownloadMgf,
   ]);
 
   return useMemo(
@@ -418,7 +354,7 @@ function ResultPanel({
               style={{
                 width: '100%',
                 height,
-                overflow: 'scroll',
+                overflow: 'auto',
               }}
             >
               {paginationContainer}
