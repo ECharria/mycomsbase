@@ -5,7 +5,6 @@ const emptyState: PropertiesContextProps = {
   baseUrl: '',
   backendUrl: '',
   frontendUrl: '',
-  exportServiceUrl: '',
   version: '',
   distributorText: '',
   distributorUrl: '',

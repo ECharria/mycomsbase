@@ -1,49 +1,66 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePropertiesContext } from '../../../../context/properties/properties';
-import { Content } from 'antd/es/layout/layout';
-import { Button, Result, Spin } from 'antd';
+import { Button, Spin } from 'antd';
+import { CheckCircleOutlined, CloseCircleOutlined, ReloadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import StatusResult from '../../../../types/StatusResult';
 
-const resultStyle = {
-  width: 250,
-  padding: 20,
+type ServiceRow = {
+  name: string;
+  error: string | null;
 };
+
+function StatusRow({ name, error }: ServiceRow) {
+  const ok = !error || error.length === 0;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        padding: '8px 0',
+        borderBottom: '1px solid #f0ebe8',
+      }}
+    >
+      {ok ? (
+        <CheckCircleOutlined style={{ color: '#52c41a', fontSize: 15 }} />
+      ) : (
+        <CloseCircleOutlined style={{ color: '#ff4d4f', fontSize: 15 }} />
+      )}
+      <span style={{ flex: 1, fontSize: 13, color: '#2d2d2d' }}>{name}</span>
+      <span
+        style={{
+          fontSize: 12,
+          color: ok ? '#52c41a' : '#ff4d4f',
+          fontWeight: 600,
+        }}
+      >
+        {ok ? 'Connected' : 'Error'}
+      </span>
+    </div>
+  );
+}
 
 function ServiceStatusView() {
   const { backendUrl } = usePropertiesContext();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [lastChecked, setLastChecked] = useState<Date | null>(null);
   const [errorApi, setErrorApi] = useState<string | null>(null);
   const [errorPostgres, setErrorPostgres] = useState<string | null>(null);
-  const [errorSimilarityService, setErrorSimilarityService] = useState<
-    string | null
-  >(null);
-  const [errorExportService, setErrorExportService] = useState<string | null>(
-    null,
-  );
+  const [errorSimilarityService, setErrorSimilarityService] = useState<string | null>(null);
+  const [errorExportService, setErrorExportService] = useState<string | null>(null);
 
   const handleOnCheckServiceStatus = useCallback(async () => {
     setIsLoading(true);
-
     try {
       const response = await axios.get(`${backendUrl}/status`);
       if (response.status === 200) {
         setErrorApi(null);
         const statusResult = response.data as StatusResult;
-        setErrorPostgres(
-          statusResult.postgres.error ? statusResult.postgres.error : null,
-        );
-        setErrorSimilarityService(
-          statusResult.similarity_service.error
-            ? statusResult.similarity_service.error
-            : null,
-        );
-        setErrorExportService(
-          statusResult.export_service.error
-            ? statusResult.export_service.error
-            : null,
-        );
+        setErrorPostgres(statusResult.postgres.error ?? null);
+        setErrorSimilarityService(statusResult.similarity_service.error ?? null);
+        setErrorExportService(statusResult.export_service.error ?? null);
       } else {
         setErrorApi(response.statusText);
         setErrorPostgres("Couldn't connect to the API");
@@ -55,9 +72,8 @@ function ServiceStatusView() {
       setErrorPostgres("Couldn't connect to the API");
       setErrorSimilarityService("Couldn't connect to the API");
       setErrorExportService("Couldn't connect to the API");
-      console.error(error);
     }
-
+    setLastChecked(new Date());
     setIsLoading(false);
   }, [backendUrl]);
 
@@ -67,102 +83,48 @@ function ServiceStatusView() {
 
   return useMemo(
     () => (
-      <Content
-        style={{
-          width: '100%',
-          minHeight: 300,
-          padding: 20,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div>
         {isLoading ? (
-          <Spin size="large" spinning={isLoading} />
+          <div style={{ padding: '16px 0', display: 'flex', justifyContent: 'center' }}>
+            <Spin size="default" spinning />
+          </div>
         ) : (
-          <Content
-            style={{
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'start',
-            }}
-          >
-            <Result
-              title="MycoMSBase API"
-              subTitle={
-                <p style={{ color: 'black' }}>
-                  {errorApi && errorApi.length > 0
-                    ? errorApi
-                    : 'Successfully connected'}
-                </p>
-              }
-              status={errorApi && errorApi.length > 0 ? 'error' : 'success'}
-              style={resultStyle}
-            />
-            <Result
-              title="Postgres Database"
-              subTitle={
-                <p style={{ color: 'black' }}>
-                  {errorPostgres && errorPostgres.length > 0
-                    ? errorPostgres
-                    : 'Successfully connected'}
-                </p>
-              }
-              status={
-                errorPostgres && errorPostgres.length > 0 ? 'error' : 'success'
-              }
-              style={resultStyle}
-            />
-            <Result
-              title="Similarity Service"
-              subTitle={
-                <p style={{ color: 'black' }}>
-                  {errorSimilarityService && errorSimilarityService.length > 0
-                    ? errorSimilarityService
-                    : 'Successfully connected'}
-                </p>
-              }
-              status={
-                errorSimilarityService && errorSimilarityService.length > 0
-                  ? 'error'
-                  : 'success'
-              }
-              style={resultStyle}
-            />
-            <Result
-              title="Export Service"
-              subTitle={
-                <p style={{ color: 'black' }}>
-                  {errorExportService && errorExportService.length > 0
-                    ? errorExportService
-                    : 'Successfully connected'}
-                </p>
-              }
-              status={
-                errorExportService && errorExportService.length > 0
-                  ? 'error'
-                  : 'success'
-              }
-              style={resultStyle}
-            />
-          </Content>
+          <>
+            <StatusRow name="MycoMSBase API" error={errorApi} />
+            <StatusRow name="Postgres Database" error={errorPostgres} />
+            <StatusRow name="Similarity Service" error={errorSimilarityService} />
+            <StatusRow name="Export Service" error={errorExportService} />
+          </>
         )}
-        <Button
-          type="primary"
-          onClick={handleOnCheckServiceStatus}
-          disabled={isLoading}
+        <div
           style={{
-            marginTop: 20,
-            backgroundColor: 'lightgrey',
-            color: 'black',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginTop: 14,
           }}
         >
-          Refresh
-        </Button>
-      </Content>
+          <span style={{ fontSize: 12, color: '#aaa' }}>
+            {lastChecked
+              ? `Last checked: ${lastChecked.toLocaleTimeString()}`
+              : 'Checking…'}
+          </span>
+          <Button
+            size="small"
+            icon={<ReloadOutlined />}
+            onClick={handleOnCheckServiceStatus}
+            disabled={isLoading}
+            style={{
+              borderColor: '#7b1c1c',
+              color: '#7b1c1c',
+              borderRadius: 6,
+              fontSize: 12,
+            }}
+          >
+            Refresh
+          </Button>
+        </div>
+      </div>
     ),
     [
       errorApi,
@@ -171,6 +133,7 @@ function ServiceStatusView() {
       errorSimilarityService,
       handleOnCheckServiceStatus,
       isLoading,
+      lastChecked,
     ],
   );
 }

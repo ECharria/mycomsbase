@@ -11,7 +11,7 @@ import {
 
 const { Footer: FooterAntD } = Layout;
 
-const backgroundColor: CSSProperties['backgroundColor'] = 'rgb(223, 223, 223)';
+const backgroundColor: CSSProperties['backgroundColor'] = '#fafafa';
 
 type InputProps = {
   height: CSSProperties['height'];
@@ -59,6 +59,8 @@ function Footer({
           alignItems: 'center',
           backgroundColor,
           padding: 0,
+          borderTop: '1px solid #eee',
+          boxShadow: 'none',
         }}
       >`
         <Row

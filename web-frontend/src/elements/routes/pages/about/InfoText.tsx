@@ -2,7 +2,7 @@ import { Content } from 'antd/es/layout/layout';
 import Paragraph from 'antd/es/typography/Paragraph';
 import { memo } from 'react';
 
-import massbankLogo from '../../../../assets/logo.svg';
+import mycomsLogo from '../../../../assets/logo.svg';
 
 function InfoText() {
   return (
@@ -16,9 +16,9 @@ function InfoText() {
       }}
     >
       <img
-        src={massbankLogo}
+        src={mycomsLogo}
         style={{ width: 300, marginTop: 10, marginBottom: 10 }}
-        key={'massbank-logo-overview'}
+        key={'mycomsbase-logo-overview'}
         alt="MycoMSBase logo"
       />
       <Content style={{ padding: 10 }}>
@@ -40,11 +40,11 @@ function InfoText() {
           . The REST API is available at{' '}
           {
             <a
-              href="/MassBank-api"
+              href="/MycoMSBase-api"
               target="_blank"
               style={{ color: 'black', textDecoration: 'underline' }}
             >
-              /MassBank-api
+              /MycoMSBase-api
             </a>
           }
           .

@@ -4,10 +4,8 @@ import { Layout, Spin } from 'antd';
 import Segmented from '../../../basic/Segmented';
 import SectionDivider from '../../../basic/SectionDivider';
 
-const templateUrlNews =
-  'https://massbank.github.io/MassBank-documentation/news.html';
-const templateUrlNewsArchive =
-  'https://massbank.github.io/MassBank-documentation/news_archive.html';
+const templateUrlNews = '';
+const templateUrlNewsArchive = '';
 
 function NewsView() {
   const ref = useRef(null);
