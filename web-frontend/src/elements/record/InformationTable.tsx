@@ -68,21 +68,31 @@ function InformationTable({ record, width, height }: InputProps) {
         />
       ),
     });
-    // dataSource.push({
-    //   key: 'record-view-general-table-publication',
-    //   label: 'Publication',
-    //   value:
-    //     record.publication && record.publication !== '' ? (
-    //       <ExportableContent
-    //         component={<LabelWrapper value={record.publication} />}
-    //         mode="copy"
-    //         onClick={() => handleOnCopy('Publication', record.publication)}
-    //         title="Copy publication to clipboard"
-    //       />
-    //     ) : (
-    //       <NotAvailableLabel />
-    //     ),
-    // });
+    dataSource.push({
+      key: 'record-view-general-table-publication',
+      label: 'Publication',
+      value:
+        record.publication && record.publication !== '' ? (
+          (() => {
+            const doi = record.publication.startsWith('doi:')
+              ? record.publication.slice(4)
+              : record.publication;
+            const url = `https://doi.org/${doi}`;
+            return (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#7b1c1c', wordBreak: 'break-all' }}
+              >
+                {doi}
+              </a>
+            );
+          })()
+        ) : (
+          <NotAvailableLabel />
+        ),
+    });
     dataSource.push({
       key: 'record-view-general-table-license',
       label: 'License',
@@ -163,7 +173,7 @@ function InformationTable({ record, width, height }: InputProps) {
     record.copyright,
     record.date,
     record.license,
-    // record.publication,
+    record.publication,
     width,
   ]);
 }

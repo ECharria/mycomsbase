@@ -11,7 +11,6 @@ import SpeciesTable from './SpeciesTable';
 import InformationTable from './InformationTable';
 import SectionDivider from '../basic/SectionDivider';
 import Segmented from '../basic/Segmented';
-import segmentedWidth from '../../constants/segmentedWidth';
 import MassSpectrometryTable from './MassSpectrometryTable';
 
 type inputProps = {
@@ -63,7 +62,7 @@ function RecordView({ record, width, height }: inputProps) {
         {buildDivider('Spectrum')}
         <Resizable
           record={record}
-          width={width - segmentedWidth}
+          width={width}
           height={chartAndPeakTableHeight}
           minChartWidth={minChartWidth}
           minPeakTableWith={minPeakTableWith}

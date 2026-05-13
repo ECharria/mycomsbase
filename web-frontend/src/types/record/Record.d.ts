@@ -11,7 +11,7 @@ export default interface Record {
   title: string;
   date: Date;
   authors: [{ name: string }];
-  // publication: string;
+  publication: string;
   license: string;
   copyright: string;
   compound: Compound;

@@ -4,7 +4,7 @@ import { Content } from 'antd/es/layout/layout';
 import ExportableContent from '../common/ExportableContent';
 import { CSSProperties, JSX, useCallback, useMemo } from 'react';
 import copyTextToClipboard from '../../utils/copyTextToClipboard';
-import { Table, Tree, TreeDataNode } from 'antd';
+import { Table } from 'antd';
 import Record from '../../types/record/Record';
 import { MF } from 'react-mf';
 import StructureView from '../basic/StructureView';
@@ -112,7 +112,7 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
     compoundClasses.sort((a, b) => a.localeCompare(b));
     dataSource.push({
       key: 'record-view-header-table-classes',
-      label: 'Classes',
+      label: 'Biosynthetic class',
       value: (
         <Content
           style={{
@@ -142,117 +142,6 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
                 )}
               />
             ))
-          ) : (
-            <NotAvailableLabel />
-          )}
-        </Content>
-      ),
-    });
-
-    // Add CHEMONT classes
-    const CHEMONTClasses: string[] = [];
-    const treeNodes: JSX.Element[] = [];
-    record.compound.link
-      .filter((l) => l.database === 'CHEMONT')
-      .forEach((l) => {
-        l.identifier.split(';').forEach((cc: string, i: number) => {
-          const className = cc.trim();
-          CHEMONTClasses.push(className);
-          treeNodes.push(
-            <ExportableContent
-              key={'class-label-' + className + '-CHEMONT' + i}
-              component={<LabelWrapper value={className} />}
-              mode="copy"
-              onClick={() =>
-                handleOnCopy(`Compound class '${className}'`, className)
-              }
-              title={`Copy compound class '${className}' to clipboard`}
-              enableSearch
-              searchTitle={`Search for compound class '${className}'`}
-              searchUrl={buildSearchUrl(
-                'compound_class',
-                className,
-                baseUrl,
-                frontendUrl,
-              )}
-            />,
-          );
-        });
-      });
-
-    const treeData: TreeDataNode[] =
-      CHEMONTClasses.length >= 3
-        ? [
-            {
-              title: treeNodes[1],
-              key: CHEMONTClasses[1],
-              isLeaf: true,
-              children: [
-                {
-                  title: treeNodes[2],
-                  key: CHEMONTClasses[2],
-                  isLeaf: true,
-                  children:
-                    CHEMONTClasses.length > 3
-                      ? [
-                          {
-                            title: treeNodes[3],
-                            key: CHEMONTClasses[3],
-                            isLeaf: true,
-                            children:
-                              CHEMONTClasses.length > 4
-                                ? [
-                                    {
-                                      title: treeNodes[4],
-                                      key: CHEMONTClasses[4],
-                                      isLeaf: true,
-                                      children: [
-                                        {
-                                          title: treeNodes[0],
-                                          key: CHEMONTClasses[0],
-                                          isLeaf: true,
-                                        },
-                                      ],
-                                    },
-                                  ]
-                                : [
-                                    {
-                                      title: treeNodes[0],
-                                      key: CHEMONTClasses[0],
-                                      isLeaf: true,
-                                    },
-                                  ],
-                          },
-                        ]
-                      : [
-                          {
-                            title: treeNodes[0],
-                            key: CHEMONTClasses[0],
-                            isLeaf: true,
-                          },
-                        ],
-                },
-              ],
-            },
-          ]
-        : [];
-
-    dataSource.push({
-      key: 'record-view-header-table-classes-CHEMONT',
-      label: 'Classification (CHEMONT)',
-      value: (
-        <Content
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'left',
-          }}
-        >
-          {treeData.length > 0 ? (
-            <Tree showLine defaultExpandAll treeData={treeData} />
           ) : (
             <NotAvailableLabel />
           )}
@@ -423,7 +312,7 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
               />
               <label>Mass: </label>
               <ExportableContent
-                component={record.compound.mass.toString()}
+                component={`${record.compound.mass.toString()} Da`}
                 componentContainerStyle={{
                   fontWeight: 'bolder',
                 }}
@@ -444,6 +333,27 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
                   frontendUrl,
                 )}
               />
+              {(() => {
+                const ccsSubtag = record.acquisition?.mass_spectrometry?.subtags?.find(
+                  (s) => s.subtag === 'CCS',
+                );
+                if (!ccsSubtag) return null;
+                const ccsValue = parseFloat(ccsSubtag.value).toFixed(2);
+                return (
+                  <>
+                    <label>CCS: </label>
+                    <ExportableContent
+                      component={`${ccsValue} Å²`}
+                      componentContainerStyle={{ fontWeight: 'bolder' }}
+                      mode="copy"
+                      onClick={() => copyTextToClipboard('CCS', ccsValue)}
+                      title="Copy CCS to clipboard"
+                    />
+                    <div />
+                    <div />
+                  </>
+                );
+              })()}
             </Content>
           </Content>
         </Content>
@@ -455,10 +365,10 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
     handleOnCopy,
     height,
     imageWidth,
+    record.acquisition,
     record.compound.classes,
     record.compound.formula,
     record.compound.inchi,
-    record.compound.link,
     record.compound.mass,
     record.compound.names,
     record.compound.smiles,
