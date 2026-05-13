@@ -27,11 +27,11 @@ type ServerConfig struct {
 
 const (
 	dbDefault              = "postgres"
-	dbUserDefault          = "massbank3"
-	dbPasswordDefault      = "massbank3password"
+	dbUserDefault          = "mycomsbase"
+	dbPasswordDefault      = "mycomsbasepassword"
 	dbHostDefault          = "localhost"
 	dbPortDefault          = "0"
-	dbNameDefault          = "massbank3"
+	dbNameDefault          = "mycomsbase"
 	dbConnStringDefault    = ""
 	mbGitRepoDefault       = "https://github.com/mohrezaeib/mohrezaeib/sample_hzi_massbank_data-2"
 	mbGitBranchDefault     = "main"
@@ -39,7 +39,7 @@ const (
 	mbDbInitDefault        = "true"
 	serverPortDefault      = "8080"
 	apiUrlDefault          = "localhost:8081"
-	baseUrlDefault         = "/MassBank-api"
+	baseUrlDefault         = "/MycoMSBase-api"
 )
 
 var toolConfig *ToolConfig = nil
