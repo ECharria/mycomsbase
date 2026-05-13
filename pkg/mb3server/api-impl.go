@@ -85,6 +85,12 @@ func GetBrowseOptions(contributor []string, instrumentTyoe []string, msType []st
 			Count: int32(val.Count),
 		})
 	}
+	for _, val := range vals.CompoundClass {
+		result.CompoundClass = append(result.CompoundClass, StringCountInner{
+			Value: val.Val,
+			Count: int32(val.Count),
+		})
+	}
 
 	return &result, nil
 }
@@ -676,6 +682,7 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 	// similarity search
 	setSimilaritySearch := mapset.NewSet[string]()
 	similarityResultMap := make(map[string]float32)
+	matchSupportResultMap := make(map[string]float32)
 
 	similaritySearchResult := &SimilaritySearchResult{}
 	checkSimilarity := len(peakList) > 0 && peakList[0] != ""
@@ -688,6 +695,7 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 		for _, similarityResult := range similaritySearchResult.Data {
 			setSimilaritySearch.Add(similarityResult.Accession)
 			similarityResultMap[similarityResult.Accession] = similarityResult.Score
+			matchSupportResultMap[similarityResult.Accession] = similarityResult.MatchSupport
 			atomCountResultMap[similarityResult.Accession] = similarityResult.Atomcount
 		}
 		// fmt.Println("similaritySearchResult: ", len(similaritySearchResult.Data))
@@ -762,9 +770,10 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 			}
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
-				PeakPairs: peakPairs,
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
+				PeakPairs:    peakPairs,
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -783,9 +792,10 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 			}
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
-				PeakPairs: peakPairs,
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
+				PeakPairs:    peakPairs,
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -798,8 +808,9 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 		for _, accession := range intersection.ToSlice() {
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -835,9 +846,10 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 			}
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
-				PeakPairs: peakPairs,
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
+				PeakPairs:    peakPairs,
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -850,8 +862,9 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 		for _, accession := range intersection.ToSlice() {
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -887,9 +900,10 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 			}
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
-				PeakPairs: peakPairs,
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
+				PeakPairs:    peakPairs,
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -912,8 +926,9 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 		for _, accession := range intersection.ToSlice() {
 			searchResultData := SearchResultDataInner{
 				Accession: accession,
-				Score:     similarityResultMap[accession],
-				Atomcount: atomCountResultMap[accession],
+				Score:        similarityResultMap[accession],
+				MatchSupport: matchSupportResultMap[accession],
+				Atomcount:    atomCountResultMap[accession],
 			}
 			results.Data = append(results.Data, searchResultData)
 		}
@@ -943,9 +958,10 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 			// fmt.Println(" -> single results (similarity)")
 			for _, similarityResult := range similaritySearchResult.Data {
 				results.Data = append(results.Data, SearchResultDataInner{
-					Accession: similarityResult.Accession,
-					Score:     similarityResult.Score,
-					Atomcount: similarityResult.Atomcount,
+					Accession:    similarityResult.Accession,
+					Score:        similarityResult.Score,
+					MatchSupport: similarityResult.MatchSupport,
+					Atomcount:    similarityResult.Atomcount,
 				})
 			}
 		} else if checkFilters && !checkSimilarity && !checkSubstructure && !checkNeutralLoss {
@@ -1081,6 +1097,7 @@ func GetSimilarity(peakList []string, threshold float64, referenceSpectraList []
 	type SimilarityScoreListInner struct {
 		Accession       string  `json:"accession"`
 		SimilarityScore float64 `json:"similarity_score"`
+		MatchSupport    float64 `json:"match_support"`
 	}
 	type SimilarityScoreList struct {
 		SimilarityScoreList []SimilarityScoreListInner `json:"similarity_score_list"`
@@ -1097,8 +1114,9 @@ func GetSimilarity(peakList []string, threshold float64, referenceSpectraList []
 	for _, res := range result.SimilarityScoreList {
 		if threshold <= 0 || res.SimilarityScore >= threshold {
 			records.Data = append(records.Data, SimilaritySearchResultDataInner{
-				Accession: res.Accession,
-				Score:     float32(res.SimilarityScore),
+				Accession:    res.Accession,
+				Score:        float32(res.SimilarityScore),
+				MatchSupport: float32(res.MatchSupport),
 			})
 		}
 	}

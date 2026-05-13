@@ -26,6 +26,9 @@ type SimilaritySearchResultDataInner struct {
 	// Similarity score to the query spectrum.
 	Score float32 `json:"score,omitempty"`
 
+	// Bootstrap match support (fraction of replicates where this hit was supported).
+	MatchSupport float32 `json:"matchSupport,omitempty"`
+
 	// The number of atoms in the compound.
 	Atomcount int32 `json:"atomcount,omitempty"`
 }

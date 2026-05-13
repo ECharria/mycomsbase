@@ -22,6 +22,8 @@ type BrowseOptions struct {
 	MsType []StringCountInner `json:"ms_type,omitempty"`
 
 	IonMode []StringCountInner `json:"ion_mode,omitempty"`
+
+	CompoundClass []StringCountInner `json:"compound_class,omitempty"`
 }
 
 // AssertBrowseOptionsRequired checks if the required fields are not zero-ed

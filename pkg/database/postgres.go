@@ -481,6 +481,22 @@ func (p *PostgresSQLDB) GetRecord(s *string) (*massbank.MassBank2, error) {
 	}
 	result.Publication = &publication
 
+	// species
+	query = "SELECT name FROM species WHERE id IN (SELECT species_id FROM accession_species WHERE massbank_id = $1);"
+	stmt, err = p.database.Prepare(query)
+	if err != nil {
+		return nil, err
+	}
+	var speciesName string
+	err = stmt.QueryRow(massbankId).Scan(&speciesName)
+	stmt.Close()
+	if err != nil && err != sql.ErrNoRows {
+		return nil, err
+	}
+	if speciesName != "" {
+		result.Species.Name = &speciesName
+	}
+
 	// compound
 	query = "SELECT inchi, formula, smiles, mass FROM compound WHERE id IN (SELECT compound_id FROM compound_name WHERE massbank_id = $1);"
 	stmt, err = p.database.Prepare(query)
@@ -1441,6 +1457,19 @@ func (p *PostgresSQLDB) GetUniqueValues(filters Filters) (MB3Values, error) {
 	val.MSType = msTypes
 	val.IonMode = ionModes
 
+	// compound class counts
+	ccRows, err := p.database.Query("SELECT class, COUNT(DISTINCT massbank_id) FROM compound_class GROUP BY class ORDER BY class;")
+	if err == nil {
+		defer ccRows.Close()
+		for ccRows.Next() {
+			var class string
+			var count int
+			if err := ccRows.Scan(&class, &count); err == nil {
+				val.CompoundClass = append(val.CompoundClass, MBCountValues{Val: class, Count: count})
+			}
+		}
+	}
+
 	return val, err
 }
 
@@ -1665,6 +1694,26 @@ func (p *PostgresSQLDB) AddRecord(record *massbank.MassBank2, metaDataId string,
 		}
 		q = `INSERT INTO accession_publication (massbank_id, publication_id) VALUES ($1, $2) ON CONFLICT DO NOTHING;`
 		_, err = tx.Exec(q, massbankId, publicationId)
+		if err != nil {
+			if err2 := tx.Rollback(); err2 != nil {
+				return errors.New("Could not rollback after error: " + err2.Error() + "\n:" + err.Error())
+			}
+			return err
+		}
+	}
+	// insert into species table
+	if record.Species.Name != nil && *record.Species.Name != "" {
+		q = `INSERT INTO species (name) VALUES ($1) ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name RETURNING id;`
+		var speciesId int
+		err = tx.QueryRow(q, *record.Species.Name).Scan(&speciesId)
+		if err != nil {
+			if err2 := tx.Rollback(); err2 != nil {
+				return errors.New("Could not rollback after error: " + err2.Error() + "\n:" + err.Error())
+			}
+			return err
+		}
+		q = `INSERT INTO accession_species (massbank_id, species_id) VALUES ($1, $2) ON CONFLICT DO NOTHING;`
+		_, err = tx.Exec(q, massbankId, speciesId)
 		if err != nil {
 			if err2 := tx.Rollback(); err2 != nil {
 				return errors.New("Could not rollback after error: " + err2.Error() + "\n:" + err.Error())
@@ -1983,7 +2032,7 @@ func (p *PostgresSQLDB) AddRecords(records []*massbank.MassBank2, metaDataId str
 func (p *PostgresSQLDB) Init() error {
 	var err error
 	var query = `
-		DROP TABLE IF EXISTS metadata, massbank, contributor, accession_contributor, author, accession_author, license, accession_license, publication, accession_publication, compound, compound_name, compound_class, compound_link, acquisition_instrument, accession_acquisition, acquisition_mass_spectrometry, acquisition_chromatography, acquisition_general, mass_spectrometry_focused_ion, mass_spectrometry_data_processing, spectrum, peak, peak_annotation, browse_options, peak_differences, records;		
+		DROP TABLE IF EXISTS metadata, massbank, contributor, accession_contributor, author, accession_author, license, accession_license, publication, accession_publication, species, accession_species, compound, compound_name, compound_class, compound_link, acquisition_instrument, accession_acquisition, acquisition_mass_spectrometry, acquisition_chromatography, acquisition_general, mass_spectrometry_focused_ion, mass_spectrometry_data_processing, spectrum, peak, peak_annotation, browse_options, peak_differences, records;		
 
 		CREATE TABLE metadata (
 			id SERIAL PRIMARY KEY,
@@ -2154,6 +2203,17 @@ func (p *PostgresSQLDB) Init() error {
 		-- 	UNIQUE (massbank_id, project_id)
 		-- );
 		
+		-- species
+		CREATE TABLE species (
+			id SERIAL PRIMARY KEY,
+			name TEXT NOT NULL UNIQUE
+		);
+		CREATE TABLE accession_species (
+			massbank_id INT NOT NULL REFERENCES massbank(id) ON UPDATE CASCADE ON DELETE CASCADE,
+			species_id INT NOT NULL REFERENCES species(id) ON UPDATE CASCADE ON DELETE CASCADE,
+			UNIQUE (massbank_id, species_id)
+		);
+
 		-- species (sample)
 
 		CREATE TABLE browse_options (

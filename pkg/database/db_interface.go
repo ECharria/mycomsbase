@@ -99,6 +99,7 @@ type MB3Values struct {
 	InstrumentType []MBCountValues
 	MSType         []MBCountValues
 	IonMode        []MBCountValues
+	CompoundClass  []MBCountValues
 	Intensity      MBMinMaxValues
 	Mass           MBMinMaxValues
 	Peak           MBMinMaxValues
