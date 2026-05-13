@@ -6,9 +6,9 @@
   </p>
 
   <p>
-    MycoMSBase curates high-resolution tandem mass spectra alongside compound metadata —
+    MycoMSBase brings together high-resolution tandem mass spectra alongside ion mobility data and compound metadata —
     biosynthetic class, fungal producer, and literature references —
-    to support the dereplication and discovery of fungal secondary metabolites.
+    to support the dereplication and discovery of fungal secondary metabolites in metabolomics studies.
   </p>
 
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-burgundy?color=%237b1c1c"/>
