@@ -1,29 +1,65 @@
-# MycoMSBase
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ECharria/mycomsbase/master/web-frontend/public/logo.svg" alt="MycoMSBase logo" width="320"/>
 
-**MycoMSBase** is an open-source MS/MS spectral library for fungal natural products. It curates high-resolution tandem mass spectra alongside compound metadata — biosynthetic class, fungal producer, and literature references — to support the dereplication and discovery of fungal secondary metabolites.
+  <p>
+    <strong>An open-source MS/MS spectral library for fungal natural products</strong>
+  </p>
 
-The platform is built on [MassBank3](https://github.com/MassBank/MassBank3) infrastructure and deployed as a set of Docker services.
+  <p>
+    MycoMSBase curates high-resolution tandem mass spectra alongside compound metadata —
+    biosynthetic class, fungal producer, and literature references —
+    to support the dereplication and discovery of fungal secondary metabolites.
+  </p>
+
+  <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-burgundy?color=%237b1c1c"/>
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-66%25-blue"/>
+  <img alt="Go" src="https://img.shields.io/badge/Go-31%25-00ADD8"/>
+</div>
+
+---
+
+## Contents
+
+- [Architecture](#architecture)
+- [Prerequisites](#prerequisites)
+- [Quick start](#quick-start)
+- [Configuration reference](#configuration-reference)
+- [Data format](#data-format)
+- [Development](#development)
+- [Citing](#citing)
 
 ---
 
 ## Architecture
 
-| Service | Description |
-|---|---|
-| `postgres` | PostgreSQL + Bingo extension for substructure search |
-| `mb3server` | Go REST API backend |
-| `similarity-service` | Python (FastAPI + matchms) spectral similarity search |
-| `export-service` | Java service for bulk MGF/MSP export |
-| `mb3frontend` | React/TypeScript web frontend |
-| `nginx` | Reverse proxy routing all services |
-| `mb3tool` | One-shot tool for database initialisation from a data repository |
+MycoMSBase is deployed as a set of Docker services orchestrated with Compose:
+
+```
+Browser
+  └── nginx (reverse proxy :8080)
+        ├── mb3frontend   React/TypeScript web app
+        ├── mb3server     Go REST API
+        ├── similarity-service   Python spectral search (matchms)
+        └── export-service       Java bulk export (MGF/MSP)
+              └── postgres   PostgreSQL + Bingo (substructure search)
+```
+
+| Service | Technology | Role |
+|---|---|---|
+| `postgres` | PostgreSQL + Bingo | Stores records; enables substructure search |
+| `mb3server` | Go | REST API backend |
+| `similarity-service` | Python / FastAPI / matchms | Cosine spectral similarity search |
+| `export-service` | Java | Bulk MGF/MSP export |
+| `mb3frontend` | React / TypeScript | Web interface |
+| `nginx` | nginx | Routes all services under one port |
+| `mb3tool` | Go | One-shot database initialisation from a data repo |
 
 ---
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) ≥ 24 with Compose v2
-- Git (for data loading from a repository)
+- Git (for loading data from a repository)
 - ~4 GB RAM for the full stack
 
 ---
@@ -33,35 +69,37 @@ The platform is built on [MassBank3](https://github.com/MassBank/MassBank3) infr
 ### 1. Clone the repository
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/ECharria/mycomsbase.git
 cd mycomsbase
 ```
 
-### 2. Configure the environment
+### 2. Set up the environment
+
+Copy the annotated template and edit the key variables:
 
 ```bash
 cp compose/env.dist compose/.env
 ```
 
-Edit `compose/.env` and set at minimum:
+Minimum required changes in `compose/.env`:
 
 ```env
-# Path where PostgreSQL data will be persisted
+# Where PostgreSQL data will be stored on disk
 DB_LOCAL_PATH=./../data/postgres-data
 
-# Git repository containing MassBank .txt records
+# Git repository containing the MassBank .txt record files
 MB_GIT_REPO="https://github.com/<your-org>/<your-data-repo>"
 MB_GIT_BRANCH=main
 
-# Local path to the record files (used by similarity-service and export-service)
+# Local path to the record files (used by the similarity and export services)
 MB_DATA_DIRECTORY="./../data/mycomsbase-data"
 
-# Public hostname/IP of the server
+# Hostname or IP of the server (use localhost for local deployment)
 MB3_API_HOST=localhost
 MB3_FRONTEND_HOST=localhost
 ```
 
-### 3. Build and start
+### 3. Build and launch
 
 ```bash
 cd compose
@@ -69,52 +107,55 @@ docker compose build
 docker compose up -d
 ```
 
-### 4. Load data into the database
-
-The `mb3tool` service clones the data repository and imports all records:
+### 4. Load the spectral library into the database
 
 ```bash
 docker compose run --rm mb3tool
 ```
 
-The frontend will be available at `http://localhost:8080/MycoMSBase` once all services are healthy.
+> The `mb3tool` service clones the data repository and imports all records into PostgreSQL.
+
+Once all services are healthy, open **http://localhost:8080/MycoMSBase** in your browser.
 
 ---
 
 ## Configuration reference
 
-All settings are controlled via `compose/.env`. A fully annotated template is provided in `compose/env.dist`.
+All settings live in `compose/.env`. The fully annotated template is `compose/env.dist`.
 
 | Variable | Default | Description |
 |---|---|---|
 | `DB_USER` / `DB_PASSWORD` / `DB_NAME` | `mycomsbase` / `mycomsbasepassword` / `mycomsbase` | PostgreSQL credentials |
+| `DB_LOCAL_PATH` | `./../data/postgres-data` | Host path for database storage |
 | `MB3_API_BASE_URL` | `/MycoMSBase-api` | API base path |
 | `MB3_FRONTEND_BASE_URL` | `/MycoMSBase` | Frontend base path |
-| `MB_GIT_REPO` | — | URL of the MassBank data repository |
+| `MB_GIT_REPO` | — | URL of the MassBank-format data repository |
 | `MB_DATA_DIRECTORY` | `./../data/mycomsbase-data` | Local path to record `.txt` files |
-| `COSINE_TOLERANCE` | `0.05` | Fragment mass tolerance (Da) for similarity search |
-| `SIMILARITY_SERVICE_VERBOSE` | `false` | Enable verbose logging in similarity service |
-| `DISTRIBUTOR_TEXT` | — | Institution text shown on the About page |
+| `COSINE_TOLERANCE` | `0.05` | Fragment mass tolerance in Da for similarity search |
+| `SIMILARITY_SERVICE_VERBOSE` | `false` | Verbose logging in similarity service |
+| `DISTRIBUTOR_TEXT` | — | Institution name shown on the About page |
 
 ---
 
 ## Data format
 
-Records follow the [MassBank record format](https://github.com/MassBank/MassBank-data/blob/main/documentation/MassBank_record_format.md). MycoMSBase extends the standard with three additional fields:
+Records follow the [MassBank record format](https://github.com/MassBank/MassBank-data/blob/main/documentation/MassBank_record_format.md). MycoMSBase adds three fields to each record:
 
 ```
-PUBLICATION: doi:10.xxxx/xxxxx
-CH$COMPOUND_CLASS: Polyketide
-SP$SCIENTIFIC_NAME: Hypoxylon rickii
+PUBLICATION: doi:10.xxxx/xxxxx          ← literature reference
+CH$COMPOUND_CLASS: Polyketide           ← biosynthetic class
+SP$SCIENTIFIC_NAME: Hypoxylon rickii    ← fungal producer
 ```
 
-A reference CSV of all compounds in the library (`mycomsbase_unique_compounds.csv`) is included at the repository root with columns: `inchikey`, `compound_name`, `compound_class`, `fungal_producer`, `n_spectra`, `doi`, `example_accession`.
+A reference table of all compounds (`mycomsbase_unique_compounds.csv`) is included at the repository root with the columns:
+
+`inchikey` · `compound_name` · `compound_class` · `fungal_producer` · `n_spectra` · `doi` · `example_accession`
 
 ---
 
 ## Development
 
-### Rebuild a single service after code changes
+### Rebuild a single service
 
 ```bash
 docker compose build mb3server           # Go backend
@@ -125,17 +166,16 @@ docker compose up -d <service>
 
 ### API
 
-The REST API is available at `http://localhost:8080/MycoMSBase-api/`. The OpenAPI specification is at `config-openapi.yaml`.
+The REST API is served at `http://localhost:8080/MycoMSBase-api/`.  
+The full OpenAPI specification is at [`config-openapi.yaml`](config-openapi.yaml).
 
-### Similarity service
-
-The Python service (`similarity-service/`) loads all library spectra at startup using [matchms](https://github.com/matchms/matchms) and exposes:
+### Similarity service endpoints
 
 | Endpoint | Method | Description |
 |---|---|---|
 | `/similarity` | POST | Cosine similarity search against the library |
 | `/export/mgf` | POST | Export selected records as MGF |
-| `/version` | GET | Service version and library size |
+| `/version` | GET | Service version and loaded library size |
 
 ---
 
@@ -143,10 +183,11 @@ The Python service (`similarity-service/`) loads all library spectra at startup 
 
 If you use MycoMSBase, please cite the underlying MassBank3 infrastructure:
 
-> Neumann S. et al. *MassBank3: the spectral reference library's next generation software product.* DOI: [10.5281/zenodo.16923315](https://doi.org/10.5281/zenodo.16923315)
+> Neumann S. et al. *MassBank3: the spectral reference library's next generation software product.*  
+> DOI: [10.5281/zenodo.16923315](https://doi.org/10.5281/zenodo.16923315)
 
 ---
 
 ## License
 
-GPL-3.0 — see [LICENSE](LICENSE).
+Distributed under the GPL-3.0 license — see [`LICENSE`](LICENSE) for details.
