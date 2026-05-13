@@ -1,34 +1,13 @@
 import { Content } from 'antd/es/layout/layout';
-import { CSSProperties, JSX, useMemo } from 'react';
+import { CSSProperties, useMemo, useState } from 'react';
+import { Collapse } from 'antd';
 import Metadata from '../../../../types/Metadata';
-import { Table } from 'antd';
-import ExportableContent from '../../../common/ExportableContent';
-import LabelWrapper from '../../../basic/LabelWrapper';
-import copyTextToClipboard from '../../../../utils/copyTextToClipboard';
-import NotAvailableLabel from '../../../basic/NotAvailableLabel';
-
-const labelWidth = 180;
-
-const columns = [
-  {
-    dataIndex: 'label',
-    key: 'record-view-header-table-label',
-    width: labelWidth,
-    align: 'left' as const,
-  },
-  {
-    dataIndex: 'value',
-    key: 'record-view-header-table-value',
-    width: `calc(100% - ${labelWidth})`,
-    align: 'left' as const,
-  },
-];
-
-type HeaderTableType = {
-  key: string;
-  label: string;
-  value: JSX.Element;
-};
+import {
+  BarChartOutlined,
+  ExperimentOutlined,
+  TagOutlined,
+  CalendarOutlined,
+} from '@ant-design/icons';
 
 type InputProps = {
   metadata: Metadata | undefined;
@@ -36,143 +15,145 @@ type InputProps = {
   height?: CSSProperties['height'];
 };
 
-function MetadataPanel({ metadata, width = '100%', height }: InputProps) {
-  const metadataTable = useMemo(() => {
-    if (!metadata) {
-      return null;
-    }
+type StatCardProps = {
+  icon: React.ReactNode;
+  label: string;
+  value: string | number;
+};
 
-    const dataSource: HeaderTableType[] = [];
-    dataSource.push({
-      key: 'metadata-panel-table-commit',
-      label: 'Git Commit',
-      value: (
-        <ExportableContent
-          component={<LabelWrapper value={metadata.git_commit} />}
-          mode="copy"
-          onClick={() => copyTextToClipboard('Git Commit', metadata.git_commit)}
-          title="Copy Git Commit to clipboard"
-        />
-      ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-version',
-      label: 'Data Version',
-      value: (
-        <ExportableContent
-          component={<LabelWrapper value={metadata.version} />}
-          mode="copy"
-          onClick={() => copyTextToClipboard('Data Version', metadata.version)}
-          title="Copy Data Version to clipboard"
-        />
-      ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-timestamp',
-      label: 'Timestamp',
-      value: (
-        <ExportableContent
-          component={<LabelWrapper value={metadata.timestamp} />}
-          mode="copy"
-          onClick={() => copyTextToClipboard('Timestamp', metadata.timestamp)}
-          title="Copy Timestamp to clipboard"
-        />
-      ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-spectra-count',
-      label: 'Unique Spectra (SPLASH)',
-      value: (
-        <ExportableContent
-          component={<LabelWrapper value={String(metadata.spectra_count)} />}
-          mode="copy"
-          onClick={() =>
-            copyTextToClipboard(
-              'Unique Spectra',
-              String(metadata.spectra_count),
-            )
-          }
-          title="Copy Unique Spectra to clipboard"
-        />
-      ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-compound-count',
-      label: 'Unique Compounds (InChI)',
-      value: (
-        <ExportableContent
-          component={<LabelWrapper value={String(metadata.compound_count)} />}
-          mode="copy"
-          onClick={() =>
-            copyTextToClipboard(
-              'Unique Compounds',
-              String(metadata.compound_count),
-            )
-          }
-          title="Copy Unique Compound to clipboard"
-        />
-      ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-compound-class-count-chemont',
-      label: 'Compound Classes (ChemOnt)',
-      value:
-        metadata.compound_class_chemont &&
-        metadata.compound_class_chemont.length > 0 ? (
-          <ExportableContent
-            component={
-              <LabelWrapper
-                value={String(metadata.compound_class_chemont.length)}
-              />
-            }
-            mode="copy"
-            onClick={() =>
-              copyTextToClipboard(
-                'Compound class count (ChemOnt)',
-                String(metadata.compound_class_chemont.length),
-              )
-            }
-            title="Copy compound class count to clipboard"
-          />
-        ) : (
-          <NotAvailableLabel />
-        ),
-    });
-    dataSource.push({
-      key: 'metadata-panel-table-compound-class-count',
-      label: 'Compound classes (free text)',
-      value: (
-        <ExportableContent
-component={
-  <LabelWrapper value={String(metadata.compound_class?.length || 0)} />
+function StatCard({ icon, label, value }: StatCardProps) {
+  return (
+    <div
+      style={{
+        background: '#fff',
+        border: '1px solid #eee3df',
+        borderRadius: 12,
+        padding: '16px 20px',
+        flex: 1,
+        minWidth: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <span style={{ color: '#7b1c1c', fontSize: 16 }}>{icon}</span>
+        <span style={{ fontSize: 11, color: '#999', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          {label}
+        </span>
+      </div>
+      <span style={{ fontSize: 22, fontWeight: 800, color: '#2d2d2d', lineHeight: 1 }}>
+        {value}
+      </span>
+    </div>
+  );
 }
-          mode="copy"
-          onClick={() =>
-            copyTextToClipboard(
-              'Compound class count (free text)',
-              String(metadata.compound_class.length),
-            )
-          }
-          title="Copy compound class count to clipboard"
-        />
-      ),
-    });
+
+function MetadataPanel({ metadata, width = '100%', height }: InputProps) {
+  const content = useMemo(() => {
+    if (!metadata) return null;
+
+    const ts = metadata.timestamp
+      ? metadata.timestamp.replace('T', ' ').replace('Z', '').split('.')[0]
+      : 'N/A';
+
+    const technicalItems = [
+      { label: 'Git Commit', value: metadata.git_commit || 'N/A' },
+      {
+        label: 'Compound Classes (ChemOnt)',
+        value:
+          metadata.compound_class_chemont?.length > 0
+            ? String(metadata.compound_class_chemont.length)
+            : 'N/A',
+      },
+      {
+        label: 'Compound Classes (free text)',
+        value: String(metadata.compound_class?.length || 0),
+      },
+    ];
 
     return (
-      <Table<HeaderTableType>
-        style={{
-          width,
-          height: '100%',
-        }}
-        className="table"
-        sticky
-        pagination={false}
-        showHeader={false}
-        columns={columns}
-        dataSource={dataSource}
-      />
+      <div style={{ width: '100%', padding: '20px 20px 0' }}>
+        {/* Stat cards row */}
+        <div style={{ display: 'flex', gap: 14, marginBottom: 20 }}>
+          <StatCard
+            icon={<BarChartOutlined />}
+            label="Unique Spectra"
+            value={metadata.spectra_count ?? 'N/A'}
+          />
+          <StatCard
+            icon={<ExperimentOutlined />}
+            label="Unique Compounds"
+            value={metadata.compound_count ?? 'N/A'}
+          />
+          <StatCard
+            icon={<TagOutlined />}
+            label="Data Version"
+            value={metadata.version || 'N/A'}
+          />
+          <StatCard
+            icon={<CalendarOutlined />}
+            label="Last Updated"
+            value={ts}
+          />
+        </div>
+
+        {/* Technical details collapsible */}
+        <Collapse
+          ghost
+          size="small"
+          items={[
+            {
+              key: 'technical',
+              label: (
+                <span style={{ fontSize: 12, color: '#888', fontWeight: 600 }}>
+                  Technical details
+                </span>
+              ),
+              children: (
+                <div
+                  style={{
+                    background: '#fbf8f6',
+                    border: '1px solid #eee3df',
+                    borderRadius: 8,
+                    overflow: 'hidden',
+                  }}
+                >
+                  {technicalItems.map((item, i) => (
+                    <div
+                      key={item.label}
+                      style={{
+                        display: 'flex',
+                        padding: '8px 14px',
+                        borderBottom:
+                          i < technicalItems.length - 1
+                            ? '1px solid #f0ebe8'
+                            : 'none',
+                        fontSize: 12,
+                      }}
+                    >
+                      <span style={{ width: 220, color: '#888', flexShrink: 0 }}>
+                        {item.label}
+                      </span>
+                      <span
+                        style={{
+                          color: '#2d2d2d',
+                          fontFamily: item.label === 'Git Commit' ? 'monospace' : undefined,
+                          fontSize: item.label === 'Git Commit' ? 11 : 12,
+                        }}
+                      >
+                        {item.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ),
+            },
+          ]}
+        />
+      </div>
     );
-  }, [metadata, width]);
+  }, [metadata]);
 
   return useMemo(
     () => (
@@ -182,14 +163,18 @@ component={
           height,
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'flex-start',
+          overflowY: 'auto',
         }}
       >
-        {metadataTable}
+        {content ?? (
+          <div style={{ padding: 20, color: '#aaa', fontSize: 13 }}>
+            No metadata available.
+          </div>
+        )}
       </Content>
     ),
-    [height, metadataTable, width],
+    [content, height, width],
   );
 }
 

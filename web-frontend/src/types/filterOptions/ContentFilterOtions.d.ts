@@ -5,6 +5,7 @@ export default interface ContentFilterOptions {
   instrument_type: ValueCount[];
   ion_mode: ValueCount[];
   ms_type: ValueCount[];
+  compound_class: ValueCount[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   metadata?: any;
 }

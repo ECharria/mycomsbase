@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons';
 import SearchFields from '../../../../types/filterOptions/SearchFields';
 import PeakSearch from './searchPanel/peakSearch/PeakSearch';
+import MgfUploadButton from './searchPanel/MgfUploadButton';
 import PropertyFilterOptionsMenuItems from './searchPanel/msSpecFilter/PropertyFilterOptionsMenuItems';
 import StructuralEditor from '../../../basic/StructuralEditor';
 import ContentFilterOptions from '../../../../types/filterOptions/ContentFilterOtions';
@@ -201,17 +202,17 @@ function SearchPanelMenuItems({
             16,
             <Input
               type="text"
-              placeholder="Rutin"
+              placeholder="Rickenyl A"
               allowClear
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    compoundName: 'Rutin',
+                    compoundName: 'Rickenyl A',
                   },
                 })
               }
             />,
-            'Search by the name of the compound (e.g. Rutin). This value is used during a substring search.' +
+            'Search by the name of the compound (e.g. Rickenyl A). This value is used during a substring search.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -235,17 +236,17 @@ function SearchPanelMenuItems({
             16,
             <Input
               type="text"
-              placeholder="Flavonoid glycosides"
+              placeholder="Terphenyl"
               allowClear
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    compoundClass: 'Flavonoid glycosides',
+                    compoundClass: 'Terphenyl',
                   },
                 })
               }
             />,
-            'Search by the class of the compound. This can either be based on free text (e.g. Natural product) or an ChemOnt class name or ID (e.g. Flavonoid glycosides, CHEMONTID:0001111). This value is used during a substring search.' +
+            'Search by the class of the compound. This can either be based on free text (e.g. Natural product) or an ChemOnt class name or ID (e.g. Terphenyl, CHEMONTID:0001111). This value is used during a substring search.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -269,17 +270,17 @@ function SearchPanelMenuItems({
             16,
             <Input
               type="text"
-              placeholder="C27H30O16"
+              placeholder="C22H22O6"
               allowClear
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    formula: 'C27H30O16',
+                    formula: 'C22H22O6',
                   },
                 })
               }
             />,
-            'Search by a molecular formula of a compound, e.g. C27H30O16.' +
+            'Search by a molecular formula of a compound, e.g. C22H22O6.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -302,19 +303,19 @@ function SearchPanelMenuItems({
             8,
             16,
             <InputNumber
-              placeholder="610.15338"
+              placeholder="382.1416"
               step={0.01}
               min={0}
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    exactMass: 610.15338,
+                    exactMass: 382.1416,
                   },
                 })
               }
               style={{ width: '100%' }}
             />,
-            'Search by a molecular mass of a compound, e.g. 610.15338.' +
+            'Search by a molecular mass of a compound, e.g. 382.1416.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -375,17 +376,17 @@ function SearchPanelMenuItems({
                 24,
                 <Input
                   type="text"
-                  placeholder="IKGXIBQEEMLURG-NVPNHPEKSA-N"
+                  placeholder="JOVXGJFDWIAZDW-UHFFFAOYSA-N"
                   allowClear
                   onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                     insertPlaceholder(e, {
                       compoundSearchFilterOptions: {
-                        inchi: 'IKGXIBQEEMLURG-NVPNHPEKSA-N',
+                        inchi: 'JOVXGJFDWIAZDW-UHFFFAOYSA-N',
                       },
                     })
                   }
                 />,
-                'Search by InChI or InChIKey of a compound (e.g. IKGXIBQEEMLURG-NVPNHPEKSA-N).' +
+                'Search by InChI or InChIKey of a compound (e.g. JOVXGJFDWIAZDW-UHFFFAOYSA-N).' +
                   ' ' +
                   defaultTooltipText,
               ),
@@ -403,7 +404,7 @@ function SearchPanelMenuItems({
                 width: '100%',
                 height: 750,
                 marginLeft: 0,
-                overflow: 'scroll',
+                overflow: 'auto',
               },
               label: (
                 <StructuralEditor
@@ -443,7 +444,7 @@ function SearchPanelMenuItems({
                 7,
                 17,
                 <Input.TextArea
-                  placeholder="147.063 11&#10;303.05 999&#10;449.108 64&#10;465.102 587&#10;611.161 669"
+                  placeholder="245.0432 31&#10;276.0783 94&#10;291.1018 286&#10;304.0727 177&#10;319.0963 209&#10;335.0918 999&#10;336.0883 199&#10;353.1022 190&#10;368.1254 141"
                   autoSize={{ minRows: 5 }}
                   allowClear
                   onKeyDown={(e: KeyboardEvent<HTMLTextAreaElement>) =>
@@ -451,7 +452,7 @@ function SearchPanelMenuItems({
                       spectralSearchFilterOptions: {
                         similarity: {
                           peakList:
-                            '147.063 11\n303.05 999\n449.108 64\n465.102 587\n611.161 669',
+                            '245.0432 31\n276.0783 94\n288.0781 102\n291.1018 286\n292.1047 42\n303.0650 53\n304.0727 177\n305.0796 68\n307.0964 88\n319.0963 209\n320.0670 35\n320.1113 79\n321.0753 30\n335.0918 999\n335.1136 36\n336.0883 199\n353.1022 190\n354.1053 34\n368.1254 141\n369.1301 30',
                         },
                       },
                     })
@@ -461,6 +462,16 @@ function SearchPanelMenuItems({
                   ' ' +
                   defaultTooltipText,
               ),
+            },
+            {
+              key: 'mgfUpload',
+              style: {
+                width: '100%',
+                height: '100%',
+                marginLeft: 0,
+                paddingLeft: 8,
+              },
+              label: <MgfUploadButton />,
             },
             {
               key: 'similarityThreshold',

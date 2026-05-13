@@ -13,9 +13,7 @@ import propertyFilterOptionsFormDataToContentMapper from '../../../../utils/prop
 import SearchAndResultPanel from '../../../common/SearchAndResultPanel';
 import CommonSearchPanel from '../../../common/CommonSearchPanel';
 import PropertyFilterOptionsMenuItems from '../search/searchPanel/msSpecFilter/PropertyFilterOptionsMenuItems';
-import Placeholder from '../../../basic/Placeholder';
 import { usePropertiesContext } from '../../../../context/properties/properties';
-import SectionDivider from '../../../basic/SectionDivider';
 import MetadataPanel from './MetadataPanel';
 import Metadata from '../../../../types/Metadata';
 import defaultSearchFieldValues from '../../../../constants/defaultSearchFieldValues';
@@ -23,10 +21,6 @@ import ResultTableSortOption from '../../../../types/ResultTableSortOption';
 import sortHits from '../../../../utils/sortHits';
 import collapseButtonWidth from '../../../../constants/collapseButtonWidth';
 import Segmented from '../../../basic/Segmented';
-import segmentedWidth from '../../../../constants/segmentedWidth';
-import buildClassificationData from '../../../../utils/buildClassificationData';
-import ClassificationPanel from './ClassificationPanel';
-import NotAvailableLabel from '../../../basic/NotAvailableLabel';
 
 const ContentChart = lazy(() => import('./ContentChart'));
 
@@ -128,31 +122,33 @@ function ContentView() {
     };
   }, [height]);
 
+  const chartHeight = 280;
+
   const charts = useMemo(() => {
     if (propertyFilterOptions) {
       const keys = Object.keys(propertyFilterOptions).filter(
-        (key) => key !== 'metadata',
+        (key) => key !== 'metadata' && key !== 'contributor' && key !== 'ms_type' && key !== 'instrument_type',
       );
       const _charts = keys.map((key) => (
         <ContentChart
           key={'chart_' + key}
           content={propertyFilterOptions}
           identifier={key}
-          width={(width - segmentedWidth) / 2}
-          height={heights.chartPanelHeight / 2}
+          width={width / 2}
+          height={chartHeight}
         />
       ));
 
       return (
         <Content
           style={{
-            width: width - segmentedWidth,
-            height: heights.chartPanelHeight,
+            width: '100%',
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
+            gap: 0,
+            padding: '8px 4px',
+            background: '#f5f0ee',
+            overflow: 'hidden',
           }}
         >
           {_charts}
@@ -160,19 +156,8 @@ function ContentView() {
       );
     }
 
-    return (
-      <Placeholder
-        style={{
-          width,
-          height: heights.chartPanelHeight,
-          color: 'red',
-          fontSize: 18,
-          fontWeight: 'bold',
-        }}
-        child={''}
-      />
-    );
-  }, [heights.chartPanelHeight, propertyFilterOptions, width]);
+    return null;
+  }, [propertyFilterOptions, width]);
 
   const handleOnCollapse = useCallback((_collapsed: boolean) => {
     setIsCollapsed(_collapsed);
@@ -223,7 +208,7 @@ function ContentView() {
     return (
       <SearchAndResultPanel
         searchPanel={searchPanel}
-        width={width - segmentedWidth}
+        width={width}
         height={heights.searchPanelHeight}
         searchPanelWidth={searchPanelWidth}
         widthOverview={width}
@@ -250,50 +235,14 @@ function ContentView() {
   ]);
 
   return useMemo(() => {
-    const classificationData = buildClassificationData(
-      metadata?.compound_class_chemont ?? [],
-    );
-
     const elements = [
       searchAndResultPanel,
-      <Content>
-        <SectionDivider label="Charts (Selection)" />
+      <Content style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
         {charts}
       </Content>,
-      <Content>
-        <SectionDivider label="Classification (ChemOnt)" />
-        {classificationData.labels.length > 0 ? (
-          <ClassificationPanel
-            data={classificationData}
-            width={width - segmentedWidth}
-            height={heights.classificationPanelHeight}
-          />
-        ) : (
-          <Content
-            style={{
-              width: width - segmentedWidth,
-              height: 50,
-              display: 'flex',
-              justifyContent: 'left',
-              alignItems: 'center',
-              paddingLeft: 20,
-            }}
-          >
-            <NotAvailableLabel />
-          </Content>
-        )}
-      </Content>,
-      <Content>
-        <SectionDivider label="Information" />
-        <MetadataPanel metadata={metadata} />
-      </Content>,
+      <MetadataPanel metadata={metadata} />,
     ];
-    const elementLabels = [
-      'Filter',
-      'Charts',
-      'Compound Classes',
-      'Information',
-    ];
+    const elementLabels = ['Filter', 'Charts', 'Information'];
 
     return (
       <Layout
@@ -313,7 +262,8 @@ function ContentView() {
             width: '100%',
             height: '100%',
             display: isFetchingContent ? 'none' : 'block',
-            overflow: 'scroll',
+            overflowY: 'auto',
+            overflowX: 'hidden',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'white',
@@ -325,7 +275,7 @@ function ContentView() {
     );
   }, [
     charts,
-    heights.classificationPanelHeight,
+    height,
     isFetchingContent,
     metadata,
     searchAndResultPanel,

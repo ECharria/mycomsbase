@@ -23,7 +23,7 @@ function PropertyFilterOptionsMenuItems({
             width: '100%',
             height: '100%',
             marginLeft: 0,
-            overflow: 'scroll',
+            overflow: 'auto',
           },
           label: (
             <FilterTable
@@ -46,7 +46,7 @@ function PropertyFilterOptionsMenuItems({
             width: '100%',
             height: '100%',
             marginLeft: 0,
-            overflow: 'scroll',
+            overflow: 'auto',
           },
           label: (
             <Form.Item<SearchFields>
@@ -78,7 +78,7 @@ function PropertyFilterOptionsMenuItems({
             width: '100%',
             height: '100%',
             marginLeft: 0,
-            overflow: 'scroll',
+            overflow: 'auto',
           },
           label: (
             <Form.Item<SearchFields>
@@ -111,7 +111,7 @@ function PropertyFilterOptionsMenuItems({
             width: '100%',
             height: '100%',
             marginLeft: 0,
-            overflow: 'scroll',
+            overflow: 'auto',
           },
           label: (
             <Form.Item<SearchFields>

@@ -262,7 +262,7 @@ function ClassificationTree({
         style={{
           width,
           height,
-          overflow: 'scroll',
+          overflow: 'auto',
         }}
       >
         <Tree
