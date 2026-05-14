@@ -212,6 +212,26 @@ func getMsTypes(msType []string) *[]massbank.MsType {
 	return result
 }
 
+func GetScatterData() (*[]ScatterPoint, error) {
+	if err := initDB(); err != nil {
+		return nil, err
+	}
+	pts, err := db.GetScatterData()
+	if err != nil {
+		return nil, err
+	}
+	result := make([]ScatterPoint, len(pts))
+	for i, pt := range pts {
+		result[i] = ScatterPoint{
+			Accession:         pt.Accession,
+			Mz:                pt.Mz,
+			Ccs:               pt.Ccs,
+			BiosyntheticClass: pt.BiosyntheticClass,
+		}
+	}
+	return &result, nil
+}
+
 func GetCount() (*int64, error) {
 	if err := initDB(); err != nil {
 		return nil, err

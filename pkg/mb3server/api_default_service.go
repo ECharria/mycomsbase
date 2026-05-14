@@ -82,6 +82,14 @@ func (s *DefaultAPIService) GetRecords(ctx context.Context, contributor []string
 	return Response(200, result), nil
 }
 
+func (s *DefaultAPIService) GetScatterData(ctx context.Context) (ImplResponse, error) {
+	result, err := GetScatterData()
+	if err != nil {
+		return Response(http.StatusInternalServerError, nil), err
+	}
+	return Response(200, result), nil
+}
+
 // GetVersion - Get the version of the MassBank API
 func (s *DefaultAPIService) GetVersion(ctx context.Context) (ImplResponse, error) {
 	result, err := GetVersion()

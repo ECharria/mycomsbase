@@ -23,6 +23,7 @@
 
 ## Contents
 
+- [Features](#features)
 - [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
 - [Quick start](#quick-start)
@@ -31,6 +32,39 @@
 - [Development](#development)
 - [Contributing](#contributing)
 - [Citing](#citing)
+
+---
+
+## Features
+
+### Spectral library search
+
+MycoMSBase supports three complementary search modes:
+
+- **Spectral similarity search** — powered by [matchms](https://github.com/matchms/matchms), a Python library for MS/MS spectrum processing and cosine similarity scoring. Query with a peak list and a similarity threshold to retrieve the closest library matches.
+- **Library matching via SpecReboot** — spectra in MycoMSBase are compatible with [SpecReboot](https://github.com/computational-chemical-biology/specreboot), a tool for large-scale spectral library matching and dereplication in fungal metabolomics workflows.
+- **Fragment peak search** — search for spectra containing specific fragment ions within a configurable mass tolerance.
+- **Substructure search** — filter by chemical substructure using SMILES queries, powered by the Bingo extension for PostgreSQL.
+
+### Ion mobility data
+
+MycoMSBase is one of the few fungal MS/MS libraries to include **collisional cross-section (CCS) values** from ion mobility measurements. CCS values are stored per spectrum and are searchable, enabling multi-dimensional dereplication that combines retention time, exact mass, MS/MS fragmentation, and ion shape.
+
+### Taxonomy integration
+
+Fungal producer metadata is enriched with full NCBI taxonomy — genus, family, order, class, and phylum — fetched automatically via the NCBI Entrez API. The web interface provides:
+
+- **Interactive taxonomy tree** — a cladogram showing all fungal producers with biosynthetic class distributions as pie charts at each node, with rank-level zoom (Kingdom / Family / Genus).
+- **Taxonomy filters** — filter the library by genus or species directly in the search panel.
+- **NCBI Taxonomy links** — each record links out to the NCBI Taxonomy Browser entry for its producer species.
+
+### Compound metadata
+
+Every record is annotated with:
+
+- **Biosynthetic class** (Polyketide, Terpene, NRPS-like, PKS-NRPS) — drives the charts and taxonomy tree visualisation.
+- **Fungal producer** with full taxonomic lineage.
+- **Literature reference** (DOI) linking to the original publication.
 
 ---
 

@@ -80,6 +80,11 @@ func (c *DefaultAPIController) Routes() Routes {
 			"/filter/browse",
 			c.GetBrowseOptions,
 		},
+		"GetScatterData": Route{
+			strings.ToUpper("Get"),
+			"/records/scatter",
+			c.GetScatterData,
+		},
 		"GetMetadata": Route{
 			strings.ToUpper("Get"),
 			"/metadata",
@@ -474,6 +479,15 @@ func (c *DefaultAPIController) GetCount(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
+	_ = EncodeJSONResponse(result.Body, &result.Code, w)
+}
+
+func (c *DefaultAPIController) GetScatterData(w http.ResponseWriter, r *http.Request) {
+	result, err := c.service.GetScatterData(r.Context())
+	if err != nil {
+		c.errorHandler(w, r, err, &result)
+		return
+	}
 	_ = EncodeJSONResponse(result.Body, &result.Code, w)
 }
 

@@ -1529,6 +1529,37 @@ func (p *PostgresSQLDB) GetUniqueValues(filters Filters) (MB3Values, error) {
 	return val, err
 }
 
+// GetScatterData see [MB3Database.GetScatterData]
+func (p *PostgresSQLDB) GetScatterData() ([]ScatterPoint, error) {
+	if err := p.checkDatabase(); err != nil {
+		return nil, err
+	}
+	rows, err := p.database.Query(`
+		SELECT DISTINCT ON (m.accession)
+			m.accession,
+			fi.value::float AS mz,
+			ccs.value::float AS ccs,
+			cc.class
+		FROM massbank m
+		JOIN mass_spectrometry_focused_ion fi ON fi.massbank_id = m.id AND fi.subtag = 'PRECURSOR_M/Z'
+		JOIN acquisition_mass_spectrometry ccs ON ccs.massbank_id = m.id AND ccs.subtag = 'CCS'
+		JOIN compound_name cn ON cn.massbank_id = m.id
+		JOIN compound_class cc ON cc.compound_id = cn.compound_id
+		ORDER BY m.accession;`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var result []ScatterPoint
+	for rows.Next() {
+		var pt ScatterPoint
+		if err := rows.Scan(&pt.Accession, &pt.Mz, &pt.Ccs, &pt.BiosyntheticClass); err == nil {
+			result = append(result, pt)
+		}
+	}
+	return result, nil
+}
+
 // UpdateMetadata see [MB3Database.UpdateMetadata]
 func (p *PostgresSQLDB) UpdateMetadata(meta *massbank.MbMetaData) (string, error) {
 	if err := p.checkDatabase(); err != nil {

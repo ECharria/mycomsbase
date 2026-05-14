@@ -22,6 +22,7 @@ import sortHits from '../../../../utils/sortHits';
 import collapseButtonWidth from '../../../../constants/collapseButtonWidth';
 import Segmented from '../../../basic/Segmented';
 import TaxonomyTreeView from './TaxonomyTreeView';
+import CcsScatterView from './CcsScatterView';
 
 const ContentChart = lazy(() => import('./ContentChart'));
 
@@ -244,9 +245,12 @@ function ContentView() {
       <Content style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <TaxonomyTreeView width={width} height={height} />
       </Content>,
+      <Content style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <CcsScatterView width={width} height={height} />
+      </Content>,
       <MetadataPanel metadata={metadata} />,
     ];
-    const elementLabels = ['Filter', 'Charts', 'Taxonomy', 'Information'];
+    const elementLabels = ['Filter', 'Charts', 'Taxonomy', 'CCS', 'Information'];
 
     return (
       <Layout

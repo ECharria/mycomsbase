@@ -109,6 +109,13 @@ type MB3Values struct {
 	Peak           MBMinMaxValues
 }
 
+type ScatterPoint struct {
+	Accession        string
+	Mz               float64
+	Ccs              float64
+	BiosyntheticClass string
+}
+
 type MB3StoredMetaData struct {
 	Version   string
 	TimeStamp string
@@ -174,6 +181,9 @@ type MB3Database interface {
 
 	// GetUniqueValues is used to get the values for filter frontend
 	GetUniqueValues(filters Filters) (MB3Values, error)
+
+	// GetScatterData returns per-record mz, ccs, and biosynthetic class for scatter plot
+	GetScatterData() ([]ScatterPoint, error)
 
 	GetMetadata() (*massbank.MbMetaData, error)
 
