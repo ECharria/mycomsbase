@@ -107,26 +107,66 @@ function PropertyFilterOptionsMenuItems({
       children: [
         {
           key: 'ionMode',
-          style: {
-            width: '100%',
-            height: '100%',
-            marginLeft: 0,
-            overflow: 'auto',
-          },
+          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
           label: (
             <Form.Item<SearchFields>
               name={['propertyFilterOptions', 'ion_mode']}
               rules={[{ required: false }]}
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
+              style={{ width: '100%', height: '100%' }}
             >
               <FilterTable
                 filterOptions={propertyFilterOptions?.ion_mode ?? []}
                 filterName="propertyFilterOptions"
                 label="ion_mode"
                 height={30}
+                showCounts={showCounts}
+              />
+            </Form.Item>
+          ),
+        },
+      ],
+    },
+    {
+      key: 'propertyFilterOptions.genus',
+      label: 'Genus',
+      children: [
+        {
+          key: 'genus',
+          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
+          label: (
+            <Form.Item<SearchFields>
+              name={['propertyFilterOptions', 'genus']}
+              rules={[{ required: false }]}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <FilterTable
+                filterOptions={propertyFilterOptions?.genus ?? []}
+                filterName="propertyFilterOptions"
+                label="genus"
+                showCounts={showCounts}
+              />
+            </Form.Item>
+          ),
+        },
+      ],
+    },
+    {
+      key: 'propertyFilterOptions.species',
+      label: 'Species',
+      children: [
+        {
+          key: 'species',
+          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
+          label: (
+            <Form.Item<SearchFields>
+              name={['propertyFilterOptions', 'species']}
+              rules={[{ required: false }]}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <FilterTable
+                filterOptions={propertyFilterOptions?.species ?? []}
+                filterName="propertyFilterOptions"
+                label="species"
                 showCounts={showCounts}
               />
             </Form.Item>

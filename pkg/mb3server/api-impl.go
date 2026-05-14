@@ -91,11 +91,23 @@ func GetBrowseOptions(contributor []string, instrumentTyoe []string, msType []st
 			Count: int32(val.Count),
 		})
 	}
+	for _, val := range vals.Genus {
+		result.Genus = append(result.Genus, StringCountInner{
+			Value: val.Val,
+			Count: int32(val.Count),
+		})
+	}
+	for _, val := range vals.Species {
+		result.Species = append(result.Species, StringCountInner{
+			Value: val.Val,
+			Count: int32(val.Count),
+		})
+	}
 
 	return &result, nil
 }
 
-func buildFilters(instrumentType []string, splash string, msType []string, ionMode string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, inchi string, inchiKey string, contributor []string) (*database.Filters, error) {
+func buildFilters(instrumentType []string, splash string, msType []string, ionMode string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, inchi string, inchiKey string, contributor []string, genus string, species string) (*database.Filters, error) {
 	it := &instrumentType
 	if len(*it) == 0 || (len(*it) == 1 && (*it)[0] == "") {
 		it = nil
@@ -162,6 +174,8 @@ func buildFilters(instrumentType []string, splash string, msType []string, ionMo
 		InchiKey:       inchiKey,
 		Contributor:    co,
 		Intensity:      &_intensity,
+		Genus:          genus,
+		Species:        species,
 	}
 
 	return &filters, nil
@@ -522,12 +536,12 @@ func GetSimpleRecord(accession string) (*MbRecord, error) {
 	return &result, nil
 }
 
-func GetRecords(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string) (*[]MbRecord, error) {
+func GetRecords(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (*[]MbRecord, error) {
 	if err := initDB(); err != nil {
 		return nil, err
 	}
 
-	searchResult, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure)
+	searchResult, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species)
 	if err != nil {
 		return nil, err
 	}
@@ -652,7 +666,7 @@ func GetMetadata() (*Metadata, error) {
 	return &result, nil
 }
 
-func GetSearchResults(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string) (*SearchResult, error) {
+func GetSearchResults(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (*SearchResult, error) {
 	if err := initDB(); err != nil {
 		return nil, err
 	}
@@ -702,7 +716,7 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 	}
 
 	// filter search
-	filters, err := buildFilters(instrumentType, splash, msType, ionMode, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, inchi, inchiKey, contributor)
+	filters, err := buildFilters(instrumentType, splash, msType, ionMode, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, inchi, inchiKey, contributor, genus, species)
 	if err != nil {
 		return nil, err
 	}
@@ -735,7 +749,8 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 	checkFilters := (!checkSimilarity && !checkSubstructure && !checkNeutralLoss) || filters.CompoundName != "" || filters.CompoundClass != "" || filters.Mass != nil || filters.Formula != "" ||
 		filters.Peaks != nil || filters.Inchi != "" ||
 		filters.InchiKey != "" || filters.Splash != "" || filters.IonMode != massbank.ANY ||
-		filters.MsType != nil || filters.InstrumentType != nil || filters.Contributor != nil
+		filters.MsType != nil || filters.InstrumentType != nil || filters.Contributor != nil ||
+		filters.Genus != "" || filters.Species != ""
 
 	setFilterSearch := mapset.NewSet[string]()
 

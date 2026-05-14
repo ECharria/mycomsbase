@@ -1103,6 +1103,30 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 		}
 	}
 
+	if filters.Genus != "" {
+		parameters = append(parameters, filters.Genus)
+		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(SPLIT_PART(s.name,' ',1)) = LOWER($" + strconv.Itoa(len(parameters)) + "::text))"
+		if addedWhere || addedAnd {
+			query = query + " AND " + subQuery
+			addedAnd = true
+		} else {
+			query = query + " WHERE " + subQuery
+			addedWhere = true
+		}
+	}
+
+	if filters.Species != "" {
+		parameters = append(parameters, filters.Species)
+		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(s.name) = LOWER($" + strconv.Itoa(len(parameters)) + "::text))"
+		if addedWhere || addedAnd {
+			query = query + " AND " + subQuery
+			addedAnd = true
+		} else {
+			query = query + " WHERE " + subQuery
+			addedWhere = true
+		}
+	}
+
 	if filters.Peaks != nil && len(*filters.Peaks) > 0 && filters.MassEpsilon != nil {
 		peaksCount := len(*filters.Peaks)
 		var from = "FROM "
@@ -1466,6 +1490,38 @@ func (p *PostgresSQLDB) GetUniqueValues(filters Filters) (MB3Values, error) {
 			var count int
 			if err := ccRows.Scan(&class, &count); err == nil {
 				val.CompoundClass = append(val.CompoundClass, MBCountValues{Val: class, Count: count})
+			}
+		}
+	}
+
+	// genus counts (first word of species name)
+	genusRows, err2 := p.database.Query(`
+		SELECT SPLIT_PART(s.name, ' ', 1) AS genus, COUNT(DISTINCT a.massbank_id)
+		FROM species s JOIN accession_species a ON s.id = a.species_id
+		GROUP BY genus ORDER BY genus;`)
+	if err2 == nil {
+		defer genusRows.Close()
+		for genusRows.Next() {
+			var genus string
+			var count int
+			if err := genusRows.Scan(&genus, &count); err == nil {
+				val.Genus = append(val.Genus, MBCountValues{Val: genus, Count: count})
+			}
+		}
+	}
+
+	// species counts
+	speciesRows, err3 := p.database.Query(`
+		SELECT s.name, COUNT(DISTINCT a.massbank_id)
+		FROM species s JOIN accession_species a ON s.id = a.species_id
+		GROUP BY s.name ORDER BY s.name;`)
+	if err3 == nil {
+		defer speciesRows.Close()
+		for speciesRows.Next() {
+			var sp string
+			var count int
+			if err := speciesRows.Scan(&sp, &count); err == nil {
+				val.Species = append(val.Species, MBCountValues{Val: sp, Count: count})
 			}
 		}
 	}

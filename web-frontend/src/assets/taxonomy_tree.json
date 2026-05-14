@@ -1,0 +1,216 @@
+{
+  "name": "Fungi",
+  "rank": "kingdom",
+  "class_counts": {
+    "NRPS-like": 18,
+    "Polyketide": 85,
+    "Terpene": 23,
+    "PKS-NRPS": 1
+  },
+  "children": [
+    {
+      "name": "Ascomycota",
+      "rank": "phylum",
+      "class_counts": {
+        "NRPS-like": 18,
+        "Polyketide": 85,
+        "Terpene": 23,
+        "PKS-NRPS": 1
+      },
+      "children": [
+        {
+          "name": "Sordariomycetes",
+          "rank": "class",
+          "class_counts": {
+            "NRPS-like": 18,
+            "Polyketide": 85,
+            "Terpene": 23,
+            "PKS-NRPS": 1
+          },
+          "children": [
+            {
+              "name": "Xylariales",
+              "rank": "order",
+              "class_counts": {
+                "NRPS-like": 18,
+                "Polyketide": 85,
+                "Terpene": 23,
+                "PKS-NRPS": 1
+              },
+              "children": [
+                {
+                  "name": "Hypoxylaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "NRPS-like": 18,
+                    "Polyketide": 85,
+                    "Terpene": 23,
+                    "PKS-NRPS": 1
+                  },
+                  "children": [
+                    {
+                      "name": "Hypoxylon",
+                      "rank": "genus",
+                      "class_counts": {
+                        "NRPS-like": 7,
+                        "Polyketide": 68,
+                        "Terpene": 22,
+                        "PKS-NRPS": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Hypoxylon rickii",
+                          "rank": "species",
+                          "class_counts": {
+                            "NRPS-like": 7,
+                            "Polyketide": 4,
+                            "Terpene": 22
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon rubiginosum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 7
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon fragiforme",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 6,
+                            "PKS-NRPS": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon fulvo-sulphureum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 7
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon macrocarpum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 33
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon ticinense",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 2
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon fuscum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 3
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon carneum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 3
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon hypomiltum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Jackrogersella",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketide": 13
+                      },
+                      "children": [
+                        {
+                          "name": "Jackrogersella minutella",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 4
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Jackrogersella multiformis",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Jackrogersella cohaerens",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 8
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Annulohypoxylon",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpene": 1,
+                        "NRPS-like": 11
+                      },
+                      "children": [
+                        {
+                          "name": "Annulohypoxylon truncatum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpene": 1,
+                            "NRPS-like": 11
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Daldinia",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketide": 4
+                      },
+                      "children": [
+                        {
+                          "name": "Daldinia concentrica",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketide": 4
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

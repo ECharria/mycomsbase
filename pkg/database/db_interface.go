@@ -18,6 +18,8 @@ type Filters struct {
 	IonMode        massbank.IonMode
 	CompoundName   string
 	CompoundClass  string
+	Genus          string
+	Species        string
 	Mass           *float64
 	MassEpsilon    *float64
 	Formula        string
@@ -100,6 +102,8 @@ type MB3Values struct {
 	MSType         []MBCountValues
 	IonMode        []MBCountValues
 	CompoundClass  []MBCountValues
+	Genus          []MBCountValues
+	Species        []MBCountValues
 	Intensity      MBMinMaxValues
 	Mass           MBMinMaxValues
 	Peak           MBMinMaxValues

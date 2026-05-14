@@ -6,6 +6,8 @@ export default interface ContentFilterOptions {
   ion_mode: ValueCount[];
   ms_type: ValueCount[];
   compound_class: ValueCount[];
+  genus: ValueCount[];
+  species: ValueCount[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   metadata?: any;
 }

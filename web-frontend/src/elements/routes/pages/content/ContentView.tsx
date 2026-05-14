@@ -21,6 +21,7 @@ import ResultTableSortOption from '../../../../types/ResultTableSortOption';
 import sortHits from '../../../../utils/sortHits';
 import collapseButtonWidth from '../../../../constants/collapseButtonWidth';
 import Segmented from '../../../basic/Segmented';
+import TaxonomyTreeView from './TaxonomyTreeView';
 
 const ContentChart = lazy(() => import('./ContentChart'));
 
@@ -240,9 +241,12 @@ function ContentView() {
       <Content style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
         {charts}
       </Content>,
+      <Content style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <TaxonomyTreeView width={width} height={height} />
+      </Content>,
       <MetadataPanel metadata={metadata} />,
     ];
-    const elementLabels = ['Filter', 'Charts', 'Information'];
+    const elementLabels = ['Filter', 'Charts', 'Taxonomy', 'Information'];
 
     return (
       <Layout

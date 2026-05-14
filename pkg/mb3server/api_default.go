@@ -249,7 +249,15 @@ func (c *DefaultAPIController) GetRecords(w http.ResponseWriter, r *http.Request
 		substructureParam = param
 	} else {
 	}
-	result, err := c.service.GetRecords(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam)
+	var genusParam string
+	if query.Has("genus") {
+		genusParam = query.Get("genus")
+	}
+	var speciesParam string
+	if query.Has("species") {
+		speciesParam = query.Get("species")
+	}
+	result, err := c.service.GetRecords(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -405,7 +413,15 @@ func (c *DefaultAPIController) GetSearchResults(w http.ResponseWriter, r *http.R
 		substructureParam = param
 	} else {
 	}
-	result, err := c.service.GetSearchResults(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam)
+	var genusParam string
+	if query.Has("genus") {
+		genusParam = query.Get("genus")
+	}
+	var speciesParam string
+	if query.Has("species") {
+		speciesParam = query.Get("species")
+	}
+	result, err := c.service.GetSearchResults(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
