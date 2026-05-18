@@ -3,6 +3,7 @@ import FilterTable from '../../../../../common/FilterTable';
 import SearchFields from '../../../../../../types/filterOptions/SearchFields';
 import ContentFilterOptions from '../../../../../../types/filterOptions/ContentFilterOtions';
 
+
 type InputProps = {
   propertyFilterOptions: ContentFilterOptions | undefined;
   showCounts?: boolean;
@@ -106,54 +107,6 @@ function PropertyFilterOptionsMenuItems({
                 step={10}
                 min={0}
                 style={{ width: '100%' }}
-              />
-            </Form.Item>
-          ),
-        },
-      ],
-    },
-    {
-      key: 'propertyFilterOptions.genus',
-      label: 'Genus',
-      children: [
-        {
-          key: 'genus',
-          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
-          label: (
-            <Form.Item<SearchFields>
-              name={['propertyFilterOptions', 'genus']}
-              rules={[{ required: false }]}
-              style={{ width: '100%', height: '100%' }}
-            >
-              <FilterTable
-                filterOptions={propertyFilterOptions?.genus ?? []}
-                filterName="propertyFilterOptions"
-                label="genus"
-                showCounts={showCounts}
-              />
-            </Form.Item>
-          ),
-        },
-      ],
-    },
-    {
-      key: 'propertyFilterOptions.species',
-      label: 'Species',
-      children: [
-        {
-          key: 'species',
-          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
-          label: (
-            <Form.Item<SearchFields>
-              name={['propertyFilterOptions', 'species']}
-              rules={[{ required: false }]}
-              style={{ width: '100%', height: '100%' }}
-            >
-              <FilterTable
-                filterOptions={propertyFilterOptions?.species ?? []}
-                filterName="propertyFilterOptions"
-                label="species"
-                showCounts={showCounts}
               />
             </Form.Item>
           ),
