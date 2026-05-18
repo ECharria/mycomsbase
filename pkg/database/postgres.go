@@ -1116,8 +1116,50 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 	}
 
 	if filters.Species != "" {
-		parameters = append(parameters, filters.Species)
-		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(s.name) = LOWER($" + strconv.Itoa(len(parameters)) + "::text))"
+		speciesList := strings.Split(filters.Species, ",")
+		for i := range speciesList {
+			speciesList[i] = strings.ToLower(strings.TrimSpace(speciesList[i]))
+		}
+		parameters = append(parameters, pq.Array(speciesList))
+		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(s.name) = ANY($" + strconv.Itoa(len(parameters)) + "::text[]))"
+		if addedWhere || addedAnd {
+			query = query + " AND " + subQuery
+			addedAnd = true
+		} else {
+			query = query + " WHERE " + subQuery
+			addedWhere = true
+		}
+	}
+
+	if filters.MassMin != nil && filters.MassMax != nil {
+		parameters = append(parameters, strconv.FormatFloat(*filters.MassMin, 'f', -1, 64))
+		parameters = append(parameters, strconv.FormatFloat(*filters.MassMax, 'f', -1, 64))
+		subQuery := "massbank_id IN (SELECT DISTINCT cn.massbank_id FROM compound_name cn JOIN compound c ON c.id = cn.compound_id WHERE c.mass BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters)) + ")"
+		if addedWhere || addedAnd {
+			query = query + " AND " + subQuery
+			addedAnd = true
+		} else {
+			query = query + " WHERE " + subQuery
+			addedWhere = true
+		}
+	}
+
+	if filters.CcsMin != nil && filters.CcsMax != nil {
+		parameters = append(parameters, strconv.FormatFloat(*filters.CcsMin, 'f', -1, 64))
+		parameters = append(parameters, strconv.FormatFloat(*filters.CcsMax, 'f', -1, 64))
+		subQuery := "massbank_id IN (SELECT massbank_id FROM acquisition_mass_spectrometry WHERE subtag = 'CCS' AND value::float BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters)) + ")"
+		if addedWhere || addedAnd {
+			query = query + " AND " + subQuery
+			addedAnd = true
+		} else {
+			query = query + " WHERE " + subQuery
+			addedWhere = true
+		}
+	}
+
+	if filters.AdductType != "" {
+		parameters = append(parameters, filters.AdductType)
+		subQuery := "massbank_id IN (SELECT massbank_id FROM mass_spectrometry_focused_ion WHERE subtag = 'PRECURSOR_TYPE' AND LOWER(value) = LOWER($" + strconv.Itoa(len(parameters)) + "::text))"
 		if addedWhere || addedAnd {
 			query = query + " AND " + subQuery
 			addedAnd = true

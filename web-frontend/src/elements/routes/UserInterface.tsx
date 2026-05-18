@@ -108,8 +108,7 @@ function UserInterface({ body }: InputProps) {
             About MycoMSBase
           </p>
           <p style={{ fontSize: 12, color: '#666', lineHeight: 1.6, margin: 0 }}>
-            An open-source resource curating fungal MS/MS spectra and metadata to
-            accelerate natural-product discovery.
+            An open-source database of curated fungal MS/MS spectra and IMS collision cross section (CCS) values with experts metadata to accelerate the study of secondary metabolites in fungi.
           </p>
         </div>
 

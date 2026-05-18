@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import fetchData from '../../../../utils/request/fetchData';
 import { usePropertiesContext } from '../../../../context/properties/properties';
+import routes from '../../../../constants/routes';
 
 type ScatterPoint = {
   accession: string;
@@ -24,17 +26,22 @@ type InputProps = {
 };
 
 function CcsScatterView({ width, height }: InputProps) {
-  const { backendUrl } = usePropertiesContext();
+  const { backendUrl, baseUrl } = usePropertiesContext();
+  const navigate = useNavigate();
   const [data, setData] = useState<ScatterPoint[]>([]);
   const [tooltip, setTooltip] = useState<{
-    x: number; y: number;
+    x: number;
+    y: number;
     point: ScatterPoint;
   } | null>(null);
+  const [visibleClasses, setVisibleClasses] = useState<Set<string>>(new Set());
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     fetchData(backendUrl + '/records/scatter').then((d) => {
-      setData(d as ScatterPoint[]);
+      const pts = d as ScatterPoint[];
+      setData(pts);
+      setVisibleClasses(new Set(pts.map((p) => p.biosyntheticClass)));
     });
   }, [backendUrl]);
 
@@ -66,27 +73,104 @@ function CcsScatterView({ width, height }: InputProps) {
   const xTicks = xScale ? xScale.ticks(6) : [];
   const yTicks = yScale ? yScale.ticks(6) : [];
 
+  const toggleClass = (cls: string) => {
+    setVisibleClasses((prev) => {
+      const next = new Set(prev);
+      if (next.has(cls)) {
+        next.delete(cls);
+      } else {
+        next.add(cls);
+      }
+      return next;
+    });
+  };
+
+  const goToRecord = (accession: string) => {
+    navigate({
+      pathname: baseUrl + '/' + routes.accession.path,
+      search: `?${createSearchParams({ id: accession })}`,
+    });
+  };
+
   if (!data.length || !xScale || !yScale) return null;
+
+  const visibleData = data.filter((pt) => visibleClasses.has(pt.biosyntheticClass));
 
   return (
     <div style={{ position: 'relative', width, height }}>
+      {/* Class filter row */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 4,
+          left: margin.left,
+          display: 'flex',
+          gap: 12,
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          zIndex: 1,
+        }}
+      >
+        {classes.map((cls) => {
+          const active = visibleClasses.has(cls);
+          const color = CLASS_COLORS[cls] ?? DEFAULT_COLOR;
+          return (
+            <button
+              key={cls}
+              onClick={() => toggleClass(cls)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 5,
+                padding: '2px 10px 2px 6px',
+                borderRadius: 12,
+                border: `1.5px solid ${active ? color : '#ccc'}`,
+                background: active ? color : 'white',
+                color: active ? 'white' : '#666',
+                cursor: 'pointer',
+                fontSize: 11,
+                fontFamily: 'sans-serif',
+                transition: 'all 0.15s',
+              }}
+            >
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  background: active ? 'rgba(255,255,255,0.7)' : color,
+                  flexShrink: 0,
+                }}
+              />
+              {cls}
+            </button>
+          );
+        })}
+      </div>
+
       <svg ref={svgRef} width={width} height={height}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {/* grid lines */}
           {yTicks.map((t) => (
             <line
               key={t}
-              x1={0} x2={innerWidth}
-              y1={yScale(t)} y2={yScale(t)}
-              stroke="#e0d8d0" strokeWidth={1}
+              x1={0}
+              x2={innerWidth}
+              y1={yScale(t)}
+              y2={yScale(t)}
+              stroke="#e0d8d0"
+              strokeWidth={1}
             />
           ))}
           {xTicks.map((t) => (
             <line
               key={t}
-              x1={xScale(t)} x2={xScale(t)}
-              y1={0} y2={innerHeight}
-              stroke="#e0d8d0" strokeWidth={1}
+              x1={xScale(t)}
+              x2={xScale(t)}
+              y1={0}
+              y2={innerHeight}
+              stroke="#e0d8d0"
+              strokeWidth={1}
             />
           ))}
 
@@ -98,8 +182,11 @@ function CcsScatterView({ width, height }: InputProps) {
           {xTicks.map((t) => (
             <text
               key={t}
-              x={xScale(t)} y={innerHeight + 18}
-              textAnchor="middle" fontSize={11} fill="#555"
+              x={xScale(t)}
+              y={innerHeight + 18}
+              textAnchor="middle"
+              fontSize={11}
+              fill="#555"
             >
               {t}
             </text>
@@ -109,8 +196,11 @@ function CcsScatterView({ width, height }: InputProps) {
           {yTicks.map((t) => (
             <text
               key={t}
-              x={-8} y={yScale(t) + 4}
-              textAnchor="end" fontSize={11} fill="#555"
+              x={-8}
+              y={yScale(t) + 4}
+              textAnchor="end"
+              fontSize={11}
+              fill="#555"
             >
               {t.toFixed(0)}
             </text>
@@ -118,28 +208,34 @@ function CcsScatterView({ width, height }: InputProps) {
 
           {/* axis labels */}
           <text
-            x={innerWidth / 2} y={innerHeight + 48}
-            textAnchor="middle" fontSize={13} fill="#333"
+            x={innerWidth / 2}
+            y={innerHeight + 48}
+            textAnchor="middle"
+            fontSize={13}
+            fill="#333"
           >
             Precursor m/z
           </text>
           <text
-            x={-(innerHeight / 2)} y={-48}
-            textAnchor="middle" fontSize={13} fill="#333"
+            x={-(innerHeight / 2)}
+            y={-48}
+            textAnchor="middle"
+            fontSize={13}
+            fill="#333"
             transform="rotate(-90)"
           >
             CCS (Å²)
           </text>
 
           {/* points */}
-          {data.map((pt) => (
+          {visibleData.map((pt) => (
             <circle
               key={pt.accession}
               cx={xScale(pt.mz)}
               cy={yScale(pt.ccs)}
               r={5}
               fill={CLASS_COLORS[pt.biosyntheticClass] ?? DEFAULT_COLOR}
-              fillOpacity={0.8}
+              fillOpacity={0.85}
               stroke="white"
               strokeWidth={0.5}
               style={{ cursor: 'pointer' }}
@@ -152,15 +248,8 @@ function CcsScatterView({ width, height }: InputProps) {
                 });
               }}
               onMouseLeave={() => setTooltip(null)}
+              onClick={() => goToRecord(pt.accession)}
             />
-          ))}
-
-          {/* legend */}
-          {classes.map((cls, i) => (
-            <g key={cls} transform={`translate(${innerWidth - 110}, ${10 + i * 20})`}>
-              <circle r={5} fill={CLASS_COLORS[cls] ?? DEFAULT_COLOR} />
-              <text x={10} y={4} fontSize={11} fill="#333">{cls}</text>
-            </g>
           ))}
         </g>
       </svg>
@@ -179,14 +268,20 @@ function CcsScatterView({ width, height }: InputProps) {
             pointerEvents: 'none',
             boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
             zIndex: 10,
+            fontFamily: 'sans-serif',
           }}
         >
           <div style={{ fontWeight: 600 }}>{tooltip.point.accession}</div>
           <div>m/z: {tooltip.point.mz.toFixed(4)}</div>
           <div>CCS: {tooltip.point.ccs.toFixed(2)} Å²</div>
-          <div style={{ color: CLASS_COLORS[tooltip.point.biosyntheticClass] ?? DEFAULT_COLOR }}>
+          <div
+            style={{
+              color: CLASS_COLORS[tooltip.point.biosyntheticClass] ?? DEFAULT_COLOR,
+            }}
+          >
             {tooltip.point.biosyntheticClass}
           </div>
+          <div style={{ marginTop: 4, fontSize: 10, color: '#999' }}>Click to open record</div>
         </div>
       )}
     </div>

@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Form, Input, InputNumber } from 'antd';
 import FilterTable from '../../../../../common/FilterTable';
 import SearchFields from '../../../../../../types/filterOptions/SearchFields';
 import ContentFilterOptions from '../../../../../../types/filterOptions/ContentFilterOtions';
@@ -13,94 +13,6 @@ function PropertyFilterOptionsMenuItems({
   showCounts = false,
 }: InputProps) {
   return [
-    {
-      key: 'propertyFilterOptions.contributor',
-      label: 'Contributor',
-      children: [
-        {
-          key: 'contributor',
-          style: {
-            width: '100%',
-            height: '100%',
-            marginLeft: 0,
-            overflow: 'auto',
-          },
-          label: (
-            <FilterTable
-              filterOptions={propertyFilterOptions?.contributor ?? []}
-              filterName="propertyFilterOptions"
-              label="contributor"
-              showCounts={showCounts}
-            />
-          ),
-        },
-      ],
-    },
-    {
-      key: 'propertyFilterOptions.instrument_type',
-      label: 'Instrument Type',
-      children: [
-        {
-          key: 'intrumentType',
-          style: {
-            width: '100%',
-            height: '100%',
-            marginLeft: 0,
-            overflow: 'auto',
-          },
-          label: (
-            <Form.Item<SearchFields>
-              name={['propertyFilterOptions', 'instrument_type']}
-              rules={[{ required: false }]}
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              <FilterTable
-                filterOptions={propertyFilterOptions?.instrument_type ?? []}
-                filterName="propertyFilterOptions"
-                label="instrument_type"
-                showCounts={showCounts}
-              />
-            </Form.Item>
-          ),
-        },
-      ],
-    },
-    {
-      key: 'propertyFilterOptions.ms_type',
-      label: 'MS Type',
-      children: [
-        {
-          key: 'msType',
-          style: {
-            width: '100%',
-            height: '100%',
-            marginLeft: 0,
-            overflow: 'auto',
-          },
-          label: (
-            <Form.Item<SearchFields>
-              name={['propertyFilterOptions', 'ms_type']}
-              rules={[{ required: false }]}
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              <FilterTable
-                filterOptions={propertyFilterOptions?.ms_type ?? []}
-                filterName="propertyFilterOptions"
-                label="ms_type"
-                height={80}
-                showCounts={showCounts}
-              />
-            </Form.Item>
-          ),
-        },
-      ],
-    },
     {
       key: 'propertyFilterOptions.ion_mode',
       label: 'Ion Mode',
@@ -120,6 +32,80 @@ function PropertyFilterOptionsMenuItems({
                 label="ion_mode"
                 height={30}
                 showCounts={showCounts}
+              />
+            </Form.Item>
+          ),
+        },
+      ],
+    },
+    {
+      key: 'propertyFilterOptions.adduct_type',
+      label: 'Adduct Type',
+      children: [
+        {
+          key: 'adductType',
+          style: { width: '100%', height: '100%', marginLeft: 0, overflow: 'auto' },
+          label: (
+            <Form.Item<SearchFields>
+              name={['propertyFilterOptions', 'adduct_type']}
+              rules={[{ required: false }]}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <Input
+                type="text"
+                placeholder="[M+H]+"
+                allowClear
+                style={{ width: '100%' }}
+              />
+            </Form.Item>
+          ),
+        },
+      ],
+    },
+    {
+      key: 'propertyFilterOptions.ccs',
+      label: 'CCS Range',
+      children: [
+        {
+          key: 'ccsMin',
+          style: { width: '100%', height: '100%', marginLeft: 0 },
+          label: (
+            <Form.Item<SearchFields>
+              label="Min (Å²)"
+              name={['propertyFilterOptions', 'ccs_min']}
+              rules={[{ required: false }]}
+              style={{ width: '100%' }}
+              labelAlign="left"
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 16 }}
+            >
+              <InputNumber
+                placeholder="150"
+                step={10}
+                min={0}
+                style={{ width: '100%' }}
+              />
+            </Form.Item>
+          ),
+        },
+        {
+          key: 'ccsMax',
+          style: { width: '100%', height: '100%', marginLeft: 0 },
+          label: (
+            <Form.Item<SearchFields>
+              label="Max (Å²)"
+              name={['propertyFilterOptions', 'ccs_max']}
+              rules={[{ required: false }]}
+              style={{ width: '100%' }}
+              labelAlign="left"
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 16 }}
+            >
+              <InputNumber
+                placeholder="300"
+                step={10}
+                min={0}
+                style={{ width: '100%' }}
               />
             </Form.Item>
           ),

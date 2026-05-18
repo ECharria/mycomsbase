@@ -262,7 +262,23 @@ func (c *DefaultAPIController) GetRecords(w http.ResponseWriter, r *http.Request
 	if query.Has("species") {
 		speciesParam = query.Get("species")
 	}
-	result, err := c.service.GetRecords(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam)
+	var massMinParam, massMaxParam, ccsMinParam, ccsMaxParam, adductTypeParam string
+	if query.Has("mass_min") {
+		massMinParam = query.Get("mass_min")
+	}
+	if query.Has("mass_max") {
+		massMaxParam = query.Get("mass_max")
+	}
+	if query.Has("ccs_min") {
+		ccsMinParam = query.Get("ccs_min")
+	}
+	if query.Has("ccs_max") {
+		ccsMaxParam = query.Get("ccs_max")
+	}
+	if query.Has("adduct_type") {
+		adductTypeParam = query.Get("adduct_type")
+	}
+	result, err := c.service.GetRecords(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam, massMinParam, massMaxParam, ccsMinParam, ccsMaxParam, adductTypeParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -426,7 +442,23 @@ func (c *DefaultAPIController) GetSearchResults(w http.ResponseWriter, r *http.R
 	if query.Has("species") {
 		speciesParam = query.Get("species")
 	}
-	result, err := c.service.GetSearchResults(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam)
+	var massMinParam2, massMaxParam2, ccsMinParam2, ccsMaxParam2, adductTypeParam2 string
+	if query.Has("mass_min") {
+		massMinParam2 = query.Get("mass_min")
+	}
+	if query.Has("mass_max") {
+		massMaxParam2 = query.Get("mass_max")
+	}
+	if query.Has("ccs_min") {
+		ccsMinParam2 = query.Get("ccs_min")
+	}
+	if query.Has("ccs_max") {
+		ccsMaxParam2 = query.Get("ccs_max")
+	}
+	if query.Has("adduct_type") {
+		adductTypeParam2 = query.Get("adduct_type")
+	}
+	result, err := c.service.GetSearchResults(r.Context(), contributorParam, instrumentTypeParam, msTypeParam, ionModeParam, splashParam, compoundNameParam, compoundClassParam, exactMassParam, massToleranceParam, formulaParam, peaksParam, intensityParam, neutralLossParam, peakListParam, peakListThresholdParam, inchiParam, inchiKeyParam, substructureParam, genusParam, speciesParam, massMinParam2, massMaxParam2, ccsMinParam2, ccsMaxParam2, adductTypeParam2)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

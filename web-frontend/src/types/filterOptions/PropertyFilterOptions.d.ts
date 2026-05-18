@@ -1,10 +1,10 @@
 interface PropertyFilterOptions {
-  contributor: string[];
-  instrument_type: string[];
   ion_mode: string[];
-  ms_type: string[];
   genus: string[];
   species: string[];
+  adduct_type?: string;
+  ccs_min?: number;
+  ccs_max?: number;
 }
 
 export default PropertyFilterOptions;

@@ -3,6 +3,7 @@ import SearchFields from '../types/filterOptions/SearchFields';
 import parsePeakListInputField from './parsePeakListAndReferences';
 import propertyFilterOptionsFormDataToContentMapper from './propertyFilterOptionsFormDataToContentMapper';
 import buildSearchParams from './request/buildSearchParams';
+import taxonomyInfo from '../assets/taxonomy_info.json';
 
 function buildSearchParamsFromFormData(formData: SearchFields) {
   const _defaultSearchFieldValues = JSON.parse(
@@ -136,19 +137,53 @@ function buildSearchParamsFromFormData(formData: SearchFields) {
   const exactMass = formData.compoundSearchFilterOptions?.exactMass ?? 0;
   if (exactMass > 0) {
     builtSearchParams['exact_mass'] = [String(exactMass)];
+    const massTolerance = formData.compoundSearchFilterOptions?.massTolerance ?? 0;
+    builtSearchParams['mass_tolerance'] = [String(massTolerance > 0 ? massTolerance : 0.0)];
+  }
 
-    const massTolerance =
-      formData.compoundSearchFilterOptions?.massTolerance ?? 0;
-    if (exactMass > 0) {
-      builtSearchParams['mass_tolerance'] = [String(massTolerance)];
-    } else {
-      builtSearchParams['mass_tolerance'] = ['0.0'];
-    }
+  const massMin = formData.compoundSearchFilterOptions?.massMin;
+  const massMax = formData.compoundSearchFilterOptions?.massMax;
+  if (massMin != null && massMax != null) {
+    builtSearchParams['mass_min'] = [String(massMin)];
+    builtSearchParams['mass_max'] = [String(massMax)];
   }
 
   const smiles = formData.compoundSearchFilterOptions?.structure;
   if (smiles && smiles.trim().length > 0) {
     builtSearchParams['substructure'] = [smiles];
+  }
+
+  // CCS range
+  const ccsMin = formData.propertyFilterOptions?.ccs_min;
+  const ccsMax = formData.propertyFilterOptions?.ccs_max;
+  if (ccsMin != null && ccsMax != null) {
+    builtSearchParams['ccs_min'] = [String(ccsMin)];
+    builtSearchParams['ccs_max'] = [String(ccsMax)];
+  }
+
+  // Adduct type
+  const adductType = (formData.propertyFilterOptions?.adduct_type ?? '').trim();
+  if (adductType.length > 0) {
+    builtSearchParams['adduct_type'] = [adductType];
+  }
+
+  // Taxonomy filter: resolve rank+taxon to genus or species params
+  const rank = formData.taxonomyFilterOptions?.rank ?? '';
+  const taxon = (formData.taxonomyFilterOptions?.taxon ?? '').trim();
+  if (rank && taxon) {
+    if (rank === 'genus') {
+      builtSearchParams['genus'] = [taxon];
+    } else if (rank === 'species') {
+      builtSearchParams['species'] = [taxon];
+    } else {
+      // Resolve higher rank to list of species via taxonomy_info.json
+      const matchingSpecies = (taxonomyInfo as Record<string, string>[])
+        .filter((row) => row[rank]?.toLowerCase() === taxon.toLowerCase())
+        .map((row) => row.species);
+      if (matchingSpecies.length > 0) {
+        builtSearchParams['species'] = [matchingSpecies.join(',')];
+      }
+    }
   }
 
   return builtSearchParams;

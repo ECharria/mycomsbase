@@ -107,7 +107,7 @@ func GetBrowseOptions(contributor []string, instrumentTyoe []string, msType []st
 	return &result, nil
 }
 
-func buildFilters(instrumentType []string, splash string, msType []string, ionMode string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, inchi string, inchiKey string, contributor []string, genus string, species string) (*database.Filters, error) {
+func buildFilters(instrumentType []string, splash string, msType []string, ionMode string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, inchi string, inchiKey string, contributor []string, genus string, species string, massMin string, massMax string, ccsMin string, ccsMax string, adductType string) (*database.Filters, error) {
 	it := &instrumentType
 	if len(*it) == 0 || (len(*it) == 1 && (*it)[0] == "") {
 		it = nil
@@ -158,6 +158,39 @@ func buildFilters(instrumentType []string, splash string, msType []string, ionMo
 
 	_intensity := int64(intensity)
 
+	var _massMin *float64
+	if massMin != "" {
+		v, err := strconv.ParseFloat(massMin, 64)
+		if err != nil {
+			return nil, err
+		}
+		_massMin = &v
+	}
+	var _massMax *float64
+	if massMax != "" {
+		v, err := strconv.ParseFloat(massMax, 64)
+		if err != nil {
+			return nil, err
+		}
+		_massMax = &v
+	}
+	var _ccsMin *float64
+	if ccsMin != "" {
+		v, err := strconv.ParseFloat(ccsMin, 64)
+		if err != nil {
+			return nil, err
+		}
+		_ccsMin = &v
+	}
+	var _ccsMax *float64
+	if ccsMax != "" {
+		v, err := strconv.ParseFloat(ccsMax, 64)
+		if err != nil {
+			return nil, err
+		}
+		_ccsMax = &v
+	}
+
 	var filters = database.Filters{
 		InstrumentType: it,
 		Splash:         splash,
@@ -167,6 +200,8 @@ func buildFilters(instrumentType []string, splash string, msType []string, ionMo
 		CompoundClass:  compoundClass,
 		Mass:           _exactMass,
 		MassEpsilon:    &massTolerance,
+		MassMin:        _massMin,
+		MassMax:        _massMax,
 		Formula:        formula,
 		Peaks:          _peaks,
 		NeutralLoss:    _neutralLoss,
@@ -176,6 +211,9 @@ func buildFilters(instrumentType []string, splash string, msType []string, ionMo
 		Intensity:      &_intensity,
 		Genus:          genus,
 		Species:        species,
+		CcsMin:         _ccsMin,
+		CcsMax:         _ccsMax,
+		AdductType:     adductType,
 	}
 
 	return &filters, nil
@@ -556,12 +594,12 @@ func GetSimpleRecord(accession string) (*MbRecord, error) {
 	return &result, nil
 }
 
-func GetRecords(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (*[]MbRecord, error) {
+func GetRecords(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string, massMin string, massMax string, ccsMin string, ccsMax string, adductType string) (*[]MbRecord, error) {
 	if err := initDB(); err != nil {
 		return nil, err
 	}
 
-	searchResult, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species)
+	searchResult, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species, massMin, massMax, ccsMin, ccsMax, adductType)
 	if err != nil {
 		return nil, err
 	}
@@ -686,7 +724,7 @@ func GetMetadata() (*Metadata, error) {
 	return &result, nil
 }
 
-func GetSearchResults(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (*SearchResult, error) {
+func GetSearchResults(contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string, massMin string, massMax string, ccsMin string, ccsMax string, adductType string) (*SearchResult, error) {
 	if err := initDB(); err != nil {
 		return nil, err
 	}
@@ -736,7 +774,7 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 	}
 
 	// filter search
-	filters, err := buildFilters(instrumentType, splash, msType, ionMode, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, inchi, inchiKey, contributor, genus, species)
+	filters, err := buildFilters(instrumentType, splash, msType, ionMode, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, inchi, inchiKey, contributor, genus, species, massMin, massMax, ccsMin, ccsMax, adductType)
 	if err != nil {
 		return nil, err
 	}
@@ -770,7 +808,9 @@ func GetSearchResults(contributor []string, instrumentType []string, msType []st
 		filters.Peaks != nil || filters.Inchi != "" ||
 		filters.InchiKey != "" || filters.Splash != "" || filters.IonMode != massbank.ANY ||
 		filters.MsType != nil || filters.InstrumentType != nil || filters.Contributor != nil ||
-		filters.Genus != "" || filters.Species != ""
+		filters.Genus != "" || filters.Species != "" ||
+		filters.MassMin != nil || filters.MassMax != nil ||
+		filters.CcsMin != nil || filters.CcsMax != nil || filters.AdductType != ""
 
 	setFilterSearch := mapset.NewSet[string]()
 

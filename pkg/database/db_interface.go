@@ -19,9 +19,11 @@ type Filters struct {
 	CompoundName   string
 	CompoundClass  string
 	Genus          string
-	Species        string
+	Species        string // comma-separated for multiple values
 	Mass           *float64
 	MassEpsilon    *float64
+	MassMin        *float64
+	MassMax        *float64
 	Formula        string
 	Peaks          *[]float64
 	NeutralLoss    *[]float64
@@ -29,6 +31,9 @@ type Filters struct {
 	InchiKey       string
 	Contributor    *[]string
 	Intensity      *int64
+	CcsMin         *float64
+	CcsMax         *float64
+	AdductType     string
 }
 
 // DatabaseType is an enum containing the database type

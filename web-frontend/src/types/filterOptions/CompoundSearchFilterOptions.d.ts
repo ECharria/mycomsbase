@@ -3,6 +3,8 @@ interface CompoundSearchFilterOptions {
   compoundClass?: string;
   exactMass?: number;
   massTolerance?: number;
+  massMin?: number;
+  massMax?: number;
   formula?: string;
   inchi?: string;
   structure?: string;

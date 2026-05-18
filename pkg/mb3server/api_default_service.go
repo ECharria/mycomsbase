@@ -72,8 +72,8 @@ func (s *DefaultAPIService) GetRecord(ctx context.Context, accession string) (Im
 }
 
 // GetRecords - Get a list of records
-func (s *DefaultAPIService) GetRecords(ctx context.Context, contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (ImplResponse, error) {
-	result, err := GetRecords(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species)
+func (s *DefaultAPIService) GetRecords(ctx context.Context, contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string, massMin string, massMax string, ccsMin string, ccsMax string, adductType string) (ImplResponse, error) {
+	result, err := GetRecords(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species, massMin, massMax, ccsMin, ccsMax, adductType)
 	if err != nil {
 		if err != sql.ErrNoRows {
 			return Response(http.StatusInternalServerError, nil), err
@@ -135,8 +135,8 @@ func (s *DefaultAPIService) GetSimpleRecord(ctx context.Context, accession strin
 }
 
 // GetSimpleRecords - Get a list of records
-func (s *DefaultAPIService) GetSearchResults(ctx context.Context, contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string) (ImplResponse, error) {
-	result, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species)
+func (s *DefaultAPIService) GetSearchResults(ctx context.Context, contributor []string, instrumentType []string, msType []string, ionMode string, splash string, compoundName string, compoundClass string, exactMass string, massTolerance float64, formula string, peaks []string, intensity int32, neutralLoss []string, peakList []string, peakListThreshold float64, inchi string, inchiKey string, substructure string, genus string, species string, massMin string, massMax string, ccsMin string, ccsMax string, adductType string) (ImplResponse, error) {
+	result, err := GetSearchResults(contributor, instrumentType, msType, ionMode, splash, compoundName, compoundClass, exactMass, massTolerance, formula, peaks, intensity, neutralLoss, peakList, peakListThreshold, inchi, inchiKey, substructure, genus, species, massMin, massMax, ccsMin, ccsMax, adductType)
 	if err != nil {
 		if err != sql.ErrNoRows {
 			return Response(http.StatusInternalServerError, nil), err

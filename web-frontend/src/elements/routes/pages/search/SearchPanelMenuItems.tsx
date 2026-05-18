@@ -1,8 +1,9 @@
-import { Form, FormItemProps, Input, InputNumber } from 'antd';
+import { Form, FormItemProps, Input, InputNumber, Select } from 'antd';
 import {
   BarChartOutlined,
   BarcodeOutlined,
   DatabaseOutlined,
+  EnvironmentOutlined,
   QuestionCircleTwoTone,
   ShareAltOutlined,
   SignatureOutlined,
@@ -14,7 +15,6 @@ import MgfUploadButton from './searchPanel/MgfUploadButton';
 import PropertyFilterOptionsMenuItems from './searchPanel/msSpecFilter/PropertyFilterOptionsMenuItems';
 import StructuralEditor from '../../../basic/StructuralEditor';
 import ContentFilterOptions from '../../../../types/filterOptions/ContentFilterOtions';
-import defaultSearchFieldValues from '../../../../constants/defaultSearchFieldValues';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
 import { KeyboardEvent } from 'react';
 import Tooltip from '../../../basic/Tooltip';
@@ -34,7 +34,7 @@ type InputProps = {
 };
 
 function SearchPanelMenuItems({
-  propertyFilterOptions = defaultSearchFieldValues.propertyFilterOptions,
+  propertyFilterOptions = undefined,
   initialStructure = '',
   insertPlaceholder = () => {},
 }: InputProps) {
@@ -228,7 +228,7 @@ function SearchPanelMenuItems({
             marginLeft: 0,
           },
           label: buildFormItemWithTootip(
-            'Class',
+            'Biosynthetic class',
             ['compoundSearchFilterOptions', 'compoundClass'],
             false,
             undefined,
@@ -236,17 +236,17 @@ function SearchPanelMenuItems({
             16,
             <Input
               type="text"
-              placeholder="Terphenyl"
+              placeholder="NRPS-like"
               allowClear
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    compoundClass: 'Terphenyl',
+                    compoundClass: 'NRPS-like',
                   },
                 })
               }
             />,
-            'Search by the class of the compound. This can either be based on free text (e.g. Natural product) or an ChemOnt class name or ID (e.g. Terphenyl, CHEMONTID:0001111). This value is used during a substring search.' +
+            'Search by biosynthetic class of the compound (e.g. Polyketide, Terpene, NRPS-like, PKS-NRPS). Substring search.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -286,7 +286,7 @@ function SearchPanelMenuItems({
           ),
         },
         {
-          key: 'exactMass',
+          key: 'massMin',
           style: {
             width: '100%',
             height: '100%',
@@ -296,32 +296,25 @@ function SearchPanelMenuItems({
             marginLeft: 0,
           },
           label: buildFormItemWithTootip(
-            'Exact Mass',
-            ['compoundSearchFilterOptions', 'exactMass'],
+            'Mass min',
+            ['compoundSearchFilterOptions', 'massMin'],
             false,
             undefined,
             8,
             16,
             <InputNumber
-              placeholder="382.1416"
-              step={0.01}
+              placeholder="300.0"
+              step={1}
               min={0}
-              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
-                insertPlaceholder(e, {
-                  compoundSearchFilterOptions: {
-                    exactMass: 382.1416,
-                  },
-                })
-              }
               style={{ width: '100%' }}
             />,
-            'Search by a molecular mass of a compound, e.g. 382.1416.' +
+            'Lower bound of the neutral exact mass range (Da), e.g. 300.0.' +
               ' ' +
               defaultTooltipText,
           ),
         },
         {
-          key: 'massTolerance_basic',
+          key: 'massMax',
           style: {
             width: '100%',
             height: '100%',
@@ -331,26 +324,19 @@ function SearchPanelMenuItems({
             marginLeft: 0,
           },
           label: buildFormItemWithTootip(
-            'Mass Tolerance',
-            ['compoundSearchFilterOptions', 'massTolerance'],
+            'Mass max',
+            ['compoundSearchFilterOptions', 'massMax'],
             false,
             undefined,
             8,
             16,
             <InputNumber
-              placeholder="0.1"
-              step={0.01}
+              placeholder="500.0"
+              step={1}
               min={0}
-              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
-                insertPlaceholder(e, {
-                  compoundSearchFilterOptions: {
-                    massTolerance: 0.1,
-                  },
-                })
-              }
               style={{ width: '100%' }}
             />,
-            'This parameter is used as tolerance value (+/-) during the search by a molecular mass, e.g. 0.1.' +
+            'Upper bound of the neutral exact mass range (Da), e.g. 500.0.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -515,7 +501,7 @@ function SearchPanelMenuItems({
         },
         {
           key: 'spectralSearchFilterOptions.peaks.menuItem',
-          label: 'Peak Search',
+          label: 'Fragment Search',
           children: buildPeakBasedSearchFields('peaks'),
         },
         {
@@ -573,6 +559,83 @@ function SearchPanelMenuItems({
       children: PropertyFilterOptionsMenuItems({ propertyFilterOptions }),
     });
   }
+
+  items.push({
+    key: 'taxonomyFilterOptions',
+    label: 'Taxonomy Filter',
+    icon: <EnvironmentOutlined />,
+    children: [
+      {
+        key: 'taxonomyRank',
+        style: {
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginLeft: 0,
+        },
+        label: buildFormItemWithTootip(
+          'Rank',
+          ['taxonomyFilterOptions', 'rank'],
+          false,
+          undefined,
+          8,
+          16,
+          <Select
+            placeholder="Select rank"
+            allowClear
+            style={{ width: '100%' }}
+            options={[
+              { value: 'genus', label: 'Genus' },
+              { value: 'family', label: 'Family' },
+              { value: 'order', label: 'Order' },
+              { value: 'class', label: 'Class' },
+              { value: 'phylum', label: 'Phylum' },
+              { value: 'kingdom', label: 'Kingdom' },
+              { value: 'domain', label: 'Domain' },
+            ]}
+          />,
+          'Select the taxonomic rank to filter by.',
+        ),
+      },
+      {
+        key: 'taxonomyTaxon',
+        style: {
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginLeft: 0,
+        },
+        label: buildFormItemWithTootip(
+          'Taxon',
+          ['taxonomyFilterOptions', 'taxon'],
+          false,
+          undefined,
+          8,
+          16,
+          <Input
+            type="text"
+            placeholder="Aspergillus"
+            allowClear
+            onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+              insertPlaceholder(e, {
+                taxonomyFilterOptions: {
+                  rank: 'genus',
+                  taxon: 'Aspergillus',
+                },
+              })
+            }
+          />,
+          'Enter the taxon name for the selected rank (e.g. Aspergillus for Genus).' +
+            ' ' +
+            defaultTooltipText,
+        ),
+      },
+    ],
+  });
 
   return items;
 }

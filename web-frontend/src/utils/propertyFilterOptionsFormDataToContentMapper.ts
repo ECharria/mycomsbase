@@ -22,12 +22,6 @@ const propertyFilterOptionsFormDataToContentMapper = (
   };
 
   return {
-    contributor: mapper(formData?.contributor ?? [], content?.contributor),
-    instrument_type: mapper(
-      formData?.instrument_type ?? [],
-      content?.instrument_type,
-    ),
-    ms_type: mapper(formData?.ms_type ?? [], content?.ms_type),
     ion_mode: mapper(formData?.ion_mode ?? [], content?.ion_mode),
     genus: mapper(formData?.genus ?? [], content?.genus),
     species: mapper(formData?.species ?? [], content?.species),
