@@ -273,7 +273,7 @@ function CcsScatterView({ width, height }: InputProps) {
         >
           <div style={{ fontWeight: 600 }}>{tooltip.point.accession}</div>
           <div>m/z: {tooltip.point.mz.toFixed(4)}</div>
-          <div>CCS: {tooltip.point.ccs.toFixed(2)} Å²</div>
+          <div>CCS: {tooltip.point.ccs.toFixed(1)} Å²</div>
           <div
             style={{
               color: CLASS_COLORS[tooltip.point.biosyntheticClass] ?? DEFAULT_COLOR,

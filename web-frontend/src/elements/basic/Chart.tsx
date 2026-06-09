@@ -95,7 +95,7 @@ function Chart({
 
   const getFilteredPeakData = useCallback(
     (peakDataTemp: Peak[]) => {
-      let _peakData = peakDataTemp.filter((pd) => pd.rel >= minRelIntensity);
+      let _peakData = peakDataTemp.filter((pd) => pd.rel >= minRelIntensity * 10);
       if (brushXDomains) {
         _peakData = _peakData.filter(
           (pd) =>
@@ -516,10 +516,10 @@ function Chart({
   const handleOnSetMinRelativeIntensity = useCallback(
     (value: number) => {
       setMinRelativeIntensity(value);
-      const _filteredPeakData = peakData.filter((p) => p.rel >= value);
+      const _filteredPeakData = peakData.filter((p) => p.rel >= value * 10);
       const _filteredPeakData2 = peakData2
         ? peakData2
-            .filter((p) => p.rel >= value)
+            .filter((p) => p.rel >= value * 10)
             .map((p) => {
               const _p: Peak = { ...p };
               _p.intensity = -1 * _p.intensity;
@@ -656,7 +656,7 @@ function Chart({
                   width={150}
                   height={MARGIN.button}
                   min={0}
-                  max={999}
+                  max={99}
                   value={0}
                   onChange={handleOnSetMinRelativeIntensity}
                 />

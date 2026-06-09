@@ -40,7 +40,7 @@ function Slider({
 
   const formatter: NonNullable<SliderSingleProps['tooltip']>['formatter'] = (
     value,
-  ) => `Minimal relative intensity: ${value}`;
+  ) => `Minimal relative intensity: ${value}%`;
 
   return useMemo(
     () => (
