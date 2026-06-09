@@ -1,4 +1,5 @@
-import { Form, FormItemProps, Input, InputNumber, Select } from 'antd';
+import { ReactNode, useMemo } from 'react';
+import { AutoComplete, Form, FormItemProps, Input, InputNumber, Select } from 'antd';
 import {
   BarChartOutlined,
   BarcodeOutlined,
@@ -20,6 +21,73 @@ import { KeyboardEvent } from 'react';
 import Tooltip from '../../../basic/Tooltip';
 import { Content } from 'antd/es/layout/layout';
 import defaultTooltipText from '../../../../constants/defaultTooltipText';
+import taxonomyInfo from '../../../../assets/taxonomy_info.json';
+
+const TAXONOMY_RANKS = ['species', 'genus', 'family', 'order', 'class', 'phylum'] as const;
+type TaxonomyRank = typeof TAXONOMY_RANKS[number];
+
+function TaxonomyFilterFields({
+  insertPlaceholder,
+}: {
+  insertPlaceholder: (e: KeyboardEvent<HTMLElement>, values: SearchFields) => void;
+}) {
+  const rank = Form.useWatch(['taxonomyFilterOptions', 'rank']) as TaxonomyRank | undefined;
+
+  const autocompleteOptions = useMemo(() => {
+    if (!rank) return [];
+    const seen = new Set<string>();
+    const opts: { value: string }[] = [];
+    for (const row of taxonomyInfo as Record<string, string>[]) {
+      const val = row[rank];
+      if (val && !seen.has(val)) {
+        seen.add(val);
+        opts.push({ value: val });
+      }
+    }
+    return opts.sort((a, b) => a.value.localeCompare(b.value));
+  }, [rank]);
+
+  return (
+    <div style={{ width: '100%' }}>
+      <Form.Item
+        label="Rank"
+        name={['taxonomyFilterOptions', 'rank']}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ width: '100%', marginBottom: 8 }}
+      >
+        <Select
+          placeholder="Select rank"
+          allowClear
+          style={{ width: '100%' }}
+          options={TAXONOMY_RANKS.map((r) => ({ value: r, label: r.charAt(0).toUpperCase() + r.slice(1) }))}
+        />
+      </Form.Item>
+      <Form.Item
+        label="Taxon"
+        name={['taxonomyFilterOptions', 'taxon']}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ width: '100%', marginBottom: 0 }}
+      >
+        <AutoComplete
+          options={autocompleteOptions}
+          placeholder={rank ? `e.g. ${autocompleteOptions[0]?.value ?? ''}` : 'Select a rank first'}
+          allowClear
+          filterOption={(input, option) =>
+            (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+          }
+          disabled={!rank}
+          onKeyDown={(e: KeyboardEvent<HTMLElement>) =>
+            insertPlaceholder(e, {
+              taxonomyFilterOptions: { rank: 'genus', taxon: 'Hypoxylon' },
+            })
+          }
+        />
+      </Form.Item>
+    </div>
+  );
+}
 
 const peakListPattern: RegExp =
   /^(\d+(\.\d+){0,1} \d+(\.\d+){0,1}( \d+(\.\d+){0,1}){0,1})(\n\d+(\.\d+){0,1} \d+(\.\d+){0,1}( \d+(\.\d+){0,1}){0,1})*$/;
@@ -45,7 +113,7 @@ function SearchPanelMenuItems({
     pattern: RegExp | undefined,
     labelColSpan: number,
     wrapperColSpan: number,
-    children: React.ReactNode,
+    children: ReactNode,
     tooltipText: string | undefined,
   ) => (
     <Content
@@ -307,6 +375,13 @@ function SearchPanelMenuItems({
               step={1}
               min={0}
               style={{ width: '100%' }}
+              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+                insertPlaceholder(e, {
+                  compoundSearchFilterOptions: {
+                    massMin: 300.0,
+                  },
+                })
+              }
             />,
             'Lower bound of the neutral exact mass range (Da), e.g. 300.0.' +
               ' ' +
@@ -335,8 +410,85 @@ function SearchPanelMenuItems({
               step={1}
               min={0}
               style={{ width: '100%' }}
+              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+                insertPlaceholder(e, {
+                  compoundSearchFilterOptions: {
+                    massMax: 500.0,
+                  },
+                })
+              }
             />,
             'Upper bound of the neutral exact mass range (Da), e.g. 500.0.' +
+              ' ' +
+              defaultTooltipText,
+          ),
+        },
+        {
+          key: 'exactMass',
+          style: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 0,
+          },
+          label: buildFormItemWithTootip(
+            'Exact mass',
+            ['compoundSearchFilterOptions', 'exactMass'],
+            false,
+            undefined,
+            8,
+            16,
+            <InputNumber
+              placeholder="386.16"
+              step={1}
+              min={0}
+              style={{ width: '100%' }}
+              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+                insertPlaceholder(e, {
+                  compoundSearchFilterOptions: {
+                    exactMass: 386.16,
+                  },
+                })
+              }
+            />,
+            'Search by neutral exact mass (Da), e.g. 386.16. Use the tolerance field below to define the allowed deviation.' +
+              ' ' +
+              defaultTooltipText,
+          ),
+        },
+        {
+          key: 'massTolerance',
+          style: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 0,
+          },
+          label: buildFormItemWithTootip(
+            'Tolerance',
+            ['compoundSearchFilterOptions', 'massTolerance'],
+            false,
+            undefined,
+            8,
+            16,
+            <InputNumber
+              placeholder="0.01"
+              step={0.01}
+              min={0}
+              style={{ width: '100%' }}
+              onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+                insertPlaceholder(e, {
+                  compoundSearchFilterOptions: {
+                    massTolerance: 0.01,
+                  },
+                })
+              }
+            />,
+            'Mass tolerance (Da) for exact mass search, e.g. 0.01.' +
               ' ' +
               defaultTooltipText,
           ),
@@ -566,73 +718,16 @@ function SearchPanelMenuItems({
     icon: <EnvironmentOutlined />,
     children: [
       {
-        key: 'taxonomyRank',
+        key: 'taxonomyFields',
         style: {
           width: '100%',
           height: '100%',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           marginLeft: 0,
         },
-        label: buildFormItemWithTootip(
-          'Rank',
-          ['taxonomyFilterOptions', 'rank'],
-          false,
-          undefined,
-          8,
-          16,
-          <Select
-            placeholder="Select rank"
-            allowClear
-            style={{ width: '100%' }}
-            options={[
-              { value: 'genus', label: 'Genus' },
-              { value: 'family', label: 'Family' },
-              { value: 'order', label: 'Order' },
-              { value: 'class', label: 'Class' },
-              { value: 'phylum', label: 'Phylum' },
-              { value: 'kingdom', label: 'Kingdom' },
-              { value: 'domain', label: 'Domain' },
-            ]}
-          />,
-          'Select the taxonomic rank to filter by.',
-        ),
-      },
-      {
-        key: 'taxonomyTaxon',
-        style: {
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginLeft: 0,
-        },
-        label: buildFormItemWithTootip(
-          'Taxon',
-          ['taxonomyFilterOptions', 'taxon'],
-          false,
-          undefined,
-          8,
-          16,
-          <Input
-            type="text"
-            placeholder="Aspergillus"
-            allowClear
-            onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
-              insertPlaceholder(e, {
-                taxonomyFilterOptions: {
-                  rank: 'genus',
-                  taxon: 'Aspergillus',
-                },
-              })
-            }
-          />,
-          'Enter the taxon name for the selected rank (e.g. Aspergillus for Genus).' +
-            ' ' +
-            defaultTooltipText,
-        ),
+        label: <TaxonomyFilterFields insertPlaceholder={insertPlaceholder} />,
       },
     ],
   });

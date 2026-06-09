@@ -1117,11 +1117,12 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 
 	if filters.Species != "" {
 		speciesList := strings.Split(filters.Species, ",")
-		for i := range speciesList {
-			speciesList[i] = strings.ToLower(strings.TrimSpace(speciesList[i]))
+		var placeholders []string
+		for _, sp := range speciesList {
+			parameters = append(parameters, strings.ToLower(strings.TrimSpace(sp)))
+			placeholders = append(placeholders, "$"+strconv.Itoa(len(parameters)))
 		}
-		parameters = append(parameters, pq.Array(speciesList))
-		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(s.name) = ANY($" + strconv.Itoa(len(parameters)) + "::text[]))"
+		subQuery := "massbank_id IN (SELECT DISTINCT a.massbank_id FROM accession_species a JOIN species s ON s.id = a.species_id WHERE LOWER(s.name) IN (" + strings.Join(placeholders, ",") + "))"
 		if addedWhere || addedAnd {
 			query = query + " AND " + subQuery
 			addedAnd = true
@@ -1134,7 +1135,7 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 	if filters.MassMin != nil && filters.MassMax != nil {
 		parameters = append(parameters, strconv.FormatFloat(*filters.MassMin, 'f', -1, 64))
 		parameters = append(parameters, strconv.FormatFloat(*filters.MassMax, 'f', -1, 64))
-		subQuery := "massbank_id IN (SELECT DISTINCT cn.massbank_id FROM compound_name cn JOIN compound c ON c.id = cn.compound_id WHERE c.mass BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters)) + ")"
+		subQuery := "mass BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters))
 		if addedWhere || addedAnd {
 			query = query + " AND " + subQuery
 			addedAnd = true

@@ -1,8 +1,10 @@
 import defaultSearchFieldValues from '../constants/defaultSearchFieldValues';
 import CompoundSearchFilterOptions from '../types/filterOptions/CompoundSearchFilterOptions';
 import PeakSearchPeakType from '../types/filterOptions/PeakSearchPeakType';
+import PropertyFilterOptions from '../types/filterOptions/PropertyFilterOptions';
 import SearchFields from '../types/filterOptions/SearchFields';
 import SpectralSearchFilterOptions from '../types/filterOptions/SpectralSearchFilterOptions';
+import TaxonomyFilterOptions from '../types/filterOptions/TaxonomyFilterOptions';
 
 function buildFormDataFromSearchParams(searchParams: URLSearchParams) {
   const formData = JSON.parse(
@@ -152,6 +154,48 @@ function buildFormDataFromSearchParams(searchParams: URLSearchParams) {
         : defaultSearchFieldValues.spectralSearchFilterOptions!.neutralLoss!
             .intensity,
     };
+    containsValues = true;
+  }
+
+  const mass_min = searchParams.get('mass_min');
+  if (mass_min && mass_min.length > 0) {
+    (formData.compoundSearchFilterOptions as CompoundSearchFilterOptions).massMin = Number(mass_min);
+    containsValues = true;
+  }
+
+  const mass_max = searchParams.get('mass_max');
+  if (mass_max && mass_max.length > 0) {
+    (formData.compoundSearchFilterOptions as CompoundSearchFilterOptions).massMax = Number(mass_max);
+    containsValues = true;
+  }
+
+  const adduct_type = searchParams.get('adduct_type');
+  if (adduct_type && adduct_type.length > 0) {
+    (formData.propertyFilterOptions as PropertyFilterOptions).adduct_type = adduct_type;
+    containsValues = true;
+  }
+
+  const ccs_min = searchParams.get('ccs_min');
+  if (ccs_min && ccs_min.length > 0) {
+    (formData.propertyFilterOptions as PropertyFilterOptions).ccs_min = Number(ccs_min);
+    containsValues = true;
+  }
+
+  const ccs_max = searchParams.get('ccs_max');
+  if (ccs_max && ccs_max.length > 0) {
+    (formData.propertyFilterOptions as PropertyFilterOptions).ccs_max = Number(ccs_max);
+    containsValues = true;
+  }
+
+  const genus = searchParams.get('genus');
+  if (genus && genus.length > 0) {
+    formData.taxonomyFilterOptions = { rank: 'genus', taxon: genus } as TaxonomyFilterOptions;
+    containsValues = true;
+  }
+
+  const species = searchParams.get('species');
+  if (species && species.length > 0) {
+    formData.taxonomyFilterOptions = { rank: 'species', taxon: species.split(',')[0] } as TaxonomyFilterOptions;
     containsValues = true;
   }
 
