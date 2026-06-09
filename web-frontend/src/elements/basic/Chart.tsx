@@ -180,18 +180,14 @@ function Chart({
   }, [boundsWidth, brushXDomains, filteredPeakData, filteredPeakData2]);
 
   const yScale = useMemo(() => {
-    const maxY = 1000;
-
     return scaleLinear()
-      .domain([0, maxY])
+      .domain([0, 100])
       .range([filteredPeakData2 ? boundsHeight / 2 : boundsHeight, 0]);
   }, [boundsHeight, filteredPeakData2]);
 
   const yScale2 = useMemo(() => {
-    const maxY = -1000;
-
     return scaleLinear()
-      .domain([0, maxY])
+      .domain([0, -100])
       .range([boundsHeight / 2, boundsHeight]);
   }, [boundsHeight]);
 
@@ -373,7 +369,7 @@ function Chart({
 
     return range.map(
       (y) =>
-        y % 200 === 0 && (
+        y % 20 === 0 && (
           <g key={'x_axis_label' + y}>
             <text
               x={xScale.range()[0] - 30}
@@ -402,7 +398,7 @@ function Chart({
         .map((d) => (
           <ChartElement
             key={'chart_element' + d.mz + '_1'}
-            pd={d}
+            pd={{ ...d, rel: d.rel / 10 }}
             xScale={xScale}
             yScale={yScale}
             showLabel={isShowLabel}
@@ -414,7 +410,7 @@ function Chart({
             ? filteredPeakData2.map((d) => (
                 <ChartElement
                   key={'chart_element' + d.mz + '_2'}
-                  pd={d}
+                  pd={{ ...d, rel: d.rel / 10 }}
                   xScale={xScale}
                   yScale={yScale2}
                   showLabel={isShowLabel}
