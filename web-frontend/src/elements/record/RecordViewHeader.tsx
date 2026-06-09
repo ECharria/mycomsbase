@@ -338,7 +338,7 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
                   (s) => s.subtag === 'CCS',
                 );
                 if (!ccsSubtag) return null;
-                const ccsValue = parseFloat(ccsSubtag.value).toFixed(2);
+                const ccsValue = parseFloat(ccsSubtag.value).toFixed(1);
                 return (
                   <>
                     <label>CCS: </label>
