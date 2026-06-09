@@ -148,15 +148,21 @@ function AcquisitionTable({ acquisition, width, height }: InputProps) {
 
     if (acquisition.mass_spectrometry.subtags) {
       acquisition.mass_spectrometry.subtags.forEach((s, i) => {
-        const split = splitStringAndCapitaliseFirstLetter(s.subtag, '_', ' ');
+        const isCcs = s.subtag.toUpperCase() === 'CCS';
+        const label = isCcs
+          ? 'Collision Cross Section (CCS)'
+          : splitStringAndCapitaliseFirstLetter(s.subtag, '_', ' ');
+        const displayValue = isCcs && !isNaN(Number(s.value))
+          ? `${Number(s.value).toFixed(1)} Å²`
+          : s.value;
         dataSource.push({
-          Parameter: split,
+          Parameter: label,
           Value: (
             <ExportableContent
               mode="copy"
-              title={`Copy '${split}' to clipboard`}
-              component={s.value}
-              onClick={() => copyTextToClipboard(split, s.value)}
+              title={`Copy '${label}' to clipboard`}
+              component={displayValue}
+              onClick={() => copyTextToClipboard(label, displayValue)}
             />
           ),
           key: `key-subtag-${i}`,

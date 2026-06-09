@@ -44,24 +44,29 @@ function MassSpectrometryTable({
 
     if (massSpectrometry.focused_ion) {
       massSpectrometry.focused_ion.forEach((c, i) => {
-        const split = splitStringAndCapitaliseFirstLetter(c.subtag, '_', ' ');
+        const isCcs = c.subtag.toUpperCase() === 'CCS';
+        const label = isCcs
+          ? 'Collision Cross Section (CCS)'
+          : splitStringAndCapitaliseFirstLetter(c.subtag, '_', ' ');
 
         let displayValue = c.value;
-        if (
-          split.toLowerCase().includes('precursor m/z') &&
+        if (isCcs && !isNaN(Number(c.value))) {
+          displayValue = `${Number(c.value).toFixed(1)} Å²`;
+        } else if (
+          label.toLowerCase().includes('precursor m/z') &&
           !isNaN(Number(c.value))
         ) {
-          displayValue = Number(c.value).toFixed(4); // round to 4 digits
+          displayValue = Number(c.value).toFixed(4);
         }
 
         dataSource.push({
-          Parameter: split,
+          Parameter: label,
           Value: (
             <ExportableContent
               mode="copy"
-              title={`Copy '${split}' to clipboard`}
+              title={`Copy '${label}' to clipboard`}
               component={displayValue}
-              onClick={() => copyTextToClipboard(split, displayValue)}
+              onClick={() => copyTextToClipboard(label, displayValue)}
             />
           ),
           key: `key-chromatography-${i}`,
@@ -81,15 +86,15 @@ function MassSpectrometryTable({
       if (ccsComment) {
         const match = ccsComment.value.match(/[-+]?[0-9]*\.?[0-9]+/);
         if (match) {
-          const ccsValue = Number(match[0]).toFixed(4);
+          const ccsDisplay = `${Number(match[0]).toFixed(1)} Å²`;
           dataSource.push({
-            Parameter: 'CCS',
+            Parameter: 'Collision Cross Section (CCS)',
             Value: (
               <ExportableContent
                 mode="copy"
-                title="Copy \'CCS\' to clipboard"
-                component={ccsValue}
-                onClick={() => copyTextToClipboard('CCS', ccsValue)}
+                title="Copy 'CCS' to clipboard"
+                component={ccsDisplay}
+                onClick={() => copyTextToClipboard('CCS', ccsDisplay)}
               />
             ),
             key: 'key-ccs',
