@@ -15,9 +15,17 @@
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-66%25-blue"/>
   <img alt="Go" src="https://img.shields.io/badge/Go-31%25-00ADD8"/>
   <img alt="Status" src="https://img.shields.io/badge/status-under%20construction-orange"/>
+
+  <br/><br/>
+
+  <a href="https://mycomsbase.helmholtz-hzi.de">
+    <img alt="Live instance" src="https://img.shields.io/badge/Live%20instance-mycomsbase.helmholtz--hzi.de-7b1c1c?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMSAxNy45M2MtMy45NS0uNDktNy0zLjg1LTctNy45M2MwLS42Mi4wOC0xLjIxLjIxLTEuNzlMOSAxNXY0YzAgLjU1LjQ1IDEgMSAxdjEuOTN6bTYuOS0yLjU0Yy0uMjYtLjgxLTEtMS4zOS0xLjktMS4zOWgtMXYtM2MwLS41NS0uNDUtMS0xLTFIOHYtMmgyYy41NSAwIDEtLjQ1IDEtMVY3aDJjMS4xIDAgMi0uOSAyLTJ2LS40MWMyLjkzIDEuMTkgNSA0LjA2IDUgNy40MWMwIDIuMDgtLjggMy45Ny0yLjEgNS4zOXoiLz48L3N2Zz4="/>
+  </a>
 </div>
 
 > **Work in progress** — MycoMSBase is actively being developed. Features and data coverage are growing. Feedback, suggestions, and contributions are very welcome (see [Contributing](#contributing)).
+>
+> **Live instance available at [https://mycomsbase.helmholtz-hzi.de](https://mycomsbase.helmholtz-hzi.de)** — hosted at the Helmholtz Centre for Infection Research (HZI).
 
 ---
 
@@ -154,6 +162,8 @@ docker compose run --rm mb3tool
 > The `mb3tool` service clones the data repository and imports all records into PostgreSQL.
 
 Once all services are healthy, open **http://localhost:8080/MycoMSBase** in your browser.
+
+> A public instance is also available at **[https://mycomsbase.helmholtz-hzi.de](https://mycomsbase.helmholtz-hzi.de)** if you want to explore the database without a local setup.
 
 ---
 
