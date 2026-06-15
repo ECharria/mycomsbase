@@ -8,6 +8,7 @@ import Peak from '../../types/peak/Peak';
 import { Spin, Splitter } from 'antd';
 import ResultTableSortOption from '../../types/ResultTableSortOption';
 import collapseButtonWidth from '../../constants/collapseButtonWidth';
+import useIsMobile from '../../utils/useIsMobile';
 
 type InputProps = {
   searchPanel: JSX.Element;
@@ -36,6 +37,7 @@ function SearchAndResultPanel({
   onSort,
   onResize,
 }: InputProps) {
+  const isMobile = useIsMobile();
   const [panelWidths, setPanelWidths] = useState<{
     searchPanel: number;
     resultPanel: number;
@@ -86,6 +88,41 @@ function SearchAndResultPanel({
     [onResize],
   );
 
+  // Mobile: stacked layout (search on top, results below)
+  if (isMobile) {
+    return (
+      <Content
+        style={{
+          width,
+          height,
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'auto',
+          userSelect: 'none',
+        }}
+      >
+        <div style={{ width: '100%', flexShrink: 0 }}>
+          {searchPanel}
+        </div>
+        <div style={{ width: '100%', flex: 1, minHeight: 0 }}>
+          <Spin size="large" spinning={isRequesting} />
+          {!isRequesting && (
+            <ResultPanel
+              reference={reference}
+              hits={hits}
+              width={width}
+              height={height * 0.65}
+              sortOptions={sortOptions}
+              onSort={handleOnSelectSort}
+              widthOverview={width}
+              heightOverview={heightOverview}
+            />
+          )}
+        </div>
+      </Content>
+    );
+  }
+
   return useMemo(
     () => (
       <Content
@@ -107,7 +144,7 @@ function SearchAndResultPanel({
           </Splitter.Panel>
           <Splitter.Panel
             size={panelWidths.resultPanel}
-            min={700}
+            min={400}
             resizable={panelWidths.searchPanel !== collapseButtonWidth}
           >
             <Content

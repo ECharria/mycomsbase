@@ -1,4 +1,5 @@
 import { lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import useIsMobile from '../../../../utils/useIsMobile';
 import useContainerDimensions from '../../../../utils/useContainerDimensions';
 import fetchData from '../../../../utils/request/fetchData';
 import buildSearchParams from '../../../../utils/request/buildSearchParams';
@@ -32,6 +33,7 @@ function ContentView() {
   const ref = useRef(null);
   const { width, height } = useContainerDimensions(ref);
   const { backendUrl } = usePropertiesContext();
+  const isMobile = useIsMobile();
 
   const [isFetchingContent, setIsFetchingContent] = useState<boolean>(false);
   const [isSearching, setIsSearching] = useState<boolean>(false);
@@ -131,12 +133,14 @@ function ContentView() {
       const keys = Object.keys(propertyFilterOptions).filter(
         (key) => key !== 'metadata' && key !== 'contributor' && key !== 'ms_type' && key !== 'instrument_type',
       );
+      const cols = isMobile ? 1 : 2;
+      const chartWidth = isMobile ? width : width / 2;
       const _charts = keys.map((key) => (
         <ContentChart
           key={'chart_' + key}
           content={propertyFilterOptions}
           identifier={key}
-          width={width / 2}
+          width={chartWidth}
           height={chartHeight}
         />
       ));
@@ -146,7 +150,7 @@ function ContentView() {
           style={{
             width: '100%',
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: `repeat(${cols}, 1fr)`,
             gap: 0,
             padding: '8px 4px',
             background: '#f5f0ee',
@@ -159,7 +163,7 @@ function ContentView() {
     }
 
     return null;
-  }, [propertyFilterOptions, width]);
+  }, [isMobile, propertyFilterOptions, width]);
 
   const handleOnCollapse = useCallback((_collapsed: boolean) => {
     setIsCollapsed(_collapsed);

@@ -3,20 +3,23 @@ import './Header.scss';
 import { Header as HeaderAntD } from 'antd/es/layout/layout';
 import { useSearchParams } from 'react-router-dom';
 import { usePropertiesContext } from '../../context/properties/properties';
-import { CSSProperties, useMemo } from 'react';
+import { CSSProperties, ReactNode, useMemo } from 'react';
 import logo from '../../assets/logo.svg';
 import AccessionSearchInputField from '../common/AccessionSearchInputField';
+import useIsMobile from '../../utils/useIsMobile';
 
 const backgroundColor: CSSProperties['backgroundColor'] = '#f8f4f1';
 
 type InputProps = {
   height: CSSProperties['height'];
+  mobileMenuButton?: ReactNode;
 };
 
-function Header({ height }: InputProps) {
+function Header({ height, mobileMenuButton }: InputProps) {
   const { baseUrl } = usePropertiesContext();
   const [searchParams] = useSearchParams();
   const accession = searchParams.get('id');
+  const isMobile = useIsMobile();
 
   return useMemo(
     () => (
@@ -29,32 +32,35 @@ function Header({ height }: InputProps) {
           justifyContent: 'space-between',
           alignItems: 'center',
           backgroundColor,
-          padding: '0 24px',
+          padding: isMobile ? '0 12px' : '0 24px',
           flexShrink: 0,
           borderBottom: '1px solid #eee3df',
         }}
       >
-        <a
-          href={baseUrl + '/'}
-          target="_self"
-          style={{ display: 'flex', alignItems: 'center', height: '100%' }}
-        >
-          <img
-            src={logo}
-            alt="MycoMSBase"
-            style={{ height: 46 }}
-          />
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          {mobileMenuButton}
+          <a
+            href={baseUrl + '/'}
+            target="_self"
+            style={{ display: 'flex', alignItems: 'center', height: '100%' }}
+          >
+            <img
+              src={logo}
+              alt="MycoMSBase"
+              style={{ height: isMobile ? 34 : 46 }}
+            />
+          </a>
+        </div>
         <AccessionSearchInputField
           accession={accession ?? ''}
           disableLabel
-          placeholderText="Search by Accession ID"
-          inputStyle={{ width: '300px' }}
-          style={{ width: '350px', backgroundColor: 'transparent' }}
+          placeholderText={isMobile ? 'Accession ID' : 'Search by Accession ID'}
+          inputStyle={{ width: isMobile ? '140px' : '300px' }}
+          style={{ width: isMobile ? '160px' : '350px', backgroundColor: 'transparent' }}
         />
       </HeaderAntD>
     ),
-    [accession, baseUrl, height],
+    [accession, baseUrl, height, isMobile, mobileMenuButton],
   );
 }
 

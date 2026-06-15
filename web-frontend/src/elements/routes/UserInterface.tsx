@@ -12,10 +12,13 @@ import {
   DatabaseOutlined,
   BookOutlined,
   InfoCircleOutlined,
+  MenuOutlined,
+  CloseOutlined,
 } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import { usePropertiesContext } from '../../context/properties/properties';
 import logo from '../../assets/logo.svg';
+import useIsMobile from '../../utils/useIsMobile';
 
 const headerHeight = 60;
 const footerHeight = 50;
@@ -36,6 +39,8 @@ type InputProps = {
 function UserInterface({ body }: InputProps) {
   const location = useLocation();
   const { baseUrl } = usePropertiesContext();
+  const isMobile = useIsMobile();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const [showDataPrivacyModal, setShowDataPrivacyModal] = useState<boolean>(false);
   const [dataPrivacyContainer, setDataPrivacyContainer] = useState<JSX.Element | null>(null);
@@ -60,6 +65,61 @@ function UserInterface({ body }: InputProps) {
     setShowDataPrivacyModal(true);
   }, []);
 
+  const navLinks = useMemo(() => navItems.map((item) => {
+    const fullPath = baseUrl + (item.path === '/' ? '/' : '/' + item.path);
+    const isActive =
+      location.pathname === fullPath ||
+      (item.path === '/' && location.pathname === baseUrl + '/');
+    return (
+      <a
+        key={item.id}
+        href={fullPath}
+        style={{ textDecoration: 'none' }}
+        onClick={() => setMobileNavOpen(false)}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            padding: '10px 20px',
+            backgroundColor: isActive ? '#f9f0f0' : 'transparent',
+            borderRight: isMobile ? 'none' : (isActive ? '3px solid #7b1c1c' : '3px solid transparent'),
+            borderBottom: isMobile ? (isActive ? '3px solid #7b1c1c' : '3px solid transparent') : 'none',
+            color: isActive ? '#7b1c1c' : '#444',
+            fontWeight: isActive ? 600 : 400,
+            fontSize: 14,
+            cursor: 'pointer',
+          }}
+        >
+          <span style={{ fontSize: 16 }}>{item.icon}</span>
+          {item.label}
+        </div>
+      </a>
+    );
+  }), [baseUrl, isMobile, location.pathname]);
+
+  // Mobile: full-width dropdown drawer
+  const mobileNav = useMemo(() => (
+    mobileNavOpen ? (
+      <div style={{
+        position: 'fixed',
+        top: headerHeight,
+        left: 0,
+        right: 0,
+        background: '#fff',
+        borderBottom: '1px solid #f0f0f0',
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+      }}>
+        <nav style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+          {navLinks}
+        </nav>
+      </div>
+    ) : null
+  ), [mobileNavOpen, navLinks]);
+
+  // Desktop: sidebar
   const sidebar = useMemo(() => (
     <Sider
       width={siderWidth}
@@ -72,33 +132,7 @@ function UserInterface({ body }: InputProps) {
     >
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <nav style={{ padding: '16px 0' }}>
-          {navItems.map((item) => {
-            const fullPath = baseUrl + (item.path === '/' ? '/' : '/' + item.path);
-            const isActive =
-              location.pathname === fullPath ||
-              (item.path === '/' && location.pathname === baseUrl + '/');
-            return (
-              <a key={item.id} href={fullPath} style={{ textDecoration: 'none' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    padding: '10px 20px',
-                    backgroundColor: isActive ? '#f9f0f0' : 'transparent',
-                    borderRight: isActive ? '3px solid #7b1c1c' : '3px solid transparent',
-                    color: isActive ? '#7b1c1c' : '#444',
-                    fontWeight: isActive ? 600 : 400,
-                    fontSize: 14,
-                    cursor: 'pointer',
-                  }}
-                >
-                  <span style={{ fontSize: 16 }}>{item.icon}</span>
-                  {item.label}
-                </div>
-              </a>
-            );
-          })}
+          {navLinks}
         </nav>
 
         <div style={{ borderTop: '1px solid #f0f0f0', margin: '0 16px' }} />
@@ -117,14 +151,36 @@ function UserInterface({ body }: InputProps) {
         </div>
       </div>
     </Sider>
-  ), [baseUrl, location.pathname]);
+  ), [navLinks]);
 
   return useMemo(
     () => (
       <Layout className="user-interface">
-        <Header height={headerHeight} />
+        <Header
+          height={headerHeight}
+          mobileMenuButton={
+            isMobile ? (
+              <button
+                onClick={() => setMobileNavOpen((o) => !o)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: 20,
+                  color: '#7b1c1c',
+                  padding: '0 8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {mobileNavOpen ? <CloseOutlined /> : <MenuOutlined />}
+              </button>
+            ) : undefined
+          }
+        />
+        {isMobile && mobileNav}
         <Layout style={{ flex: 1, width: '100%', overflow: 'hidden', flexDirection: 'row' }}>
-          {sidebar}
+          {!isMobile && sidebar}
           <Content
             style={{
               flex: 1,
@@ -173,7 +229,7 @@ function UserInterface({ body }: InputProps) {
         </Modal>
       </Layout>
     ),
-    [body, dataPrivacyContainer, handleOnClickDataPrivacy, showDataPrivacyModal, sidebar],
+    [body, dataPrivacyContainer, handleOnClickDataPrivacy, isMobile, mobileNav, mobileNavOpen, showDataPrivacyModal, sidebar],
   );
 }
 

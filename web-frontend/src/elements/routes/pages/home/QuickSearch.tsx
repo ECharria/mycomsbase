@@ -55,7 +55,8 @@ function QuickSearch() {
       >
         <Content
           style={{
-            width: '700px',
+            width: '100%',
+            maxWidth: '700px',
             height: accessionSearchInputFieldHeight,
             display: 'flex',
             justifyContent: 'center',
