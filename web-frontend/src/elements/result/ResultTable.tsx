@@ -146,12 +146,14 @@ function ResultTable({
           alignItems: 'center',
         }}
       >
-        <StructureView
-          smiles={smiles}
-          imageWidth={imageWidth}
-          imageHeight={rowHeight}
-          disableExport
-        />
+        {smiles && smiles !== 'C' ? (
+          <StructureView
+            smiles={smiles}
+            imageWidth={imageWidth}
+            imageHeight={rowHeight}
+            disableExport
+          />
+        ) : null}
       </Content>
     ),
     [imageWidth, rowHeight],

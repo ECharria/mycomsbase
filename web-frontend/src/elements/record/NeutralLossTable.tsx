@@ -69,19 +69,19 @@ function NeutralLossTable({ neutralLosses, peaks, width, height }: InputProps) {
   return useMemo(() => {
     const columns: ColumnsType<NeutralLossTableDataType> = [
       {
-        title: <label>Difference{<br />}[m/z]</label>,
+        title: <label>Difference{<br />}[<i>m/z</i>]</label>,
         dataIndex: 'difference',
         key: 'difference',
         align: 'center' as const,
       },
       {
-        title: <label>Peak{<br />}[m/z]</label>,
+        title: <label>Peak{<br />}[<i>m/z</i>]</label>,
         dataIndex: 'peak1',
         key: 'peak1',
         align: 'center' as const,
       },
       {
-        title: <label>Precursor{<br />}[m/z]</label>,
+        title: <label>Precursor{<br />}[<i>m/z</i>]</label>,
         dataIndex: 'peak2',
         key: 'peak2',
         align: 'center' as const,

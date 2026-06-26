@@ -45,17 +45,23 @@ function MassSpectrometryTable({
     if (massSpectrometry.focused_ion) {
       massSpectrometry.focused_ion.forEach((c, i) => {
         const isCcs = c.subtag.toUpperCase() === 'CCS';
-        const label = isCcs
+        const isPrecursorMz = c.subtag.toUpperCase() === 'PRECURSOR_M/Z';
+        const label: string | JSX.Element = isCcs
           ? 'Collision Cross Section (CCS)'
-          : splitStringAndCapitaliseFirstLetter(c.subtag, '_', ' ');
+          : isPrecursorMz
+            ? <>Precursor <i>m/z</i></>
+            : splitStringAndCapitaliseFirstLetter(c.subtag, '_', ' ');
+
+        const labelStr = isCcs
+          ? 'Collision Cross Section (CCS)'
+          : isPrecursorMz
+            ? 'Precursor m/z'
+            : splitStringAndCapitaliseFirstLetter(c.subtag, '_', ' ');
 
         let displayValue = c.value;
         if (isCcs && !isNaN(Number(c.value))) {
           displayValue = `${Number(c.value).toFixed(1)} Å²`;
-        } else if (
-          label.toLowerCase().includes('precursor m/z') &&
-          !isNaN(Number(c.value))
-        ) {
+        } else if (isPrecursorMz && !isNaN(Number(c.value))) {
           displayValue = Number(c.value).toFixed(4);
         }
 
@@ -64,9 +70,9 @@ function MassSpectrometryTable({
           Value: (
             <ExportableContent
               mode="copy"
-              title={`Copy '${label}' to clipboard`}
+              title={`Copy '${labelStr}' to clipboard`}
               component={displayValue}
-              onClick={() => copyTextToClipboard(label, displayValue)}
+              onClick={() => copyTextToClipboard(labelStr, displayValue)}
             />
           ),
           key: `key-chromatography-${i}`,

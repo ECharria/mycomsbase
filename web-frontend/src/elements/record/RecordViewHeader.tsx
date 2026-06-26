@@ -272,7 +272,7 @@ function RecordViewHeader({ record, width, height, imageWidth }: InputProps) {
               alignItems: 'center',
             }}
           >
-            {record.compound.smiles && record.compound.smiles !== '' ? (
+            {record.compound.smiles && record.compound.smiles !== '' && record.compound.smiles !== 'C' ? (
               <StructureView
                 smiles={record.compound.smiles}
                 imageWidth={imageWidth as number}

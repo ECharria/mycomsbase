@@ -149,12 +149,20 @@ function AcquisitionTable({ acquisition, width, height }: InputProps) {
     if (acquisition.mass_spectrometry.subtags) {
       acquisition.mass_spectrometry.subtags.forEach((s, i) => {
         const isCcs = s.subtag.toUpperCase() === 'CCS';
+        const isCe = s.subtag.toUpperCase() === 'COLLISION_ENERGY';
         const label = isCcs
           ? 'Collision Cross Section (CCS)'
           : splitStringAndCapitaliseFirstLetter(s.subtag, '_', ' ');
-        const displayValue = isCcs && !isNaN(Number(s.value))
-          ? `${Number(s.value).toFixed(1)} Å²`
-          : s.value;
+        let displayValue = s.value;
+        if (isCcs && !isNaN(Number(s.value))) {
+          displayValue = `${Number(s.value).toFixed(1)} Å²`;
+        } else if (isCe) {
+          const match = s.value.match(/^([\d.]+)\s*(.*)/);
+          if (match && !isNaN(Number(match[1]))) {
+            const unit = match[2] ? ` ${match[2].trim()}` : '';
+            displayValue = `${Number(match[1]).toFixed(1)}${unit}`;
+          }
+        }
         dataSource.push({
           Parameter: label,
           Value: (

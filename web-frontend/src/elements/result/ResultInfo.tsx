@@ -79,7 +79,7 @@ function ResultInfo({
           alignItems: 'center',
         }}
       >
-        {hit.record && hit.record.compound.smiles ? (
+        {hit.record && hit.record.compound.smiles && hit.record.compound.smiles !== 'C' ? (
           <StructureView
             smiles={hit.record.compound.smiles}
             imageWidth={imageWidth}
