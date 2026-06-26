@@ -1132,10 +1132,19 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 		}
 	}
 
-	if filters.MassMin != nil && filters.MassMax != nil {
-		parameters = append(parameters, strconv.FormatFloat(*filters.MassMin, 'f', -1, 64))
-		parameters = append(parameters, strconv.FormatFloat(*filters.MassMax, 'f', -1, 64))
-		subQuery := "mass BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters))
+	if filters.MassMin != nil || filters.MassMax != nil {
+		var subQuery string
+		if filters.MassMin != nil && filters.MassMax != nil {
+			parameters = append(parameters, strconv.FormatFloat(*filters.MassMin, 'f', -1, 64))
+			parameters = append(parameters, strconv.FormatFloat(*filters.MassMax, 'f', -1, 64))
+			subQuery = "mass BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters))
+		} else if filters.MassMin != nil {
+			parameters = append(parameters, strconv.FormatFloat(*filters.MassMin, 'f', -1, 64))
+			subQuery = "mass >= $" + strconv.Itoa(len(parameters))
+		} else {
+			parameters = append(parameters, strconv.FormatFloat(*filters.MassMax, 'f', -1, 64))
+			subQuery = "mass <= $" + strconv.Itoa(len(parameters))
+		}
 		if addedWhere || addedAnd {
 			query = query + " AND " + subQuery
 			addedAnd = true
@@ -1145,10 +1154,19 @@ func (p *PostgresSQLDB) BuildBrowseOptionsWhere(filters Filters) (string, []stri
 		}
 	}
 
-	if filters.CcsMin != nil && filters.CcsMax != nil {
-		parameters = append(parameters, strconv.FormatFloat(*filters.CcsMin, 'f', -1, 64))
-		parameters = append(parameters, strconv.FormatFloat(*filters.CcsMax, 'f', -1, 64))
-		subQuery := "massbank_id IN (SELECT massbank_id FROM acquisition_mass_spectrometry WHERE subtag = 'CCS' AND value::float BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters)) + ")"
+	if filters.CcsMin != nil || filters.CcsMax != nil {
+		var subQuery string
+		if filters.CcsMin != nil && filters.CcsMax != nil {
+			parameters = append(parameters, strconv.FormatFloat(*filters.CcsMin, 'f', -1, 64))
+			parameters = append(parameters, strconv.FormatFloat(*filters.CcsMax, 'f', -1, 64))
+			subQuery = "massbank_id IN (SELECT massbank_id FROM acquisition_mass_spectrometry WHERE subtag = 'CCS' AND value::float BETWEEN $" + strconv.Itoa(len(parameters)-1) + " AND $" + strconv.Itoa(len(parameters)) + ")"
+		} else if filters.CcsMin != nil {
+			parameters = append(parameters, strconv.FormatFloat(*filters.CcsMin, 'f', -1, 64))
+			subQuery = "massbank_id IN (SELECT massbank_id FROM acquisition_mass_spectrometry WHERE subtag = 'CCS' AND value::float >= $" + strconv.Itoa(len(parameters)) + ")"
+		} else {
+			parameters = append(parameters, strconv.FormatFloat(*filters.CcsMax, 'f', -1, 64))
+			subQuery = "massbank_id IN (SELECT massbank_id FROM acquisition_mass_spectrometry WHERE subtag = 'CCS' AND value::float <= $" + strconv.Itoa(len(parameters)) + ")"
+		}
 		if addedWhere || addedAnd {
 			query = query + " AND " + subQuery
 			addedAnd = true

@@ -143,8 +143,10 @@ function buildSearchParamsFromFormData(formData: SearchFields) {
 
   const massMin = formData.compoundSearchFilterOptions?.massMin;
   const massMax = formData.compoundSearchFilterOptions?.massMax;
-  if (massMin != null && massMax != null) {
+  if (massMin != null) {
     builtSearchParams['mass_min'] = [String(massMin)];
+  }
+  if (massMax != null) {
     builtSearchParams['mass_max'] = [String(massMax)];
   }
 
@@ -156,8 +158,10 @@ function buildSearchParamsFromFormData(formData: SearchFields) {
   // CCS range
   const ccsMin = formData.propertyFilterOptions?.ccs_min;
   const ccsMax = formData.propertyFilterOptions?.ccs_max;
-  if (ccsMin != null && ccsMax != null) {
+  if (ccsMin != null) {
     builtSearchParams['ccs_min'] = [String(ccsMin)];
+  }
+  if (ccsMax != null) {
     builtSearchParams['ccs_max'] = [String(ccsMax)];
   }
 

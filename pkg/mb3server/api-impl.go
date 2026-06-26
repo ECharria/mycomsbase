@@ -62,8 +62,9 @@ func GetBrowseOptions(contributor []string, instrumentTyoe []string, msType []st
 	}
 	var result = BrowseOptions{}
 	for _, val := range vals.IonMode {
+		display := strings.Title(strings.ToLower(val.Val))
 		result.IonMode = append(result.IonMode, StringCountInner{
-			Value: val.Val,
+			Value: display,
 			Count: int32(val.Count),
 		})
 	}
@@ -220,7 +221,7 @@ func buildFilters(instrumentType []string, splash string, msType []string, ionMo
 }
 
 func getIonMode(ionMode string) massbank.IonMode {
-	switch ionMode {
+	switch strings.ToUpper(ionMode) {
 	case "POSITIVE":
 		return massbank.POSITIVE
 	case "NEGATIVE":

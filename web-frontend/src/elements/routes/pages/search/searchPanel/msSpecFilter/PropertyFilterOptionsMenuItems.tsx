@@ -1,4 +1,4 @@
-import { Form, Input, InputNumber } from 'antd';
+import { AutoComplete, Form, InputNumber } from 'antd';
 import FilterTable from '../../../../../common/FilterTable';
 import SearchFields from '../../../../../../types/filterOptions/SearchFields';
 import ContentFilterOptions from '../../../../../../types/filterOptions/ContentFilterOtions';
@@ -52,11 +52,19 @@ function PropertyFilterOptionsMenuItems({
               rules={[{ required: false }]}
               style={{ width: '100%', height: '100%' }}
             >
-              <Input
-                type="text"
+              <AutoComplete
                 placeholder="[M+H]+"
                 allowClear
                 style={{ width: '100%' }}
+                options={[
+                  '[M+H]+', '[M+Na]+', '[M+K]+', '[M+NH4]+',
+                  '[M-H]-', '[M+Cl]-', '[M+HCOO]-',
+                  '[M+H-H2O]+', '[M+H-2H2O]+',
+                  '[M+2H]2+', '[M+2Na]2+',
+                ].map((v) => ({ value: v }))}
+                filterOption={(input, option) =>
+                  (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+                }
               />
             </Form.Item>
           ),
