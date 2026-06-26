@@ -213,6 +213,7 @@ function CcsScatterView({ width, height }: InputProps) {
             textAnchor="middle"
             fontSize={13}
             fill="#333"
+            fontStyle="italic"
           >
             Precursor m/z
           </text>
@@ -272,7 +273,7 @@ function CcsScatterView({ width, height }: InputProps) {
           }}
         >
           <div style={{ fontWeight: 600 }}>{tooltip.point.accession}</div>
-          <div>m/z: {tooltip.point.mz.toFixed(4)}</div>
+          <div><i>m/z</i>: {tooltip.point.mz.toFixed(4)}</div>
           <div>CCS: {tooltip.point.ccs.toFixed(1)} Å²</div>
           <div
             style={{

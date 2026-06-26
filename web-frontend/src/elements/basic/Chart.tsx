@@ -308,6 +308,7 @@ function Chart({
                 ? yScale2.range()[1] + 45
                 : yScale.range()[0] + 45
             }
+            fontStyle="italic"
           >
             m/z
           </text>
