@@ -195,7 +195,14 @@ function buildFormDataFromSearchParams(searchParams: URLSearchParams) {
 
   const species = searchParams.get('species');
   if (species && species.length > 0) {
-    formData.taxonomyFilterOptions = { rank: 'species', taxon: species.split(',')[0] } as TaxonomyFilterOptions;
+    formData.taxonomyFilterOptions = { rank: 'species', taxon: species } as TaxonomyFilterOptions;
+    containsValues = true;
+  }
+
+  const taxonomyRank = searchParams.get('taxonomy_rank');
+  const taxonomyTaxon = searchParams.get('taxonomy_taxon');
+  if (taxonomyRank && taxonomyTaxon) {
+    formData.taxonomyFilterOptions = { rank: taxonomyRank, taxon: taxonomyTaxon } as TaxonomyFilterOptions;
     containsValues = true;
   }
 

@@ -260,7 +260,7 @@ func (c *DefaultAPIController) GetRecords(w http.ResponseWriter, r *http.Request
 	}
 	var speciesParam string
 	if query.Has("species") {
-		speciesParam = query.Get("species")
+		speciesParam = strings.Join(query["species"], ",")
 	}
 	var massMinParam, massMaxParam, ccsMinParam, ccsMaxParam, adductTypeParam string
 	if query.Has("mass_min") {
@@ -440,7 +440,7 @@ func (c *DefaultAPIController) GetSearchResults(w http.ResponseWriter, r *http.R
 	}
 	var speciesParam string
 	if query.Has("species") {
-		speciesParam = query.Get("species")
+		speciesParam = strings.Join(query["species"], ",")
 	}
 	var massMinParam2, massMaxParam2, ccsMinParam2, ccsMaxParam2, adductTypeParam2 string
 	if query.Has("mass_min") {

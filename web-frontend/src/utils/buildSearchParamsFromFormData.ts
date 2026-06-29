@@ -171,7 +171,7 @@ function buildSearchParamsFromFormData(formData: SearchFields) {
     builtSearchParams['adduct_type'] = [adductType];
   }
 
-  // Taxonomy filter: resolve rank+taxon to genus or species params
+  // Taxonomy filter: resolve rank+taxon to API params
   const rank = formData.taxonomyFilterOptions?.rank ?? '';
   const taxon = (formData.taxonomyFilterOptions?.taxon ?? '').trim();
   if (rank && taxon) {
@@ -180,12 +180,15 @@ function buildSearchParamsFromFormData(formData: SearchFields) {
     } else if (rank === 'species') {
       builtSearchParams['species'] = [taxon];
     } else {
-      // Resolve higher rank to list of species via taxonomy_info.json
+      // Higher ranks (phylum/class/order/family): store rank+taxon in URL so
+      // the form can round-trip correctly, and expand to species for the API call
+      builtSearchParams['taxonomy_rank'] = [rank];
+      builtSearchParams['taxonomy_taxon'] = [taxon];
       const matchingSpecies = (taxonomyInfo as Record<string, string>[])
         .filter((row) => row[rank]?.toLowerCase() === taxon.toLowerCase())
         .map((row) => row.species);
       if (matchingSpecies.length > 0) {
-        builtSearchParams['species'] = [matchingSpecies.join(',')];
+        builtSearchParams['species'] = matchingSpecies;
       }
     }
   }

@@ -5,7 +5,9 @@ async function fetchData(url: string, searchParams?: SearchParams) {
   const params = new URLSearchParams();
   if (searchParams) {
     Object.keys(searchParams).forEach((key) => {
-      params.append(key, searchParams[key].join(','));
+      // Append each value as a separate param so commas in values
+      // (e.g. multi-species taxonomy filter) are not treated as delimiters
+      searchParams[key].forEach((val) => params.append(key, val));
     });
   }
 
