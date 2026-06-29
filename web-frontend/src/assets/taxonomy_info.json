@@ -1,9 +1,216 @@
 [
   {
+    "species": "Alternaria tenuis",
+    "taxid": "5599",
+    "genus": "Alternaria",
+    "family": "Pleosporaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Annulohypoxylon cohaerens",
+    "taxid": "1955267",
+    "genus": "Jackrogersella",
+    "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
     "species": "Annulohypoxylon truncatum",
     "taxid": "327061",
     "genus": "Annulohypoxylon",
     "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Armillaria mellea",
+    "taxid": "47429",
+    "genus": "Armillaria",
+    "family": "Physalacriaceae",
+    "order": "Agaricales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Armillaria novae-zelandiae",
+    "taxid": "153914",
+    "genus": "Armillaria",
+    "family": "Physalacriaceae",
+    "order": "Agaricales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Arthrinium arundinis",
+    "taxid": "335852",
+    "genus": "Apiospora",
+    "family": "Apiosporaceae",
+    "order": "Amphisphaeriales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Aspergillus flavipes",
+    "taxid": "41900",
+    "genus": "Aspergillus",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Aspergillus fumigatus",
+    "taxid": "746128",
+    "genus": "Aspergillus",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Aspergillus niveus",
+    "taxid": "41281",
+    "genus": "Aspergillus",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Aspergillus parasiticus",
+    "taxid": "5067",
+    "genus": "Aspergillus",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Aspergillus sp.",
+    "taxid": "5065",
+    "genus": "Aspergillus",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Beauveria bassiana",
+    "taxid": "176275",
+    "genus": "Beauveria",
+    "family": "Cordycipitaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Beauveria tenella",
+    "taxid": "37999",
+    "genus": "Beauveria",
+    "family": "Cordycipitaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Botrytis cinerea",
+    "taxid": "40559",
+    "genus": "Botrytis",
+    "family": "Sclerotiniaceae",
+    "order": "Helotiales",
+    "class": "Leotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Cephalosporium aphidicola",
+    "taxid": "2231603",
+    "genus": "Akanthomyces",
+    "family": "Cordycipitaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Chaetomium aureum",
+    "taxid": "79815",
+    "genus": "Arcopilus",
+    "family": "Chaetomiaceae",
+    "order": "Sordariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Chaetomium cochliodes",
+    "taxid": "904709",
+    "genus": "Chaetomium",
+    "family": "Chaetomiaceae",
+    "order": "Sordariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Chaetomium globosum",
+    "taxid": "38033",
+    "genus": "Chaetomium",
+    "family": "Chaetomiaceae",
+    "order": "Sordariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Chaetomium sp.",
+    "taxid": "1769349",
+    "genus": "Chaetomium",
+    "family": "Chaetomiaceae",
+    "order": "Sordariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Colpoma sp.",
+    "taxid": "2040736",
+    "genus": "Colpoma",
+    "family": "Rhytismataceae",
+    "order": "Rhytismatales",
+    "class": "Leotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Coniothyrium sp.",
+    "taxid": "1756115",
+    "genus": "Coniothyrium",
+    "family": "Coniothyriaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Cordyceps javanica",
+    "taxid": "43265",
+    "genus": "Cordyceps",
+    "family": "Cordycipitaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Cryptoporus volvatus",
+    "taxid": "40431",
+    "genus": "Cryptoporus",
+    "family": "Polyporaceae",
+    "order": "Polyporales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Cryptosphaeria sp. CNL-523",
+    "taxid": "766798",
+    "genus": "Cryptosphaeria",
+    "family": "Diatrypaceae",
     "order": "Xylariales",
     "class": "Sordariomycetes",
     "phylum": "Ascomycota"
@@ -18,9 +225,108 @@
     "phylum": "Ascomycota"
   },
   {
+    "species": "Daldinia sp.",
+    "taxid": "1769485",
+    "genus": "Daldinia",
+    "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Exophiala sp.",
+    "taxid": "1718875",
+    "genus": "Exophiala",
+    "family": "Herpotrichiellaceae",
+    "order": "Chaetothyriales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Gymnopus sp. 0612-9",
+    "taxid": "1675522",
+    "genus": "Gymnopus",
+    "family": "Omphalotaceae",
+    "order": "Agaricales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Helminthosporium dematioideum",
+    "taxid": "139229",
+    "genus": "Pyrenophora",
+    "family": "Pleosporaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Hericium coralloides",
+    "taxid": "100756",
+    "genus": "Hericium",
+    "family": "Hericiaceae",
+    "order": "Russulales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Hericium erinaceum",
+    "taxid": "91752",
+    "genus": "Hericium",
+    "family": "Hericiaceae",
+    "order": "Russulales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Hericium erinaceus",
+    "taxid": "91752",
+    "genus": "Hericium",
+    "family": "Hericiaceae",
+    "order": "Russulales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Hohenbuehelia grisea",
+    "taxid": "104357",
+    "genus": "Hohenbuehelia",
+    "family": "Pleurotaceae",
+    "order": "Agaricales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Hypotrachyna immaculata",
+    "taxid": "286322",
+    "genus": "Hypotrachyna",
+    "family": "Parmeliaceae",
+    "order": "Lecanorales",
+    "class": "Lecanoromycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Hypoxylon ascomycete Hypoxylon multiforme",
+    "taxid": "1955268",
+    "genus": "Jackrogersella",
+    "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
     "species": "Hypoxylon carneum",
     "taxid": "326655",
     "genus": "Hypoxylon",
+    "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Hypoxylon cohaerens",
+    "taxid": "1955267",
+    "genus": "Jackrogersella",
     "family": "Hypoxylaceae",
     "order": "Xylariales",
     "class": "Sordariomycetes",
@@ -90,6 +396,15 @@
     "phylum": "Ascomycota"
   },
   {
+    "species": "Hypoxylon rutilum",
+    "taxid": "326677",
+    "genus": "Hypoxylon",
+    "family": "Hypoxylaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
     "species": "Hypoxylon ticinense",
     "taxid": "326680",
     "genus": "Hypoxylon",
@@ -124,5 +439,230 @@
     "order": "Xylariales",
     "class": "Sordariomycetes",
     "phylum": "Ascomycota"
+  },
+  {
+    "species": "Laetiporus sulphureus",
+    "taxid": "5630",
+    "genus": "Laetiporus",
+    "family": "Laetiporaceae",
+    "order": "Polyporales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Leptosphaeria obiones",
+    "taxid": "2203068",
+    "genus": "Halobyssothecium",
+    "family": "Lentitheciaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Microcyclospora tardicrescens",
+    "taxid": "766056",
+    "genus": "Microcyclospora",
+    "family": "",
+    "order": "Capnodiales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Microporus sp.",
+    "taxid": "2007320",
+    "genus": "Microporus",
+    "family": "Polyporaceae",
+    "order": "Polyporales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Myrothecium verrucaria",
+    "taxid": "1859699",
+    "genus": "Albifimbria",
+    "family": "Stachybotryaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Penicillium aethiopicum",
+    "taxid": "36650",
+    "genus": "Penicillium",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Penicillium brefeldianum",
+    "taxid": "1131482",
+    "genus": "Penicillium",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Penicillium roqueforti",
+    "taxid": "5082",
+    "genus": "Penicillium",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Penicillium sp.",
+    "taxid": "5081",
+    "genus": "Penicillium",
+    "family": "Aspergillaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Penicillium verruculosum",
+    "taxid": "198730",
+    "genus": "Talaromyces",
+    "family": "Trichocomaceae",
+    "order": "Eurotiales",
+    "class": "Eurotiomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Phellinus vaninii",
+    "taxid": "175686",
+    "genus": "Sanghuangporus",
+    "family": "Hymenochaetaceae",
+    "order": "Hymenochaetales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Phoma sp.",
+    "taxid": "1707701",
+    "genus": "Phoma",
+    "family": "Didymellaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Phomopsis sp.",
+    "taxid": "1715245",
+    "genus": "Phomopsis",
+    "family": "Diaporthaceae",
+    "order": "Diaporthales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Phomopsis sp. shj2",
+    "taxid": "1805828",
+    "genus": "Phomopsis",
+    "family": "Diaporthaceae",
+    "order": "Diaporthales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Polyporus ciliatus",
+    "taxid": "134555",
+    "genus": "Polyporus",
+    "family": "Polyporaceae",
+    "order": "Polyporales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Preussia similis",
+    "taxid": "269685",
+    "genus": "Preussia",
+    "family": "Sporormiaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Pseudoanguillospora sp.",
+    "taxid": "3634386",
+    "genus": "Pseudoanguillospora",
+    "family": "",
+    "order": "",
+    "class": "",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Pyricularia grisea",
+    "taxid": "148305",
+    "genus": "Pyricularia",
+    "family": "Pyriculariaceae",
+    "order": "Magnaporthales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Rhodotus palmatus",
+    "taxid": "71920",
+    "genus": "Rhodotus",
+    "family": "Physalacriaceae",
+    "order": "Agaricales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
+  },
+  {
+    "species": "Sparticola junci",
+    "taxid": "1803578",
+    "genus": "Sparticola",
+    "family": "Sporormiaceae",
+    "order": "Pleosporales",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Spicaria elegans",
+    "taxid": "509241",
+    "genus": "Mariannaea",
+    "family": "Nectriaceae",
+    "order": "Hypocreales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Wilsonomyces carpophilus",
+    "taxid": "763997",
+    "genus": "Wilsonomyces",
+    "family": "",
+    "order": "",
+    "class": "Dothideomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Xylaria hypoxylon",
+    "taxid": "37992",
+    "genus": "Xylaria",
+    "family": "Xylariaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Xylaria obovata",
+    "taxid": "498170",
+    "genus": "Xylaria",
+    "family": "Xylariaceae",
+    "order": "Xylariales",
+    "class": "Sordariomycetes",
+    "phylum": "Ascomycota"
+  },
+  {
+    "species": "Antrodia cinnamomea",
+    "taxid": "2696576",
+    "genus": "Taiwanofungus",
+    "family": "Taiwanofungaceae",
+    "order": "Polyporales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota"
   }
 ]

@@ -2,102 +2,89 @@
   "name": "Fungi",
   "rank": "kingdom",
   "class_counts": {
-    "NRPS-like": 18,
-    "Polyketide": 85,
-    "Terpene": 23,
-    "PKS-NRPS": 1
+    "Terpenoids": 110,
+    "Alkaloids": 57,
+    "Polyketides": 159,
+    "Shikimates and Phenylpropanoids": 10,
+    "Amino acids and Peptides / Polyketides": 13,
+    "Alkaloids / Amino acids and Peptides": 7,
+    "Unknown": 20,
+    "Polyketides / Terpenoids": 6,
+    "Amino acids and Peptides": 22,
+    "Fatty acids": 1
   },
   "children": [
     {
       "name": "Ascomycota",
       "rank": "phylum",
       "class_counts": {
-        "NRPS-like": 18,
-        "Polyketide": 85,
-        "Terpene": 23,
-        "PKS-NRPS": 1
+        "Terpenoids": 57,
+        "Alkaloids": 53,
+        "Polyketides": 159,
+        "Shikimates and Phenylpropanoids": 10,
+        "Amino acids and Peptides / Polyketides": 13,
+        "Alkaloids / Amino acids and Peptides": 7,
+        "Unknown": 14,
+        "Amino acids and Peptides": 22,
+        "Fatty acids": 1,
+        "Polyketides / Terpenoids": 2
       },
       "children": [
         {
           "name": "Sordariomycetes",
           "rank": "class",
           "class_counts": {
-            "NRPS-like": 18,
-            "Polyketide": 85,
-            "Terpene": 23,
-            "PKS-NRPS": 1
+            "Terpenoids": 36,
+            "Alkaloids": 28,
+            "Polyketides": 134,
+            "Amino acids and Peptides / Polyketides": 6,
+            "Alkaloids / Amino acids and Peptides": 3,
+            "Unknown": 2,
+            "Amino acids and Peptides": 22,
+            "Fatty acids": 1
           },
           "children": [
             {
               "name": "Xylariales",
               "rank": "order",
               "class_counts": {
-                "NRPS-like": 18,
-                "Polyketide": 85,
-                "Terpene": 23,
-                "PKS-NRPS": 1
+                "Terpenoids": 31,
+                "Alkaloids": 2,
+                "Polyketides": 128,
+                "Unknown": 2,
+                "Amino acids and Peptides": 22,
+                "Fatty acids": 1
               },
               "children": [
                 {
                   "name": "Hypoxylaceae",
                   "rank": "family",
                   "class_counts": {
-                    "NRPS-like": 18,
-                    "Polyketide": 85,
-                    "Terpene": 23,
-                    "PKS-NRPS": 1
+                    "Terpenoids": 29,
+                    "Polyketides": 128,
+                    "Unknown": 2,
+                    "Amino acids and Peptides": 22,
+                    "Fatty acids": 1
                   },
                   "children": [
                     {
                       "name": "Hypoxylon",
                       "rank": "genus",
                       "class_counts": {
-                        "NRPS-like": 7,
-                        "Polyketide": 68,
-                        "Terpene": 22,
-                        "PKS-NRPS": 1
+                        "Terpenoids": 28,
+                        "Polyketides": 93,
+                        "Amino acids and Peptides": 10,
+                        "Fatty acids": 1
                       },
                       "children": [
                         {
                           "name": "Hypoxylon rickii",
                           "rank": "species",
                           "class_counts": {
-                            "NRPS-like": 7,
-                            "Polyketide": 4,
-                            "Terpene": 22
-                          },
-                          "children": []
-                        },
-                        {
-                          "name": "Hypoxylon rubiginosum",
-                          "rank": "species",
-                          "class_counts": {
-                            "Polyketide": 7
-                          },
-                          "children": []
-                        },
-                        {
-                          "name": "Hypoxylon fragiforme",
-                          "rank": "species",
-                          "class_counts": {
-                            "Polyketide": 6,
-                            "PKS-NRPS": 1
-                          },
-                          "children": []
-                        },
-                        {
-                          "name": "Hypoxylon fulvo-sulphureum",
-                          "rank": "species",
-                          "class_counts": {
-                            "Polyketide": 7
-                          },
-                          "children": []
-                        },
-                        {
-                          "name": "Hypoxylon macrocarpum",
-                          "rank": "species",
-                          "class_counts": {
-                            "Polyketide": 33
+                            "Terpenoids": 28,
+                            "Amino acids and Peptides": 10,
+                            "Polyketides": 8,
+                            "Fatty acids": 1
                           },
                           "children": []
                         },
@@ -105,15 +92,15 @@
                           "name": "Hypoxylon ticinense",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 2
+                            "Polyketides": 2
                           },
                           "children": []
                         },
                         {
-                          "name": "Hypoxylon fuscum",
+                          "name": "Hypoxylon fulvo-sulphureum",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 3
+                            "Polyketides": 5
                           },
                           "children": []
                         },
@@ -121,7 +108,31 @@
                           "name": "Hypoxylon carneum",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 3
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon macrocarpum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 33
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon fuscum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon fragiforme",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 19
                           },
                           "children": []
                         },
@@ -129,40 +140,23 @@
                           "name": "Hypoxylon hypomiltum",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 3
-                          },
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Jackrogersella",
-                      "rank": "genus",
-                      "class_counts": {
-                        "Polyketide": 13
-                      },
-                      "children": [
-                        {
-                          "name": "Jackrogersella minutella",
-                          "rank": "species",
-                          "class_counts": {
-                            "Polyketide": 4
+                            "Polyketides": 3
                           },
                           "children": []
                         },
                         {
-                          "name": "Jackrogersella multiformis",
+                          "name": "Hypoxylon rubiginosum",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 1
+                            "Polyketides": 14
                           },
                           "children": []
                         },
                         {
-                          "name": "Jackrogersella cohaerens",
+                          "name": "Hypoxylon rutilum",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 8
+                            "Polyketides": 3
                           },
                           "children": []
                         }
@@ -172,16 +166,74 @@
                       "name": "Annulohypoxylon",
                       "rank": "genus",
                       "class_counts": {
-                        "Terpene": 1,
-                        "NRPS-like": 11
+                        "Terpenoids": 1,
+                        "Amino acids and Peptides": 12
                       },
                       "children": [
                         {
                           "name": "Annulohypoxylon truncatum",
                           "rank": "species",
                           "class_counts": {
-                            "Terpene": 1,
-                            "NRPS-like": 11
+                            "Terpenoids": 1,
+                            "Amino acids and Peptides": 12
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Jackrogersella",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 28,
+                        "Unknown": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Hypoxylon cohaerens",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 6
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Jackrogersella cohaerens",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 11
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Annulohypoxylon cohaerens",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Jackrogersella minutella",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 7
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Jackrogersella multiformis",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hypoxylon ascomycete Hypoxylon multiforme",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 2
                           },
                           "children": []
                         }
@@ -191,14 +243,1399 @@
                       "name": "Daldinia",
                       "rank": "genus",
                       "class_counts": {
-                        "Polyketide": 4
+                        "Polyketides": 7
                       },
                       "children": [
                         {
                           "name": "Daldinia concentrica",
                           "rank": "species",
                           "class_counts": {
-                            "Polyketide": 4
+                            "Polyketides": 4
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Daldinia sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Xylariaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Xylaria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Xylaria hypoxylon",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Xylaria obovata",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Diatrypaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Cryptosphaeria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Cryptosphaeria sp. CNL-523",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Hypocreales",
+              "rank": "order",
+              "class_counts": {
+                "Terpenoids": 5,
+                "Alkaloids": 6,
+                "Amino acids and Peptides / Polyketides": 6
+              },
+              "children": [
+                {
+                  "name": "Cordycipitaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 2,
+                    "Amino acids and Peptides / Polyketides": 6,
+                    "Alkaloids": 1
+                  },
+                  "children": [
+                    {
+                      "name": "Akanthomyces",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Cephalosporium aphidicola",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Beauveria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Amino acids and Peptides / Polyketides": 5,
+                        "Alkaloids": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Beauveria bassiana",
+                          "rank": "species",
+                          "class_counts": {
+                            "Amino acids and Peptides / Polyketides": 3,
+                            "Alkaloids": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Beauveria tenella",
+                          "rank": "species",
+                          "class_counts": {
+                            "Amino acids and Peptides / Polyketides": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cordyceps",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Amino acids and Peptides / Polyketides": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Cordyceps javanica",
+                          "rank": "species",
+                          "class_counts": {
+                            "Amino acids and Peptides / Polyketides": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Nectriaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 5
+                  },
+                  "children": [
+                    {
+                      "name": "Mariannaea",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 5
+                      },
+                      "children": [
+                        {
+                          "name": "Spicaria elegans",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 5
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Stachybotryaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Albifimbria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Myrothecium verrucaria",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Sordariales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 8,
+                "Polyketides": 6,
+                "Alkaloids / Amino acids and Peptides": 3
+              },
+              "children": [
+                {
+                  "name": "Chaetomiaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 8,
+                    "Polyketides": 6,
+                    "Alkaloids / Amino acids and Peptides": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Chaetomium",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 8,
+                        "Polyketides": 5,
+                        "Alkaloids / Amino acids and Peptides": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Chaetomium globosum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 6,
+                            "Polyketides": 5
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Chaetomium sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 2
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Chaetomium cochliodes",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids / Amino acids and Peptides": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Arcopilus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Chaetomium aureum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Diaporthales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 6
+              },
+              "children": [
+                {
+                  "name": "Diaporthaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 6
+                  },
+                  "children": [
+                    {
+                      "name": "Phomopsis",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 6
+                      },
+                      "children": [
+                        {
+                          "name": "Phomopsis sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Phomopsis sp. shj2",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 5
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Amphisphaeriales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 3
+              },
+              "children": [
+                {
+                  "name": "Apiosporaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Apiospora",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Arthrinium arundinis",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Magnaporthales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 3
+              },
+              "children": [
+                {
+                  "name": "Pyriculariaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Pyricularia",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Pyricularia grisea",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Leotiomycetes",
+          "rank": "class",
+          "class_counts": {
+            "Terpenoids": 10,
+            "Unknown": 5,
+            "Polyketides": 4
+          },
+          "children": [
+            {
+              "name": "Helotiales",
+              "rank": "order",
+              "class_counts": {
+                "Terpenoids": 10
+              },
+              "children": [
+                {
+                  "name": "Sclerotiniaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 10
+                  },
+                  "children": [
+                    {
+                      "name": "Botrytis",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 10
+                      },
+                      "children": [
+                        {
+                          "name": "Botrytis cinerea",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 10
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Rhytismatales",
+              "rank": "order",
+              "class_counts": {
+                "Unknown": 5,
+                "Polyketides": 4
+              },
+              "children": [
+                {
+                  "name": "Rhytismataceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Unknown": 5,
+                    "Polyketides": 4
+                  },
+                  "children": [
+                    {
+                      "name": "Colpoma",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Unknown": 5,
+                        "Polyketides": 4
+                      },
+                      "children": [
+                        {
+                          "name": "Colpoma sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 5,
+                            "Polyketides": 4
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dothideomycetes",
+          "rank": "class",
+          "class_counts": {
+            "Shikimates and Phenylpropanoids": 3,
+            "Alkaloids": 8,
+            "Polyketides": 11,
+            "Amino acids and Peptides / Polyketides": 7,
+            "Unknown": 5
+          },
+          "children": [
+            {
+              "name": "Pleosporales",
+              "rank": "order",
+              "class_counts": {
+                "Shikimates and Phenylpropanoids": 3,
+                "Alkaloids": 8,
+                "Polyketides": 11,
+                "Unknown": 3
+              },
+              "children": [
+                {
+                  "name": "Pleosporaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Shikimates and Phenylpropanoids": 3,
+                    "Alkaloids": 1
+                  },
+                  "children": [
+                    {
+                      "name": "Alternaria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Shikimates and Phenylpropanoids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Alternaria tenuis",
+                          "rank": "species",
+                          "class_counts": {
+                            "Shikimates and Phenylpropanoids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Pyrenophora",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Helminthosporium dematioideum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Didymellaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 7
+                  },
+                  "children": [
+                    {
+                      "name": "Phoma",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 7
+                      },
+                      "children": [
+                        {
+                          "name": "Phoma sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 7
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Lentitheciaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Polyketides": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Halobyssothecium",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Leptosphaeria obiones",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Coniothyriaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Polyketides": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Coniothyrium",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Coniothyrium sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Sporormiaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Polyketides": 6,
+                    "Unknown": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Preussia",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Preussia similis",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Sparticola",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Unknown": 3,
+                        "Polyketides": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Sparticola junci",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 3,
+                            "Polyketides": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "",
+              "rank": "order",
+              "class_counts": {
+                "Amino acids and Peptides / Polyketides": 7
+              },
+              "children": [
+                {
+                  "name": "",
+                  "rank": "family",
+                  "class_counts": {
+                    "Amino acids and Peptides / Polyketides": 7
+                  },
+                  "children": [
+                    {
+                      "name": "Wilsonomyces",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Amino acids and Peptides / Polyketides": 7
+                      },
+                      "children": [
+                        {
+                          "name": "Wilsonomyces carpophilus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Amino acids and Peptides / Polyketides": 7
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Capnodiales",
+              "rank": "order",
+              "class_counts": {
+                "Unknown": 2
+              },
+              "children": [
+                {
+                  "name": "",
+                  "rank": "family",
+                  "class_counts": {
+                    "Unknown": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Microcyclospora",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Unknown": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Microcyclospora tardicrescens",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Eurotiomycetes",
+          "rank": "class",
+          "class_counts": {
+            "Alkaloids": 17,
+            "Shikimates and Phenylpropanoids": 7,
+            "Polyketides": 6,
+            "Terpenoids": 11,
+            "Alkaloids / Amino acids and Peptides": 4,
+            "Unknown": 2,
+            "Polyketides / Terpenoids": 2
+          },
+          "children": [
+            {
+              "name": "Eurotiales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 17,
+                "Polyketides": 6,
+                "Terpenoids": 11,
+                "Alkaloids / Amino acids and Peptides": 4,
+                "Unknown": 2,
+                "Polyketides / Terpenoids": 2
+              },
+              "children": [
+                {
+                  "name": "Aspergillaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 17,
+                    "Polyketides": 6,
+                    "Terpenoids": 11,
+                    "Alkaloids / Amino acids and Peptides": 4,
+                    "Polyketides / Terpenoids": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Aspergillus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 17,
+                        "Polyketides": 4,
+                        "Alkaloids / Amino acids and Peptides": 4,
+                        "Terpenoids": 6
+                      },
+                      "children": [
+                        {
+                          "name": "Aspergillus niveus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 7
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Aspergillus flavipes",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 10
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Aspergillus parasiticus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Aspergillus fumigatus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids / Amino acids and Peptides": 4,
+                            "Polyketides": 2
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Aspergillus sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 6,
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Penicillium",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 2,
+                        "Terpenoids": 5,
+                        "Polyketides / Terpenoids": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Penicillium brefeldianum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Penicillium roqueforti",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 4
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Penicillium sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 1,
+                            "Polyketides": 1
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Penicillium aethiopicum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides / Terpenoids": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Trichocomaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Unknown": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Talaromyces",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Unknown": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Penicillium verruculosum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Chaetothyriales",
+              "rank": "order",
+              "class_counts": {
+                "Shikimates and Phenylpropanoids": 7
+              },
+              "children": [
+                {
+                  "name": "Herpotrichiellaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Shikimates and Phenylpropanoids": 7
+                  },
+                  "children": [
+                    {
+                      "name": "Exophiala",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Shikimates and Phenylpropanoids": 7
+                      },
+                      "children": [
+                        {
+                          "name": "Exophiala sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Shikimates and Phenylpropanoids": 7
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lecanoromycetes",
+          "rank": "class",
+          "class_counts": {
+            "Polyketides": 2
+          },
+          "children": [
+            {
+              "name": "Lecanorales",
+              "rank": "order",
+              "class_counts": {
+                "Polyketides": 2
+              },
+              "children": [
+                {
+                  "name": "Parmeliaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Polyketides": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Hypotrachyna",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Hypotrachyna immaculata",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "rank": "class",
+          "class_counts": {
+            "Polyketides": 2
+          },
+          "children": [
+            {
+              "name": "",
+              "rank": "order",
+              "class_counts": {
+                "Polyketides": 2
+              },
+              "children": [
+                {
+                  "name": "",
+                  "rank": "family",
+                  "class_counts": {
+                    "Polyketides": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Pseudoanguillospora",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Polyketides": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Pseudoanguillospora sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Basidiomycota",
+      "rank": "phylum",
+      "class_counts": {
+        "Terpenoids": 53,
+        "Alkaloids": 4,
+        "Polyketides / Terpenoids": 4,
+        "Unknown": 6
+      },
+      "children": [
+        {
+          "name": "Agaricomycetes",
+          "rank": "class",
+          "class_counts": {
+            "Terpenoids": 53,
+            "Alkaloids": 4,
+            "Polyketides / Terpenoids": 4,
+            "Unknown": 6
+          },
+          "children": [
+            {
+              "name": "Agaricales",
+              "rank": "order",
+              "class_counts": {
+                "Terpenoids": 29,
+                "Unknown": 3
+              },
+              "children": [
+                {
+                  "name": "Physalacriaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 24,
+                    "Unknown": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Armillaria",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 15
+                      },
+                      "children": [
+                        {
+                          "name": "Armillaria mellea",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 12
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Armillaria novae-zelandiae",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Rhodotus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 9,
+                        "Unknown": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Rhodotus palmatus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 9,
+                            "Unknown": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Omphalotaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Gymnopus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Gymnopus sp. 0612-9",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Pleurotaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 2
+                  },
+                  "children": [
+                    {
+                      "name": "Hohenbuehelia",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 2
+                      },
+                      "children": [
+                        {
+                          "name": "Hohenbuehelia grisea",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 2
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Russulales",
+              "rank": "order",
+              "class_counts": {
+                "Alkaloids": 4,
+                "Terpenoids": 8,
+                "Polyketides / Terpenoids": 4
+              },
+              "children": [
+                {
+                  "name": "Hericiaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Alkaloids": 4,
+                    "Terpenoids": 8,
+                    "Polyketides / Terpenoids": 4
+                  },
+                  "children": [
+                    {
+                      "name": "Hericium",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Alkaloids": 4,
+                        "Terpenoids": 8,
+                        "Polyketides / Terpenoids": 4
+                      },
+                      "children": [
+                        {
+                          "name": "Hericium coralloides",
+                          "rank": "species",
+                          "class_counts": {
+                            "Alkaloids": 4
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hericium erinaceum",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 8
+                          },
+                          "children": []
+                        },
+                        {
+                          "name": "Hericium erinaceus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Polyketides / Terpenoids": 4
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Polyporales",
+              "rank": "order",
+              "class_counts": {
+                "Terpenoids": 15,
+                "Unknown": 3
+              },
+              "children": [
+                {
+                  "name": "Polyporaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 9,
+                    "Unknown": 3
+                  },
+                  "children": [
+                    {
+                      "name": "Cryptoporus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Cryptoporus volvatus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Polyporus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 5
+                      },
+                      "children": [
+                        {
+                          "name": "Polyporus ciliatus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 5
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Microporus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Unknown": 3,
+                        "Terpenoids": 3
+                      },
+                      "children": [
+                        {
+                          "name": "Microporus sp.",
+                          "rank": "species",
+                          "class_counts": {
+                            "Unknown": 3,
+                            "Terpenoids": 3
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Taiwanofungaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 5
+                  },
+                  "children": [
+                    {
+                      "name": "Taiwanofungus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 5
+                      },
+                      "children": [
+                        {
+                          "name": "Antrodia cinnamomea",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 5
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Laetiporaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 1
+                  },
+                  "children": [
+                    {
+                      "name": "Laetiporus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Laetiporus sulphureus",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 1
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Hymenochaetales",
+              "rank": "order",
+              "class_counts": {
+                "Terpenoids": 1
+              },
+              "children": [
+                {
+                  "name": "Hymenochaetaceae",
+                  "rank": "family",
+                  "class_counts": {
+                    "Terpenoids": 1
+                  },
+                  "children": [
+                    {
+                      "name": "Sanghuangporus",
+                      "rank": "genus",
+                      "class_counts": {
+                        "Terpenoids": 1
+                      },
+                      "children": [
+                        {
+                          "name": "Phellinus vaninii",
+                          "rank": "species",
+                          "class_counts": {
+                            "Terpenoids": 1
                           },
                           "children": []
                         }

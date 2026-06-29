@@ -10,6 +10,19 @@ from collections import defaultdict
 
 RANKS = ["phylum", "class", "order", "family", "genus", "species"]
 
+# Map old/legacy class labels to NPClassifier pathway names
+CLASS_NORMALISE = {
+    'Polyketide':   'Polyketides',
+    'Terpene':      'Terpenoids',
+    'NRPS-like':    'Amino acids and Peptides',
+    'PKS-NRPS':     'Polyketides',
+    'Unknown':      'Unknown',
+}
+
+
+def normalise_class(cls: str) -> str:
+    return CLASS_NORMALISE.get(cls, cls)
+
 
 def load_data():
     tax = {}
@@ -17,10 +30,13 @@ def load_data():
         for row in csv.DictReader(f):
             tax[row["species"]] = row
 
+    # Species with unresolved phylum are excluded from the tree (see unknown_taxonomy_to_review.tsv)
+    unknown_tax = {sp for sp, t in tax.items() if not t.get("phylum")}
+
     compounds = []
     with open("mycomsbase_unique_compounds.csv") as f:
         for row in csv.DictReader(f):
-            if row["fungal_producer"] not in ("NA", ""):
+            if row["fungal_producer"] not in ("NA", "") and row["fungal_producer"] not in unknown_tax:
                 compounds.append(row)
 
     return tax, compounds
@@ -35,7 +51,7 @@ def build_tree(tax, compounds):
 
     for row in compounds:
         sp = row["fungal_producer"]
-        cls = row["compound_class"]
+        cls = normalise_class(row["compound_class"])
         n = int(row["n_spectra"])
         t = tax.get(sp, {})
 

@@ -1,39 +1,158 @@
 inchikey,compound_name,compound_class,fungal_producer,n_spectra,doi,example_accession
-JOVXGJFDWIAZDW-UHFFFAOYSA-N,Rickenyl A,NRPS-like,Hypoxylon rickii,1,10.1016/j.phytochem.2015.08.004,MSBNK-HZI-CBIO-AA-000001
-RVHMPIHHNZVLMH-UHFFFAOYSA-N,Rickenyl B,NRPS-like,Hypoxylon rickii,3,10.1016/j.phytochem.2015.08.005,MSBNK-HZI-CBIO-AA-000002
-SKKUPTPBYKRTOQ-UHFFFAOYSA-N,Rickenyl C,NRPS-like,Hypoxylon rickii,1,10.1016/j.phytochem.2015.08.006,MSBNK-HZI-CBIO-AA-000005
-QOFOPUXDBNNMHW-UHFFFAOYSA-N,Rickenyl D/E,NRPS-like,Hypoxylon rickii,2,10.1016/j.phytochem.2015.08.007,MSBNK-HZI-CBIO-AA-000006
-ZPZBRVXCZBYHPI-UHFFFAOYSA-N,Rickiol A,Polyketide,Hypoxylon rickii,4,10.1002/chem.201704928,MSBNK-HZI-CBIO-AA-000008
-PHGIAZZKSBKALI-WOJBJXKFSA-N,Rickitin,Terpene,Hypoxylon rickii,4,10.1016/j.phytochem.2015.06.002,MSBNK-HZI-CBIO-AA-000012
-GQXZUABNLSWQJA-UHFFFAOYSA-N,Orsellinic acid,Polyketide,Hypoxylon rubiginosum,1,10.3897/mycokeys.66.50946,MSBNK-HZI-CBIO-AA-000016
-ZJIWQCFXEQSFGR-SHTLVRLNSA-N,Mitorubrinic acid,Polyketide,Hypoxylon fragiforme,1,10.1002/chem.202003215,MSBNK-HZI-CBIO-AA-000017
-NVBACLQLVNIJSN-ONHZAOQJSA-N,Fragiformin B,PKS-NRPS,Hypoxylon fragiforme,1,10.1016/j.mycres.2006.03.013,MSBNK-HZI-CBIO-AA-000018
-HLGCEVWDIZFNHK-UHFFFAOYSA-N,Hinnulin A,Polyketide,Jackrogersella minutella,1,10.1016/j.phytochem.2017.02.014,MSBNK-HZI-CBIO-AA-000019
-ZTCHPQNUISFMBP-OQHHHHLYSA-N,Brasilane A,Terpene,Annulohypoxylon truncatum,1,10.1039/D0CC03950K,MSBNK-HZI-CBIO-AA-000020
-OLKIGKBTFQUWPZ-SHTLVRLNSA-N,6''-hidroxymitorubrinol,Polyketide,Hypoxylon fulvo-sulphureum,2,10.1007/s11557-015-1043-1,MSBNK-HZI-CBIO-AA-000021
-NXJNWGPNUAVXHT-SHTLVRLNSA-N,Mitorubrinol,Polyketide,Hypoxylon fragiforme,2,10.1002/chem.202003215,MSBNK-HZI-CBIO-AA-000023
-VNWKTOKETHGBQD-UHFFFAOYSA-N,Macrocarpon A,Polyketide,Hypoxylon macrocarpum,33,10.1007/s11557-006-0021-z,MSBNK-HZI-CBIO-AA-000025
-KPTNCHGMLXFDLF-UHFFFAOYSA-N,Daldinal A,Polyketide,Daldinia concentrica,2,10.1248/cpb.42.1528,MSBNK-HZI-CBIO-AA-000028
-DQKCGVTWWMUREA-OIUIXCLQSA-N,6''-hidroxymitorubrinol acetate,Polyketide,Hypoxylon fulvo-sulphureum,5,10.1007/s11557-015-1043-1,MSBNK-HZI-CBIO-AA-000030
-OGKCRIOQDYPIOZ-OAHLLOKOSA-N,"(3aS)-6-hydroxy-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen1-one",Terpene,Hypoxylon rickii,5,10.1016/j.phytochem.2015.06.002,MSBNK-HZI-CBIO-AA-000034
-OHFDANQVLXIAIK-UHFFFAOYSA-N,Daldinal B,Polyketide,Daldinia concentrica,2,10.1248/cpb.42.1528,MSBNK-HZI-CBIO-AA-000039
-YETSBBYQOFXYGV-UHFFFAOYSA-N,5-methyl mellein,Polyketide,Hypoxylon ticinense,2,10.2509/naf2008.003.0075,MSBNK-HZI-CBIO-AA-000041
-CAMCSBCRRUTMEK-OAHLLOKOSA-N,"(3aS)-7-hydroxy-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen-1-one",Terpene,Hypoxylon rickii,4,10.1016/j.phytochem.2015.06.002,MSBNK-HZI-CBIO-AA-000043
-YNYQKCNDIDXLPZ-OIUIXCLQSA-N,Mitorubrinol acetate,Polyketide,Hypoxylon rubiginosum,2,10.3897/mycokeys.66.50946,MSBNK-HZI-CBIO-AA-000047
-ZLULUXWJVBHEMS-FNEOHHHZSA-N,Mitorubrin,Polyketide,Hypoxylon fragiforme,2,10.1002/chem.202003215,MSBNK-HZI-CBIO-AA-000049
-HPSKGDOQAYWCCU-UHFFFAOYSA-N,Multiformin B,Polyketide,Jackrogersella multiformis,1,10.1055/s-2005-873129,MSBNK-HZI-CBIO-AA-000051
-KEHOQOMYJLDTRB-ZZFJLFPRSA-N,Daldinin E/F,Polyketide,Hypoxylon fuscum,3,10.1016/j.phytochem.2003.09.022,MSBNK-HZI-CBIO-AA-000052
-QMIVTDDJTVQZLY-LYTHVRBOSA-N,Minutellin A,Polyketide,Jackrogersella minutella,3,10.1016/j.phytochem.2017.02.014,MSBNK-HZI-CBIO-AA-000055
-PCEVLQFNPPWJEB-NZDRZINCSA-N,"(3aS,8R)-3a,5,5,8-tetramethyl-3,3a,4,5,7,8-hexahydro-1Hcyclopenta[de]isochromen-1-one",Terpene,Hypoxylon rickii,5,10.1016/j.phytochem.2015.06.002,MSBNK-HZI-CBIO-AA-000058
-IUVFAJHMVAFLJE-OAHLLOKOSA-N,"(3aS)-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen-1-one",Terpene,Hypoxylon rickii,4,10.1016/j.phytochem.2015.06.002,MSBNK-HZI-CBIO-AA-000063
-BNPNEDGQFYVZTE-UHFFFAOYSA-N,Cohaerin E,Polyketide,Jackrogersella cohaerens,3,10.1016/j.phytochem.2013.07.027,MSBNK-HZI-CBIO-AA-000067
-ZDAMBVJOZXCGPS-IXGFDZCOSA-N,Rubiginosin A,Polyketide,Hypoxylon rubiginosum,4,10.3897/mycokeys.66.50946,MSBNK-HZI-CBIO-AA-000069
-BKRWGHXVQLNRMR-UHFFFAOYSA-N,Truncaquinone B,NRPS-like,Annulohypoxylon truncatum,5,10.1016/j.tetlet.2016.04.014,MSBNK-HZI-CBIO-AA-000071
-CEJMBHGSAHCRPJ-UHFFFAOYSA-N,Truncaquinone A,NRPS-like,Annulohypoxylon truncatum,6,10.1016/j.tetlet.2016.04.014,MSBNK-HZI-CBIO-AA-000073
-GNXOYKGSVQTWOE-UHFFFAOYSA-N,BNT,Polyketide,Hypoxylon carneum,3,10.3897/mycokeys.66.50946,MSBNK-HZI-CBIO-AA-000075
-UQVHQQQKJXHPAP-UHFFFAOYSA-N,Dichotosinin,Polyketide,NA,2,NA,MSBNK-HZI-CBIO-AA-000110
-TYURHYMMTQGDOP-LLSAIIIMSA-N,Hypomiltin,Polyketide,Hypoxylon hypomiltum,3,10.1007/s11557-006-0108-6,MSBNK-HZI-CBIO-AA-000112
-GKKNMNFXYPXAOJ-UCAZGYMLSA-N,Cohaerin C,Polyketide,Jackrogersella cohaerens,1,10.1016/j.phytochem.2013.07.027,MSBNK-HZI-CBIO-AA-000115
-UXVBLOOVEHJYRA-NADGSTLWSA-N,Cohaerin G,Polyketide,Jackrogersella cohaerens,3,10.1016/j.phytochem.2013.07.028,MSBNK-HZI-CBIO-AA-000116
-XEFSOHOLRMCPDH-JXMWATIUSA-N,Cohaerin H,Polyketide,Jackrogersella cohaerens,1,10.1016/j.phytochem.2013.07.029,MSBNK-HZI-CBIO-AA-000119
-ALRYFFWQBUQIHL-ORLYWQOISA-N,Fragirubrin A,Polyketide,Hypoxylon fragiforme,1,10.1002/chem.202003215,MSBNK-HZI-CBIO-AA-000120
+DWCXXICTUDDKTB-ZYHUDNBSSA-N,(+)-Flavipucine,Polyketides,Phoma sp. strain 7204,1,10.1002/ejoc.201100284,MycoMSB-HZI-001001
+IUVFAJHMVAFLJE-OAHLLOKOSA-N,"(3aS)-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen-1-one",Terpene,Hypoxylon rickii,4,10.1016/j.phytochem.2015.06.002,MycoMSB-HZI-000169
+OGKCRIOQDYPIOZ-OAHLLOKOSA-N,"(3aS)-6-hydroxy-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen1-one",Terpene,Hypoxylon rickii,9,10.1016/j.phytochem.2015.06.002,MycoMSB-HZI-000034
+PCEVLQFNPPWJEB-NZDRZINCSA-N,"(3aS,8R)-3a,5,5,8-tetramethyl-3,3a,4,5,7,8-hexahydro-1Hcyclopenta[de]isochromen-1-one",Terpene,Hypoxylon rickii,8,10.1016/j.phytochem.2015.06.002,MycoMSB-HZI-000058
+AVIRMQMUBGNCKS-RWCYGVJQSA-N,"10,11-Dehydrocurvularin",Polyketides,Curvularia sp. (strain no. 768),3,10.1002/ejoc.200800522,MycoMSB-HZI-000753
+CAMCSBCRRUTMEK-OAHLLOKOSA-N,10-Oxodehydrodihydrobotrydial,Terpenoids,Botrytis cinerea,9,10.1016/j.phytochem.2015.06.002,MycoMSB-HZI-000044
+RGIWEJOMKQEMPD-BMLXAOGMSA-N,"19,20-epoxycytochalasin N",Alkaloids,Xylaria hypoxylon,1,10.1016/s0040-4020(97)00305-0,MycoMSB-HZI-000703
+GSPOYKSHFNFUKI-HDSNRSDKSA-N,"19,20-epoxycytochalasin Q",Alkaloids,Xylaria obovata,1,10.1016/s0040-4020(01)85632-5,MycoMSB-HZI-000709
+YSJADBHWPWGSNO-YXNCFWFCSA-N,21-Acetoxycytochalasin J3,Alkaloids,Diaporthe sp. GDG-118,2,10.1080/14786419.2019.1700504,MycoMSB-HZI-000277
+VHWTVINEPPOCLA-DTMQFJJTSA-N,3-Deoxyaphidicolin,Terpenoids,Phoma betae Frank PS-13,3,10.1093/nar/11.4.1197,MycoMSB-HZI-000592
+PETDNGRBYPTDNI-QSNWBFGMSA-N,5'-O-Methylmelledonal,Terpenoids,Armillaria mellea,2,10.1016/s0031-9422(00)84599-9,MycoMSB-HZI-000436
+YETSBBYQOFXYGV-SSDOTTSWSA-N,5-Methylmellein,Shikimates and Phenylpropanoids,Fusicoccum amygdali Del.,2,10.1016/s0040-4039(01)99954-x,MycoMSB-HZI-000142
+YETSBBYQOFXYGV-UHFFFAOYSA-N,5-methyl mellein,Polyketide,Hypoxylon ticinense,2,10.2509/naf2008.003.0075,MycoMSB-HZI-000041
+OLKIGKBTFQUWPZ-SHTLVRLNSA-N,"6""-hidroxymitorubrinol",Polyketide,Hypoxylon fulvo-sulphureum,2,10.1007/s11557-015-1043-1,MycoMSB-HZI-000021
+DQKCGVTWWMUREA-OIUIXCLQSA-N,"6""-hidroxymitorubrinol acetate",Polyketide,Hypoxylon fulvo-sulphureum,3,10.1007/s11557-015-1043-1,MycoMSB-HZI-000032
+CEBXXEKPIIDJHL-UHFFFAOYSA-N,Alternariol,Shikimates and Phenylpropanoids,Alternaria tenuis,3,10.1042/bj0550421,MycoMSB-HZI-000364
+NOFOAYPPHIUXJR-APNQCZIXSA-N,Aphidicolin,Terpenoids,Cephalosporium aphidicola,2,10.1039/p19730002841,MycoMSB-HZI-000456
+QETHRCCHQRWBIJ-OXKPQTCESA-N,Armillaridin,Terpenoids,Armillaria mellea,3,10.1055/s-2007-969711,MycoMSB-HZI-000195
+ISKWRTCZWOXOOF-GNMVUSIZSA-N,Armillarin,Terpenoids,Armillaria mellea,2,10.1055/s-2007-969711,MycoMSB-HZI-000636
+KWJJPEZBNLGOFB-RNNQDMPLSA-N,Arnamial,Terpenoids,Armillaria mellea,3,10.1021/np900314p,MycoMSB-HZI-000192
+XLKIJHXPWYIGIM-RXMQYKEDSA-N,Ascochin,Shikimates and Phenylpropanoids,Ascochyta sp. strain 6651,3,10.1002/ejoc.200600907,MycoMSB-HZI-000326
+GCIKKGSNXSCKCP-PJWJRCBPSA-N,Aspochalasin D,Alkaloids,Aspergillus niveus,7,10.7164/antibiotics.57.715,MycoMSB-HZI-000247
+TYOGSRFPSVCJQL-QYNSZGEFSA-N,Aspochalasin I,Alkaloids,Aspergillus flavipes,10,10.1021/np030353m,MycoMSB-HZI-000237
+GBCXTRJHTIEBIA-DNJNAQMOSA-N,Aspochalasin M,Alkaloids,Spicaria elegans,5,10.1002/ejoc.200801085,MycoMSB-HZI-000261
+RCAULRNMJFUWRP-CKXLWBSDSA-N,Aspyrone,Shikimates and Phenylpropanoids,Exophiala sp.,7,10.1021/np800107c,MycoMSB-HZI-000315
+WGPOPPKSQRZUTP-LBPRGKRZSA-N,Averantin,Polyketides,Aspergillus parasiticus,1,10.1039/j39660000855,MycoMSB-HZI-000412
+GNXOYKGSVQTWOE-UHFFFAOYSA-N,BNT,Polyketide,Hypoxylon carneum,3,10.3897/mycokeys.66.50946,MycoMSB-HZI-000075
+JQUGYVKOYKGIRB-PGVJVUNISA-N,Beauvericin A,Amino acids and Peptides / Polyketides,Beauveria bassiana,1,10.1021/np50119a012,MycoMSB-HZI-000689
+OLNIDJKACOTPMU-NLBHBUGGSA-N,Beauverolide Jb,Amino acids and Peptides / Polyketides,Cordyceps javanica,1,10.3762/bjoc.15.293,MycoMSB-HZI-000989
+GWWZRNBLQTXNPF-SSXAXAPESA-N,Beauverolide L,Amino acids and Peptides / Polyketides,Beauveria tenella,2,10.1016/s0031-9422(00)90402-3,MycoMSB-HZI-000682
+DSVSTMJOGQEZJX-BYLNDYCFSA-N,Botryenalol,Terpenoids,Botrytis cinerea,1,10.1016/0031-9422(95)00643-5,MycoMSB-HZI-000826
+ZTCHPQNUISFMBP-OQHHHHLYSA-N,Brasilane A,Terpene,Annulohypoxylon truncatum,1,10.1039/D0CC03950K,MycoMSB-HZI-000020
+KQNZDYYTLMIZCT-KQPMLPITSA-N,Brefeldin A,Polyketides,Penicillium brefeldianum,1,10.1002/hlca.19640470603,MycoMSB-HZI-000769
+OUMWCYMRLMEZJH-VOXRAUTJSA-N,Chaetoglobosin A,Alkaloids,Chaetomium globosum,3,10.1016/s0040-4039(01)86820-9,MycoMSB-HZI-000268
+VUEFRYQBOMQOMV-CGCQETNGSA-N,Chaetoglobosin B,Alkaloids,Chaetomium globosum,3,10.1016/s0040-4039(01)86820-9,MycoMSB-HZI-000258
+RIZAHVBYKWUPHQ-GNNSKLCBSA-N,Chaetoglobosin C,Alkaloids,Chaetomium sp.,2,10.1248/cpb.30.1609,MycoMSB-HZI-000271
+KTFGDHPTDQFFRL-USMZZGTESA-N,Chaetoglobosin F,Alkaloids,Chaetomium globosum QEN-14,4,10.1271/bbb.57.628,MycoMSB-HZI-000231
+HWSQVPGTQUYLEQ-YWAJDOERSA-N,Chaetoviridin A,Polyketides,Chaetomium globosum,5,10.1248/cpb.38.625,MycoMSB-HZI-000730
+ZRZWBWPDBOVIGQ-KIDIPURZSA-N,Chetomin,Alkaloids / Amino acids and Peptides,Chaetomium cochliodes,3,10.1021/acs.orglett.8b00304,MycoMSB-HZI-000710
+AUWGMDYISSBOED-CCNMWVGKSA-N,Cladospirone bisepoxide,Polyketides,Cladosporium f-24'707,5,10.7164/antibiotics.47.1098,MycoMSB-HZI-000387
+VNWKTOKETHGBQD-UHFFFAOYSA-N,Cochliodinol,Polyketide,Hypoxylon macrocarpum,33,10.1007/s11557-006-0021-z,MycoMSB-HZI-000025
+XDRDZGUQBNNXLG-SQNVWISRSA-N,Cochliodone A,Polyketides,Chaetomium cochliodes VTh01,2,10.1016/j.tet.2008.07.040,MycoMSB-HZI-000475
+WJUXIDJEIYLXTQ-NTCLMWMPSA-N,Cohaerin A,Polyketides,Hypoxylon cohaerens,1,10.1016/j.phytochem.2005.02.006,MycoMSB-HZI-000741
+GKVWLPVTYNGYQO-TZNQKNEJSA-N,Cohaerin B,Polyketides,Hypoxylon cohaerens,5,10.1016/j.phytochem.2005.02.006,MycoMSB-HZI-000724
+GKKNMNFXYPXAOJ-UCAZGYMLSA-N,Cohaerin C,Polyketide,Jackrogersella cohaerens,2,10.1016/j.phytochem.2013.07.027,MycoMSB-HZI-000115
+BNPNEDGQFYVZTE-UHFFFAOYSA-N,Cohaerin E,Polyketide,Jackrogersella cohaerens,5,10.1016/j.phytochem.2013.07.027,MycoMSB-HZI-000067
+MDZAMUBMPBLGAO-MMMYSLHOSA-N,Cohaerin F,Polyketides,Annulohypoxylon cohaerens,1,10.1016/j.tet.2006.04.040,MycoMSB-HZI-000720
+UXVBLOOVEHJYRA-NADGSTLWSA-N,Cohaerin G,Polyketide,Jackrogersella cohaerens,3,10.1016/j.phytochem.2013.07.028,MycoMSB-HZI-000116
+XEFSOHOLRMCPDH-JXMWATIUSA-N,Cohaerin H,Polyketide,Jackrogersella cohaerens,1,10.1016/j.phytochem.2013.07.029,MycoMSB-HZI-000119
+Colpomenoic acid A,Colpomenoic acid A,Unknown,Colpoma sp.,2,10.3390/biom11060783,MycoMSB-HZI-000395
+Colposetin A,Colposetin A,Unknown,Colpoma sp.,3,10.3390/biom11060783,MycoMSB-HZI-000577
+DZINDAVQKCYZRI-CRJYUTKZSA-N,Colposetin C,Polyketides,Colpoma sp.,4,10.3390/biom11060783,MycoMSB-HZI-000921
+BDEAXAAAVNORJQ-PZYGVSLXSA-N,Connatusin A,Terpenoids,Lentinus connatus BCC 8996,2,10.1021/np0502286,MycoMSB-HZI-000914
+FLSSXXIBSVDSKS-UFWORHAWSA-N,Corallocin B,Alkaloids,Hericium coralloides,4,10.1021/acs.jnatprod.6b00371,MycoMSB-HZI-000690
+FCYLLGSBJNTSAP-DZYDHYRWSA-N,Cryptoporic acid B,Terpenoids,Cryptoporus volvatus,1,10.1016/s0040-4039(01)91358-9,MycoMSB-HZI-000760
+AFCITBAGIYUEPK-YIBSWQHHSA-N,Cryptoporic acid H,Terpenoids,Polyporus ciliatus,3,10.1016/s0031-9422(02)00221-2,MycoMSB-HZI-000305
+MMGJJGNQFININV-OPYLLRRUSA-N,Cryptosphaerolide,Terpenoids,Cryptosphaeria sp. CNL-523,2,10.1021/np1000889,MycoMSB-HZI-000742
+GBOGMAARMMDZGR-TYHYBEHESA-N,Cytochalasin B,Alkaloids,Helminthosporium dematioideum,1,10.1039/j39670001667,MycoMSB-HZI-000212
+MUWRTUOAFXGGOC-IIMGHFOXSA-N,Cytochalasin B4,Alkaloids,Phoma sp.,5,10.1016/j.bmcl.2015.03.080,MycoMSB-HZI-000207
+NAIODHJWOHMDJX-NGFXLRBHSA-N,Cytochalasin C,Alkaloids,"Unknown-fungus sp., KL-1.1",2,10.1016/j.phytol.2015.09.004,MycoMSB-HZI-000235
+NAEWXXDGBKTIMN-OWTACEMYSA-N,Cytochalasin H,Alkaloids,Phomopsis sp.,1,10.1021/ja00454a035,MycoMSB-HZI-000203
+UKQNIEMKORIOQM-RPSWBRMKSA-N,Cytochalasin J,Alkaloids,Phomopsis sp. CMB-M0042F,1,10.1021/acs.joc.7b01793,MycoMSB-HZI-000748
+KPTNCHGMLXFDLF-UHFFFAOYSA-N,Daldinal A,Polyketide,Daldinia concentrica,2,10.1248/cpb.42.1528,MycoMSB-HZI-000028
+OHFDANQVLXIAIK-UHFFFAOYSA-N,Daldinal B,Polyketide,Daldinia concentrica,2,10.1248/cpb.42.1528,MycoMSB-HZI-000039
+KEHOQOMYJLDTRB-ZZFJLFPRSA-N,Daldinin E/F,Polyketide,Hypoxylon fuscum,3,10.1016/j.phytochem.2003.09.022,MycoMSB-HZI-000052
+OYRYUFABCKQXTO-HGCCHXFOSA-N,Daldinone A,Polyketides,Daldinia sp.,3,10.1021/np020301h,MycoMSB-HZI-000877
+DGVHJZPQGFRVEC-LWURDOLFSA-N,Dehydrosulphurenic acid,Terpenoids,Antrodia cinnamomea,3,10.1016/0031-9422(95)00767-9,MycoMSB-HZI-000442
+KQFLVQIYZGNZGX-ZQLHMVIYSA-N,Deoxaphomin B,Alkaloids,Phoma sp.,2,10.1016/j.bmcl.2012.03.058,MycoMSB-HZI-000218
+ZPEWXLLVRGMQRM-NKSNWBLISA-N,Dicerandrol B,Polyketides,Penicillium sp. CR1642D,4,10.1021/np010020u,MycoMSB-HZI-000596
+UQVHQQQKJXHPAP-UHFFFAOYSA-N,Dichotosinin,Polyketide,,2,,MycoMSB-HZI-000110
+Dihydropleurotinic acid,Dihydropleurotinic acid,Unknown,Hohenbuehelia grisea MFLUCC 12-0451,3,10.3390/molecules23102697,MycoMSB-HZI-000413
+NQRGNSMJSDQOED-FQAGGABLSA-N,Eremofortin A,Terpenoids,Penicillium roqueforti,4,10.1016/s0040-4039(00)92896-x,MycoMSB-HZI-000512
+BEECYWPPXWUPIT-UHFFFAOYSA-N,Erinacine B,Terpenoids,Hericium erinaceum,4,10.1016/s0040-4039(00)76760-8,MycoMSB-HZI-000812
+GZYIEALVVYTAQB-MJQLVKIDSA-N,Eucalactam B,Polyketides,Diaporthe eucalyptorum KY-9,3,10.1021/acs.jafc.9b07825,MycoMSB-HZI-000477
+Favolon,Favolon,Unknown,Favolaschia sp. 87129,4,10.7164/antibiotics.48.725,MycoMSB-HZI-000340
+NVBACLQLVNIJSN-ONHZAOQJSA-N,Fragiformin B,PKS-NRPS,Hypoxylon fragiforme,2,10.1016/j.mycres.2006.03.013,MycoMSB-HZI-000018
+ALRYFFWQBUQIHL-ORLYWQOISA-N,Fragirubrin A,Polyketide,Hypoxylon fragiforme,5,10.1002/chem.202003215,MycoMSB-HZI-000120
+CGOCLPVLXNAUEN-NEBZKDRISA-N,Fulvoferruginin,Terpenoids,Gymnopus sp. 0612-9,3,10.1007/s10600-019-02832-2,MycoMSB-HZI-000367
+DBEYVIGIPJSTOR-FHWLQOOXSA-N,Fumitremorgin C,Alkaloids / Amino acids and Peptides,Aspergillus fumigatus,4,10.5281/zenodo.3541160,MycoMSB-HZI-000353
+LMLHRSCJBYWBPI-HNAYVOBHSA-N,Heimiomycin A,Shikimates and Phenylpropanoids,Heimiomyces sp. (MUCL 56078),4,10.1021/acs.jnatprod.0c00486,MycoMSB-HZI-000883
+MYZAKHBZTJWBBA-WMLDXEAASA-N,Heimiomycin B,Shikimates and Phenylpropanoids,Heimiomyces sp. (MUCL 56078),4,10.1021/acs.jnatprod.0c00486,MycoMSB-HZI-000416
+WMGXUPPNMLYHPN-GJIXPYCQSA-N,Helvolic acid,Terpenoids,Aspergillus sp.,1,10.5281/zenodo.3541238,MycoMSB-HZI-000539
+ZJTHOPGQZOXEJX-UHFFFAOYSA-N,Hericenone B,Polyketides / Terpenoids,Hericium erinaceus,4,10.1016/s0040-4039(00)94558-1,MycoMSB-HZI-000847
+ULSKNVPXNYBAQZ-DEDYPNTBSA-N,Hericerin,Terpenoids,Hericium erinaceum,4,10.1080/00021369.1991.10870996,MycoMSB-HZI-000656
+HLGCEVWDIZFNHK-UHFFFAOYSA-N,Hinnulin A,Polyketide,Jackrogersella minutella,1,10.1016/j.phytochem.2017.02.014,MycoMSB-HZI-000019
+SGJNQVTUYXCBKH-UHFFFAOYSA-N,Hispidin,Shikimates and Phenylpropanoids,Polyporus hispidus,3,10.1039/jr9610004995,MycoMSB-HZI-000405
+CZNARLRCWXWZDR-ZEQJVDEVSA-N,Hybridorubrin A,Polyketides,Hypoxylon fragiforme,2,10.1002/chem.202003215,MycoMSB-HZI-000824
+TYURHYMMTQGDOP-LLSAIIIMSA-N,Hypomiltin,Polyketide,Hypoxylon hypomiltum,3,10.1007/s11557-006-0108-6,MycoMSB-HZI-000112
+QVMDIQLUNODCTG-OCCSQVGLSA-N,Illudin M,Terpenoids,Unknown-fungus sp.,1,10.1016/s0031-9422(00)97229-7,MycoMSB-HZI-000880
+NPLQKYGNQZPTFE-CYBMUJFWSA-N,Ionylideneacetic acid,Terpenoids,Phellinus vaninii,1,10.5941/myco.2015.43.1.43,MycoMSB-HZI-000591
+PGTQRMPLONEWBV-YIBSWQHHSA-N,Isocryptoporic acid H,Terpenoids,Polyporus ciliatus,2,10.1016/s0031-9422(02)00221-2,MycoMSB-HZI-000566
+NIGWURVKGDGBRS-UHFFFAOYSA-N,Isofusidienol A,Polyketides,Chalara sp. 6661,1,10.1002/ejoc.200700839,MycoMSB-HZI-000655
+MZRDRLOYHFZNCS-IZVHRENNSA-N,Ketocytochalasin,Alkaloids,Arthrinium arundinis,3,10.1055/s-0034-1383403,MycoMSB-HZI-000402
+VWIPRLLXWTUBOM-KLMFUOAUSA-N,Melledonol,Terpenoids,Armillaria mellea,2,10.1016/s0040-4039(00)95035-4,MycoMSB-HZI-000178
+NHDJKXOHRUHQHG-UHFFFAOYSA-N,Melleolide B,Terpenoids,Armillaria mellae,2,10.1016/S0031-9422(00)85503-X,MycoMSB-HZI-000184
+PSCSRVBGZZBKIW-IQEKTTGQSA-N,Melleolide D,Terpenoids,Armillaria mellae,4,10.1016/S0031-9422(00)85503-X,MycoMSB-HZI-000383
+UMEBHTBMSZKYQM-UEXMDZLUSA-N,Melleolide I,Terpenoids,Armillaria novae-zelandiae,3,10.7164/antibiotics.53.137,MycoMSB-HZI-000916
+Microporenic acid A,Microporenic acid A,Unknown,Microporus sp.,3,10.1021/acs.jnatprod.7b00764,MycoMSB-HZI-000756
+ZBDVBGZCDFAFSD-WUHCIOOHSA-N,Microporenic acid B,Terpenoids,Microporus sp.,3,10.1021/acs.jnatprod.7b00764,MycoMSB-HZI-000717
+QMIVTDDJTVQZLY-LYTHVRBOSA-N,Minutellin A,Polyketide,Jackrogersella minutella,6,10.1016/j.phytochem.2017.02.014,MycoMSB-HZI-000055
+ZLULUXWJVBHEMS-FNEOHHHZSA-N,Mitorubrin,Polyketide,Hypoxylon fragiforme,4,10.1002/chem.202003215,MycoMSB-HZI-000049
+ZJIWQCFXEQSFGR-SHTLVRLNSA-N,Mitorubrinic acid,Polyketide,Hypoxylon fragiforme,2,10.1002/chem.202003215,MycoMSB-HZI-000017
+NXJNWGPNUAVXHT-SHTLVRLNSA-N,Mitorubrinol,Polyketide,Hypoxylon fragiforme,4,10.1002/chem.202003215,MycoMSB-HZI-000023
+YNYQKCNDIDXLPZ-OIUIXCLQSA-N,Mitorubrinol acetate,Polyketide,Hypoxylon rubiginosum,6,10.3897/mycokeys.66.50946,MycoMSB-HZI-000047
+HPSKGDOQAYWCCU-UHFFFAOYSA-N,Multiformin B,Polyketide,Jackrogersella multiformis,3,10.1055/s-2005-873129,MycoMSB-HZI-000051
+Multiformin D,Multiformin D,Unknown,Hypoxylon ascomycete Hypoxylon multiforme,2,10.1055/s-2005-873129,MycoMSB-HZI-000707
+HPNSFSBZBAHARI-RUDMXATFSA-N,Mycophenolic acid,Polyketides,Aspergillus sp.,1,10.1042/bj0500630,MycoMSB-HZI-001000
+ZALWBYOUGDMNTP-RXSCCBSPSA-N,Myrocin B,Terpenoids,Myrothecium verrucaria,3,10.1271/bbb1961.52.1305,MycoMSB-HZI-000990
+BRHYSVIYRNFZEB-UHFFFAOYSA-N,Obionin A,Polyketides,Leptosphaeria obiones,2,10.1016/s0040-4039(00)99419-x,MycoMSB-HZI-000516
+DHMPJEGFPQTNFX-UHFFFAOYSA-N,Oosporein,Polyketides,Chaetomium aureum,1,10.1039/jr9550002163,MycoMSB-HZI-000734
+TXEVVAPERSDMTN-KAKRINCYSA-N,Ophiobolin K,Terpenoids,Aspergillus sp.,5,10.1016/s0040-4020(01)96148-4,MycoMSB-HZI-000420
+BDXBHYOFNNANPN-RTBURBONSA-N,Palmarumycin C3,Polyketides,Coniothyrium sp.,3,10.1002/jlac.199419941108,MycoMSB-HZI-000399
+QLIJDZRMCHOSHG-UHFFFAOYSA-N,Pestabacillin B,Terpenoids,Unknown-bacterium sp.,1,10.1016/j.tetlet.2016.12.026,MycoMSB-HZI-000780
+AJFPOVBARCSOLH-MUYACECFSA-N,Petasol,Terpenoids,Penicillium sp.,1,10.1002/cbdv.200490162,MycoMSB-HZI-000445
+FGBCTHWFZGPKDZ-MFKMUULPSA-N,Phomol,Polyketides,Phomopsis sp. E02018,1,10.7164/antibiotics.57.559,MycoMSB-HZI-000740
+JVLHNUNFFFDFDT-XIHPKKOBSA-N,Phomopchalasin A,Alkaloids,Phomopsis sp. shj2,5,10.1021/acs.orglett.6b00214,MycoMSB-HZI-000213
+ZCLZNQUALWMDDN-ACMZUNAXSA-N,Phomoxanthone A,Polyketides,Phomopsis sp. BCC 1323,2,10.1021/np010006h,MycoMSB-HZI-000870
+FDWJUXZXNAQEPD-UHFFFAOYSA-N,Pigmentosin A,Polyketides,Hypotrachyna immaculata,2,10.1071/ch04003,MycoMSB-HZI-000901
+VUPURRJSLQKYJL-POJXQBLJSA-N,Pleurothiazole,Terpenoids,Hohenbuehelia grisea,2,10.1021/acs.jnatprod.7b00713,MycoMSB-HZI-000509
+LMSUWCOEKCRCEB-XYOUVAGFSA-N,Preussilide A,Polyketides,Preussia similis,3,10.1021/acs.jnatprod.7b00064,MycoMSB-HZI-000480
+QTIOSMDWFDPTSG-UTFLDQSTSA-N,Prototenellin D,Amino acids and Peptides / Polyketides,Beauveria bassiana,2,10.1021/ja807052c,MycoMSB-HZI-000987
+CHHKGJIZUJUBDN-CYBMUJFWSA-N,Pseudoanguillosporin A,Polyketides,Pseudoanguillospora sp.,2,10.1002/ejoc.200801083,MycoMSB-HZI-000313
+SLYDIPAXCVVRNY-UOWMTANKSA-N,Pseurotin A,Amino acids and Peptides / Polyketides,Aspergillus fumigatus WFZ-25,2,10.1002/hlca.19760590114,MycoMSB-HZI-000925
+SLYDIPAXCVVRNY-FURSAZSWSA-N,Pseurotin A4,Amino acids and Peptides / Polyketides,Wilsonomyces carpophilus,3,10.1016/j.phytol.2018.06.018,MycoMSB-HZI-000361
+SLYDIPAXCVVRNY-QYCAIMRZSA-N,Pseurotin A5,Amino acids and Peptides / Polyketides,Wilsonomyces carpophilus,4,10.1016/j.phytol.2018.06.018,MycoMSB-HZI-000765
+AECZOENDDUTONS-PWSPGYJUSA-N,Pyrichalasin H,Alkaloids,Pyricularia grisea,3,10.1271/bbb1961.51.2625,MycoMSB-HZI-000200
+RZNMCGWGYUMEOL-HTKXOECOSA-N,Pyridovericin,Alkaloids,Beauveria bassiana,1,10.7164/antibiotics.51.596,MycoMSB-HZI-000661
+GOSSDHHYVCWSCT-IHMRMOLWSA-N,Pyristriatin B,Terpenoids,Cyathus cf. striatus,3,10.1021/acs.jnatprod.6b00194,MycoMSB-HZI-000344
+KMNBURIPCCDPIF-JAPZVGMSSA-N,Rhodocorane A,Terpenoids,Rhodotus palmatus,4,10.1021/acs.orglett.9b01017,MycoMSB-HZI-000432
+PIGBFRXBCWBHTG-FFIJEWMLSA-N,Rhodocorane D,Terpenoids,Rhodotus palmatus,3,10.1021/acs.orglett.9b01017,MycoMSB-HZI-000750
+NXASRCLLNRHDMV-UYUMYWFVSA-N,Rhodocorane F,Unknown,Rhodotus palmatus,1,10.1021/acs.jnatprod.9b00871,MycoMSB-HZI-000635
+CSVYJQZYIZFTCP-JYLGEYMFSA-N,Rhodocorane I,Terpenoids,Rhodotus palmatus,2,10.1021/acs.jnatprod.9b00871,MycoMSB-HZI-000962
+Rhodocorane J,Rhodocorane J,Unknown,Rhodotus palmatus,2,10.1021/acs.jnatprod.9b00871,MycoMSB-HZI-000903
+JOVXGJFDWIAZDW-UHFFFAOYSA-N,Rickenyl A,NRPS-like,Hypoxylon rickii,1,10.1016/j.phytochem.2015.08.004,MycoMSB-HZI-000001
+RVHMPIHHNZVLMH-UHFFFAOYSA-N,Rickenyl B,NRPS-like,Hypoxylon rickii,5,10.1016/j.phytochem.2015.08.005,MycoMSB-HZI-000002
+SKKUPTPBYKRTOQ-UHFFFAOYSA-N,Rickenyl C,NRPS-like,Hypoxylon rickii,2,10.1016/j.phytochem.2015.08.006,MycoMSB-HZI-000005
+QOFOPUXDBNNMHW-UHFFFAOYSA-N,Rickenyl D/E,NRPS-like,Hypoxylon rickii,2,10.1016/j.phytochem.2015.08.007,MycoMSB-HZI-000006
+ZPZBRVXCZBYHPI-UHFFFAOYSA-N,Rickiol A,Polyketide,Hypoxylon rickii,8,10.1002/chem.201704928,MycoMSB-HZI-000008
+SQCWVFMWNBADBV-KGMVHGDISA-N,Rickiol E,Fatty acids,Hypoxylon rickii,1,10.1002/chem.201704928,MycoMSB-HZI-000920
+PHGIAZZKSBKALI-WOJBJXKFSA-N,Rickitin,Terpene,Hypoxylon rickii,7,10.1016/j.phytochem.2015.06.002,MycoMSB-HZI-000012
+ZDAMBVJOZXCGPS-IXGFDZCOSA-N,Rubiginosin A,Polyketide,Hypoxylon rubiginosum,8,10.3897/mycokeys.66.50946,MycoMSB-HZI-000069
+OQKLHNURLMVVRL-HLQXDFMSSA-N,Rutilin A,Polyketides,Hypoxylon rutilum,3,10.1016/j.tet.2005.06.077,MycoMSB-HZI-000590
+MQSXZQXHIJMNAF-UHFFFAOYSA-N,Skyrin,Polyketides,Trypetheliopsis boninensis,1,10.3891/acta.chem.scand.24-3331,MycoMSB-HZI-000299
+Sparticolin A,Sparticolin A,Unknown,Sparticola junci,3,10.1021/acs.jnatprod.9b00604,MycoMSB-HZI-000370
+MFOCYSKXKXAQBP-IHRRRGAJSA-N,Sparticolin E,Polyketides,Sparticola junci,1,10.1021/acs.jnatprod.9b00604,MycoMSB-HZI-000790
+BETLGQZUJLQRQC-GOSISDBHSA-N,Sparticolin G,Polyketides,Sparticola junci,2,10.1021/acs.jnatprod.9b00604,MycoMSB-HZI-000788
+UTSVPXMQSFGQTM-DCXZOGHSSA-N,Sterigmatocystin,Polyketides,Aspergillus versicolor (Vuillemin) tiraboschi,2,10.1039/jr9600002169,MycoMSB-HZI-000817
+XZEKQUYJGSOILA-LWURDOLFSA-N,Sulphurenic acid,Terpenoids,Antrodia cinnamomea,2,10.1016/0031-9422(95)00767-9,MycoMSB-HZI-000338
+FLJVCTAWIDPKTG-RMRHIDDWSA-N,Sulphureuine H,Terpenoids,Laetiporus sulphureus,1,10.1016/j.fitote.2015.01.022,MycoMSB-HZI-000900
+Trichothecolone acetate,Trichothecolone acetate,Unknown,Microcyclospora tardicrescens,2,10.1021/jf500153d,MycoMSB-HZI-000960
+CEJMBHGSAHCRPJ-UHFFFAOYSA-N,Truncaquinone A,NRPS-like,Annulohypoxylon truncatum,6,10.1016/j.tetlet.2016.04.014,MycoMSB-HZI-000073
+BKRWGHXVQLNRMR-UHFFFAOYSA-N,Truncaquinone B,NRPS-like,Annulohypoxylon truncatum,6,10.1016/j.tetlet.2016.04.014,MycoMSB-HZI-000071
+KMZYINVXZDQCKC-GOSISDBHSA-N,Trypacidin,Polyketides,Aspergillus fumigatus,2,10.3891/acta.chem.scand.19-0528,MycoMSB-HZI-000483
+Verruculogen,Verruculogen,Unknown,Penicillium verruculosum,2,10.1021/ja00828a054,MycoMSB-HZI-000288
+SUWQGLGDFGHZNH-WBWZXODPSA-N,Viridicatumtoxin,Polyketides / Terpenoids,Penicillium aethiopicum,2,10.1016/0041-008x(73)90057-4,MycoMSB-HZI-000500
+VZNCGLFWZZLBMT-UHFFFAOYSA-N,Vulculic acid,Polyketides,Penicillium sp.,1,10.1271/bbb1961.55.1137,MycoMSB-HZI-000309
+CGYJFOOLHKVVLW-URKGIYNXSA-N,Xanthoquinodin B4,Polyketides,Chaetomium elatum (No. 63-10-3-1),1,10.1021/np400041y,MycoMSB-HZI-000308

@@ -1,7 +1,58 @@
 species,taxid,genus,family,order,class,phylum
+Alternaria tenuis,5599,Alternaria,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota
+Annulohypoxylon cohaerens,1955267,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Annulohypoxylon truncatum,327061,Annulohypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Armillaria mellae,,,,,,
+Armillaria mellea,47429,Armillaria,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota
+Armillaria novae-zelandiae,153914,Armillaria,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota
+Arthrinium arundinis,335852,Apiospora,Apiosporaceae,Amphisphaeriales,Sordariomycetes,Ascomycota
+Ascochyta sp. strain 6651,,,,,,
+Aspergillus flavipes,41900,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Aspergillus fumigatus,746128,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Aspergillus fumigatus WFZ-25,,,,,,
+Aspergillus niveus,41281,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Aspergillus parasiticus,5067,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Aspergillus sp.,5065,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Aspergillus versicolor (Vuillemin) tiraboschi,,,,,,
+Beauveria bassiana,176275,Beauveria,Cordycipitaceae,Hypocreales,Sordariomycetes,Ascomycota
+Beauveria tenella,37999,Beauveria,Cordycipitaceae,Hypocreales,Sordariomycetes,Ascomycota
+Botrytis cinerea,40559,Botrytis,Sclerotiniaceae,Helotiales,Leotiomycetes,Ascomycota
+Cephalosporium aphidicola,2231603,Akanthomyces,Cordycipitaceae,Hypocreales,Sordariomycetes,Ascomycota
+Chaetomium aureum,79815,Arcopilus,Chaetomiaceae,Sordariales,Sordariomycetes,Ascomycota
+Chaetomium cochliodes,904709,Chaetomium,Chaetomiaceae,Sordariales,Sordariomycetes,Ascomycota
+Chaetomium cochliodes VTh01,,,,,,
+Chaetomium elatum (No. 63-10-3-1),,,,,,
+Chaetomium globosum,38033,Chaetomium,Chaetomiaceae,Sordariales,Sordariomycetes,Ascomycota
+Chaetomium globosum QEN-14,,,,,,
+Chaetomium sp.,1769349,Chaetomium,Chaetomiaceae,Sordariales,Sordariomycetes,Ascomycota
+Chalara sp. 6661,,,,,,
+Cladosporium f-24'707,,,,,,
+Colpoma sp.,2040736,Colpoma,Rhytismataceae,Rhytismatales,Leotiomycetes,Ascomycota
+Coniothyrium sp.,1756115,Coniothyrium,Coniothyriaceae,Pleosporales,Dothideomycetes,Ascomycota
+Cordyceps javanica,43265,Cordyceps,Cordycipitaceae,Hypocreales,Sordariomycetes,Ascomycota
+Cryptoporus volvatus,40431,Cryptoporus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota
+Cryptosphaeria sp. CNL-523,766798,Cryptosphaeria,Diatrypaceae,Xylariales,Sordariomycetes,Ascomycota
+Curvularia sp. (strain no. 768),,,,,,
+Cyathus cf. striatus,,,,,,
 Daldinia concentrica,42361,Daldinia,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Daldinia sp.,1769485,Daldinia,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Diaporthe eucalyptorum KY-9,,,,,,
+Diaporthe sp. GDG-118,,,,,,
+Exophiala sp.,1718875,Exophiala,Herpotrichiellaceae,Chaetothyriales,Eurotiomycetes,Ascomycota
+Favolaschia sp. 87129,,,,,,
+Fusicoccum amygdali Del.,,,,,,
+Gymnopus sp. 0612-9,1675522,Gymnopus,Omphalotaceae,Agaricales,Agaricomycetes,Basidiomycota
+Heimiomyces sp. (MUCL 56078),,,,,,
+Helminthosporium dematioideum,139229,Pyrenophora,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota
+Hericium coralloides,100756,Hericium,Hericiaceae,Russulales,Agaricomycetes,Basidiomycota
+Hericium erinaceum,91752,Hericium,Hericiaceae,Russulales,Agaricomycetes,Basidiomycota
+Hericium erinaceus,91752,Hericium,Hericiaceae,Russulales,Agaricomycetes,Basidiomycota
+Hohenbuehelia grisea,104357,Hohenbuehelia,Pleurotaceae,Agaricales,Agaricomycetes,Basidiomycota
+Hohenbuehelia grisea MFLUCC 12-0451,,,,,,
+Hypotrachyna immaculata,286322,Hypotrachyna,Parmeliaceae,Lecanorales,Lecanoromycetes,Ascomycota
+Hypoxylon ascomycete Hypoxylon multiforme,1955268,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon carneum,326655,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Hypoxylon cohaerens,1955267,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon fragiforme,63214,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon fulvo-sulphureum,1607781,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon fuscum,109372,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
@@ -9,7 +60,45 @@ Hypoxylon hypomiltum,326662,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,As
 Hypoxylon macrocarpum,292721,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon rickii,110545,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon rubiginosum,110542,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Hypoxylon rutilum,326677,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Hypoxylon ticinense,326680,Hypoxylon,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Jackrogersella cohaerens,1955267,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Jackrogersella minutella,1955266,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
 Jackrogersella multiformis,1955268,Jackrogersella,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota
+Laetiporus sulphureus,5630,Laetiporus,Laetiporaceae,Polyporales,Agaricomycetes,Basidiomycota
+Lentinus connatus BCC 8996,,,,,,
+Leptosphaeria obiones,2203068,Halobyssothecium,Lentitheciaceae,Pleosporales,Dothideomycetes,Ascomycota
+Microcyclospora tardicrescens,766056,Microcyclospora,,Capnodiales,Dothideomycetes,Ascomycota
+Microporus sp.,2007320,Microporus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota
+Myrothecium verrucaria,1859699,Albifimbria,Stachybotryaceae,Hypocreales,Sordariomycetes,Ascomycota
+Penicillium aethiopicum,36650,Penicillium,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Penicillium brefeldianum,1131482,Penicillium,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Penicillium roqueforti,5082,Penicillium,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Penicillium sp.,5081,Penicillium,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Penicillium sp. CR1642D,,,,,,
+Penicillium verruculosum,198730,Talaromyces,Trichocomaceae,Eurotiales,Eurotiomycetes,Ascomycota
+Phellinus vaninii,175686,Sanghuangporus,Hymenochaetaceae,Hymenochaetales,Agaricomycetes,Basidiomycota
+Phoma betae Frank PS-13,,,,,,
+Phoma sp.,1707701,Phoma,Didymellaceae,Pleosporales,Dothideomycetes,Ascomycota
+Phoma sp. strain 7204,,,,,,
+Phomopsis sp.,1715245,Phomopsis,Diaporthaceae,Diaporthales,Sordariomycetes,Ascomycota
+Phomopsis sp. BCC 1323,,,,,,
+Phomopsis sp. CMB-M0042F,,,,,,
+Phomopsis sp. E02018,,,,,,
+Phomopsis sp. shj2,1805828,Phomopsis,Diaporthaceae,Diaporthales,Sordariomycetes,Ascomycota
+Polyporus ciliatus,134555,Polyporus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota
+Polyporus hispidus,,,,,,
+Preussia similis,269685,Preussia,Sporormiaceae,Pleosporales,Dothideomycetes,Ascomycota
+Pseudoanguillospora sp.,3634386,Pseudoanguillospora,,,,Ascomycota
+Pyricularia grisea,148305,Pyricularia,Pyriculariaceae,Magnaporthales,Sordariomycetes,Ascomycota
+Rhodotus palmatus,71920,Rhodotus,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota
+Sparticola junci,1803578,Sparticola,Sporormiaceae,Pleosporales,Dothideomycetes,Ascomycota
+Spicaria elegans,509241,Mariannaea,Nectriaceae,Hypocreales,Sordariomycetes,Ascomycota
+Trypetheliopsis boninensis,,,,,,
+Unknown-bacterium sp.,,,,,,
+Unknown-fungus sp.,,,,,,
+"Unknown-fungus sp., KL-1.1",ERROR,,,,,
+Wilsonomyces carpophilus,763997,Wilsonomyces,,,Dothideomycetes,Ascomycota
+Xylaria hypoxylon,37992,Xylaria,Xylariaceae,Xylariales,Sordariomycetes,Ascomycota
+Xylaria obovata,498170,Xylaria,Xylariaceae,Xylariales,Sordariomycetes,Ascomycota
+Antrodia cinnamomea,2696576,Taiwanofungus,Taiwanofungaceae,Polyporales,Agaricomycetes,Basidiomycota
