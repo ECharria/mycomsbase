@@ -3,12 +3,18 @@ import * as d3 from 'd3';
 import treeData from '../../../../assets/taxonomy_tree.json';
 
 const CLASS_COLORS: Record<string, string> = {
-  Polyketide:  '#8b1824',
-  Terpene:     '#c4783a',
-  'NRPS-like': '#5a3827',
-  'PKS-NRPS':  '#8b6b5a',
+  'Polyketides':                        '#8b1824',
+  'Terpenoids':                         '#c4783a',
+  'Alkaloids':                          '#4a6741',
+  'Amino acids and Peptides':           '#3a5f7a',
+  'Shikimates and Phenylpropanoids':    '#7a5a8b',
+  'Fatty acids':                        '#c4a83a',
+  'Polyketides / Terpenoids':           '#a85030',
+  'Amino acids and Peptides / Polyketides': '#4a6b8b',
+  'Alkaloids / Amino acids and Peptides':   '#5a7a4a',
+  'Unknown':                            '#aaaaaa',
 };
-const FALLBACK_COLOR = '#d4a574';
+const FALLBACK_COLOR = '#cccccc';
 
 type TreeNode = {
   name: string;
@@ -122,95 +128,70 @@ function downloadCsv(node: TreeNode) {
   URL.revokeObjectURL(url);
 }
 
-const btnStyle = (active = false): Record<string, string | number> => ({
-  padding: '2px 10px',
-  borderRadius: 12,
-  border: '1px solid #ccc',
-  background: active ? '#7b1c1c' : 'white',
-  color: active ? 'white' : '#444',
-  cursor: 'pointer',
-  fontSize: 12,
-  fontFamily: 'sans-serif',
-});
+
+const MIN_NODE_SPACING = 32; // px per leaf node vertically
 
 export default function TaxonomyTreeView({ width, height }: { width: number; height: number }) {
   const [tooltip, setTooltip] = useState<TooltipState>(null);
-  const [startRank, setStartRank] = useState<string>('family');
   const svgRef = useRef<SVGSVGElement>(null);
 
-  const ranks = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
-
-  const { root, layout, pruned } = useMemo(() => {
-    function pruneToRank(node: TreeNode, fromRank: string): TreeNode | null {
-      const rankIdx = ranks.indexOf(node.rank);
-      const startIdx = ranks.indexOf(fromRank);
-      if (rankIdx < startIdx) {
-        for (const child of node.children) {
-          const found = pruneToRank(child, fromRank);
-          if (found) return found;
-        }
-        return null;
-      }
-      return node;
-    }
-
-    const pruned = pruneToRank(treeData as unknown as TreeNode, startRank) ?? (treeData as unknown as TreeNode);
+  const { root, layout, pruned, svgHeight } = useMemo(() => {
+    const pruned = treeData as unknown as TreeNode;
     const root = d3.hierarchy<TreeNode>(pruned);
 
-    const marginTop = 60;
-    const marginBottom = 60;
+    const marginTop = 40;
+    const marginBottom = 40;
     const marginLeft = 80;
-    const marginRight = 220;
+    const marginRight = 240;
+
+    // Size the tree by leaf count so nodes never overlap
+    const leafCount = root.leaves().length;
+    const treeHeight = Math.max(height - marginTop - marginBottom, leafCount * MIN_NODE_SPACING);
+    const svgHeight = treeHeight + marginTop + marginBottom;
 
     const cluster = d3.cluster<TreeNode>()
-      .size([height - marginTop - marginBottom, width - marginLeft - marginRight]);
+      .size([treeHeight, width - marginLeft - marginRight]);
 
     cluster(root);
-    return { root, layout: { marginTop, marginLeft }, pruned };
-  }, [width, height, startRank]);
+    return { root, layout: { marginTop, marginLeft }, pruned, svgHeight };
+  }, [width, height]);
 
   const links = root.links();
   const nodes = root.descendants();
 
   return (
-    <div style={{ position: 'relative', width, height, overflow: 'hidden' }}>
-      {/* Controls row */}
+    <div style={{ position: 'relative', width, height, display: 'flex', flexDirection: 'column' }}>
+      {/* Controls row — fixed at top, does not scroll */}
       <div style={{
-        position: 'absolute', top: 8, left: 16, right: 16,
+        flexShrink: 0,
+        padding: '8px 16px',
         display: 'flex', gap: 16, alignItems: 'center',
-        fontSize: 12, color: '#666', zIndex: 1, flexWrap: 'wrap',
+        fontSize: 12, color: '#666', flexWrap: 'wrap',
+        borderBottom: '1px solid #eee', background: 'white', zIndex: 1,
       }}>
-        {/* Rank buttons */}
-        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-          <span style={{ fontWeight: 600 }}>Show from:</span>
-          {['kingdom', 'family', 'genus'].map(r => (
-            <button key={r} onClick={() => setStartRank(r)} style={btnStyle(startRank === r)}>
-              {RANK_LABELS[r]}
-            </button>
-          ))}
-        </div>
-
-        {/* Legend */}
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          {Object.entries(CLASS_COLORS).map(([cls, color]) => (
-            <div key={cls} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <div style={{ width: 11, height: 11, borderRadius: 3, background: color, flexShrink: 0 }} />
-              <span style={{ color: '#444', fontSize: 12 }}>{cls}</span>
-            </div>
-          ))}
+        {/* Legend — only single-pathway classes */}
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          {Object.entries(CLASS_COLORS)
+            .filter(([cls]) => !cls.includes('/') && cls !== 'Unknown')
+            .map(([cls, color]) => (
+              <div key={cls} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <div style={{ width: 11, height: 11, borderRadius: 3, background: color, flexShrink: 0 }} />
+                <span style={{ color: '#444', fontSize: 12 }}>{cls}</span>
+              </div>
+            ))}
         </div>
 
         {/* Export buttons */}
         <div style={{ display: 'flex', gap: 6, marginLeft: 'auto', alignItems: 'center' }}>
           <span style={{ fontWeight: 600 }}>Export:</span>
           <button
-            style={btnStyle()}
+            style={{ padding: '2px 10px', borderRadius: 12, border: '1px solid #ccc', background: 'white', color: '#444', cursor: 'pointer', fontSize: 12 }}
             onClick={() => svgRef.current && downloadSvg(svgRef.current)}
           >
             SVG
           </button>
           <button
-            style={btnStyle()}
+            style={{ padding: '2px 10px', borderRadius: 12, border: '1px solid #ccc', background: 'white', color: '#444', cursor: 'pointer', fontSize: 12 }}
             onClick={() => downloadCsv(pruned)}
           >
             CSV table
@@ -218,7 +199,9 @@ export default function TaxonomyTreeView({ width, height }: { width: number; hei
         </div>
       </div>
 
-      <svg ref={svgRef} width={width} height={height} style={{ fontFamily: 'sans-serif' }}>
+      {/* Scrollable SVG area */}
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'auto' }}>
+      <svg ref={svgRef} width={width} height={svgHeight} style={{ fontFamily: 'sans-serif', display: 'block' }}>
         <g transform={`translate(${layout.marginLeft},${layout.marginTop})`}>
           {/* Links */}
           {links.map((link, i) => {
@@ -253,9 +236,9 @@ export default function TaxonomyTreeView({ width, height }: { width: number; hei
                   <text
                     x={LABEL_OFFSET}
                     y={5}
-                    fontSize={13}
+                    fontSize={11}
                     fill="#333"
-                    fontStyle="italic"
+                    fontStyle={['genus', 'species'].includes(node.data.rank) ? 'italic' : 'normal'}
                   >
                     {node.data.name}
                   </text>
@@ -264,9 +247,10 @@ export default function TaxonomyTreeView({ width, height }: { width: number; hei
                   <text
                     x={0}
                     y={-PIE_RADIUS - 6}
-                    fontSize={12}
+                    fontSize={10}
                     fill="#555"
                     textAnchor="middle"
+                    fontStyle={['genus', 'species'].includes(node.data.rank) ? 'italic' : 'normal'}
                   >
                     {node.data.name}
                   </text>
@@ -279,6 +263,7 @@ export default function TaxonomyTreeView({ width, height }: { width: number; hei
           <Tooltip tip={tooltip} />
         </g>
       </svg>
+      </div>
     </div>
   );
 }

@@ -13,12 +13,17 @@ type ScatterPoint = {
 };
 
 const CLASS_COLORS: Record<string, string> = {
-  Polyketide: '#8b1824',
-  Terpene: '#c4783a',
-  'NRPS-like': '#5a3827',
-  'PKS-NRPS': '#8b6b5a',
+  'Polyketides':                              '#8b1824',
+  'Terpenoids':                               '#c4783a',
+  'Alkaloids':                                '#4a6741',
+  'Amino acids and Peptides':                 '#3a5f7a',
+  'Shikimates and Phenylpropanoids':          '#7a5a8b',
+  'Fatty acids':                              '#c4a83a',
+  'Polyketides / Terpenoids':                 '#a85030',
+  'Amino acids and Peptides / Polyketides':   '#4a6b8b',
+  'Alkaloids / Amino acids and Peptides':     '#5a7a4a',
 };
-const DEFAULT_COLOR = '#aaa';
+const DEFAULT_COLOR = '#cccccc';
 
 type InputProps = {
   width: number;

@@ -304,17 +304,17 @@ function SearchPanelMenuItems({
             16,
             <Input
               type="text"
-              placeholder="NRPS-like"
+              placeholder="Polyketides"
               allowClear
               onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
                 insertPlaceholder(e, {
                   compoundSearchFilterOptions: {
-                    compoundClass: 'NRPS-like',
+                    compoundClass: 'Polyketides',
                   },
                 })
               }
             />,
-            'Search by biosynthetic class of the compound (e.g. Polyketide, Terpene, NRPS-like, PKS-NRPS). Substring search.' +
+            'Search by biosynthetic class of the compound (NPClassifier pathway, e.g. Polyketides, Terpenoids, Alkaloids). Substring search.' +
               ' ' +
               defaultTooltipText,
           ),
