@@ -1,0 +1,147 @@
+compound_name	CURATE_species	CURATE_publication_doi	n_spectra	max_peaks	in_export	missing	needs_structure_too	formula	compound_class	inchikey	smiles	name_variants
+Gibberellic acid			27	244	P3+P4	species;publication		C19H22O6		IXORZMNAPKEEDV-OBDJNFEBSA-N	C[C@@]12[C@H](C=C[C@@]3([C@@H]1[C@@H]([C@]45[C@H]3CC[C@](C4)(C(=C)C5)O)C(=O)O)OC2=O)O	
+Beauverolide 483			17	697	P3+P4	species;publication;structure	YES	C24H41N3O7		N/A		
+Pseudofuscochalasin A			16	10	P3+P4	species;publication;structure	YES	C28H33NO5		N/A		
+21-O-deacyl-L-696.474			15	1432	P3+P4	species;publication		C28H37NO3	Alkaloids	CZWPJPMFISENGB-BAVZRDLGSA-N	CC1(CC(=C(C2(C(C(=C)C(C)(C3(C(CC4=CC=CC=C4)(N=C(C23C(C(=C(C(C)(C1)[H])[H])[H])(O)[H])O)[H])[H])[H])(O)[H])[H])[H])[H])[H]	
+Brasilan D			15	56	P3+P4	species;publication;structure	YES	C23H39NO7		WQENHTBYSXNZOC-QOFKYMNVSA-N		
+Cinnamosmolide			15	324	P3+P4	species;publication		C17H24O5		PSJFPRLDKNCZGQ-OSRSDYAFSA-N	CC(=O)O[C@@H]1C=C2C(=O)OC[C@@]2([C@@]3([C@@H]1C(CCC3)(C)C)C)O	
+Terphenyl-Derivat A (F97)			15	482	P3+P4	species;publication;structure	YES	C22H22O6		JOVXGJFDWIAZDW-UHFFFAOYSA-N		
+Bis-Heimiomycin A			14	927	P3+P4	species;publication		C36H40O10	Terpenoids	LXLSWKSAGIQZMF-WNRNVDISSA-N	CC(C)C1(CCC(C)(C2=C1C(=C(C=O)C(=C2O)O)C3=C(C(C(C4=C(C=O)C(=C(C=5C(C)(CCC(C(C)C)(C54)[H])[H])O)O)=C(C3=O)O)=O)O)[H])[H]	
+Viomellein			14	667	P4	species;publication		C30H24O11	Polyketides	CKVKZAJXACTIEL-GHMZBOCLSA-N	CC1(CC2=CC3=CC(=C(C=4C(C5=C(C=C6CC(C)(OC(C6=C5O)=O)[H])C(C4OC)=O)=O)C(=C3C(=C2C(=O)O1)O)O)OC)[H]	
+6´-Dechloroarnamial			13	42	P3+P4	species;publication;structure	YES	C24H30O6		N/A		
+Epoxycytochalasin C2			13	10	P3+P4	species;publication;structure	YES	C28H35NO6		N/A		
+(3aS)-7-hydroxy-3a,5,5,8-tetramethyl-3,3a,4,5-tetrahydro-1Hcyclopenta[de]isochromen-1-one			12	179	P3+P4	species;publication;structure	YES	C15H18O3		N/A		
+5´-Methoxyarmillarizin			12	32	P3+P4	species;publication;structure	YES	C24H34O8		N/A		
+Erinacin A			12	213	P3+P4	species;publication		C25H36O6		LPPCHLAEVDUIIW-NLLUTMDRSA-N	CC(C)C1=C2C3=CC=C(C[C@@H]([C@@]3(CC[C@]2(CC1)C)C)O[C@H]4[C@@H]([C@H]([C@@H](CO4)O)O)O)C=O	
+Farinosone D			12	270	P3+P4	species;publication;structure	YES	C25H29NO5		ZYWUPCDHVYGPGI-YVAMNULUSA-N		
+Fragirubrin F			12	41	P3+P4	species;publication;structure	YES	C31H46O8		N/A		
+2-Phenylethyl 3-hydroxyanthranilate			11	45	P3+P4	species;publication		C15H15NO3	Alkaloids	ZRQXUMMXFUTNSQ-UHFFFAOYSA-N	C1=CC=C(C=C1)CCOC(C=2C=CC=C(C2N)O)=O	
+Aethiopinolone B			11	694	P3+P4	species;publication;structure	YES	C21H30O5		XRQFYNJEWGIVRD-JBRJJFGXSA-N		
+Aethiopinolone C			11	460	P3+P4	species;publication;structure	YES	C21H28O4		FCLBDRRJZHHDQW-IHTHKWLKSA-N		
+Heimionone E			10	59	P3+P4	species;publication;structure	YES	C15H22O2		JBBUBKRXKOESDZ-MPUHCLOFSA-N		
+Illudaneol B			10	74	P4	species;publication;structure	YES	C15H22O3		CZJQQVLIRLMDAK-HNNXBMFYSA-N		
+Rubiginosin F			10	250	P3+P4	species;publication		C28H36O6	Polyketides	OJABKQPELNYIFZ-RBTNQOKQSA-N	CCCCCCCC(=C(C(=C(C(=C(C)C(=O)OC1(C)C(C=C2C=C(CC(C)(O)[H])OC=C2C1=O)=O)[H])[H])[H])[H])[H]	
+Rubiginosin G			10	4	P3+P4	species;publication;structure	YES	C28H38O7		N/A		
+Saccalasin A			10	562	P4	species;publication;structure	YES	C28H35NO2		IGFYOFOQFNFWGG-HOFBHRKTSA-N		
+4-Hydroxy-pleurogrisein			9	276	P3+P4	species;publication;structure	YES	C21H28O5		YUPNZPIXVOVXID-ZQWRCKPKSA-N		
+Elaeicolaside C			9	330	P4	species;publication;structure	YES	C26H40O8		ZYNRBYMEEMYOLK-NZZGPMRASA-N		
+Fragirubrin D			9	341	P3+P4	species;publication		C33H46O8	Polyketides	OYXIATLDQCREST-CKLYHEHBSA-N	CC(CCCC(=C(CC(=C(CCCCCCCC(=O)OC1(C)C(C=C2C=C(CC(C)(OC(C)O)[H])OC=C2C1=O)=O)[H])[H])[H])[H])(O)[H]	
+Laccanthrilic acid B			9	57	P4	species;publication;structure	YES	C12H14N2O5		NURLHSPPHKMUKM-QMMMGPOBSA-N		
+Methyl-isoxerocomate			9	156	P3+P4	species;publication		C19H14O8	Shikimates and Phenylpropanoids	MQGKKAARIPLGTI-UHFFFAOYSA-N	COC(C(C=1C=CC(=C(C1)O)O)=C2C(=C(C3=CC=C(C=C3)O)C(=O)O2)O)=O	
+Nebucane A			9	281	P3+P4	species;publication		C15H19NO2	Terpenoids	RLJIBZUVXXXXGI-WCBMZHEXSA-N	CC1(C2(CC(C)(C)C=C2C=3C(=CNC3C1=O)CO)[H])[H]	
+10-Oxodihydrobotry-1(9).4(5)-diendial			8	99	P3+P4	species;publication;structure	YES	C15H20O2		PCEVLQFNPPWJEB-RFAUZJTJSA-N		
+Abscisic acid			8	266	P3+P4	species;publication		C15H20O4		JLIDBLDQVAYHNE-YKALOCIXSA-N	CC1=CC(=O)CC([C@]1(/C=C/C(=C\C(=O)O)/C)O)(C)C	
+Aethiopinolone A			8	348	P3+P4	species;publication;structure	YES	C21H30O5		XRQFYNJEWGIVRD-SVPJLXCXSA-N		
+Akanthol			8	144	P3+P4	species;publication;structure	YES	C17H20O7		UBFMMVHBCJPQGU-WOYTXXSLSA-N		
+Apigenin 7-O-Beta-D-xyloside			8	252	P3	species;publication		C20H18O9	Shikimates and Phenylpropanoids	QFUCEHKWZUCKIP-UHFFFAOYSA-N	C=1C=C(C=CC1C2=COC3=CC(=CC(=C3C2=O)O)OC4C(C(C(CO4)O)O)O)O	
+Atromentic acid			8	162	P3+P4	species;publication;structure	YES	C18H12O7		QFIPVAAXLHOLFN-UHFFFAOYSA-N		
+Cyclodepsipeptide_YE1_F2-23			8	972	P3+P4	species;publication;structure	YES	C45H62N8O10		N/A		
+Fragirubrin C			8	552	P3+P4	species;publication		C33H46O7	Polyketides	UXJVQCGNBHNCJP-KNOIUALASA-N	CCCCCC(=C(CC(=C(CCCCCCCC(=O)OC1(C)C(C=C2C=C(CC(C)(OC(C)O)[H])OC=C2C1=O)=O)[H])[H])[H])[H]	
+Melleolide J			8	75	P3+P4	species;publication;structure	YES	C24H29ClO7		N/A		
+Multiformin G			8	11	P3+P4	species;publication;structure	YES	C24H24O7		N/A		
+Nebucane D			8	184	P3+P4	species;publication		C15H17NO	Terpenoids	ZMRBZHZIQAONHH-UHFFFAOYSA-N	CC1=CC2=C(C(=CN2)C=O)C=3CC(C)(C)CC13	
+Nebucane E			8	141	P3+P4	species;publication;structure	YES	C15H20O4		YADFASCXCUPBMT-FLBPPNCPSA-N		
+Phlebopyrone			8	471	P3+P4	species;publication		C17H12O5	Shikimates and Phenylpropanoids	SCUSRFZUNUWYTD-UHFFFAOYSA-N	C=1C=C(C=CC1C2=COC(C(C3=CC=C(C=C3)O)=C2O)=O)O	
+Rutilin D			8	323	P3	species;publication;structure	YES	C44H36O16		LNTWALOWKPLMBS-DHQQIBILSA-N		
+Xerocomic acid			8	148	P4	species;publication		C18H12O8	Shikimates and Phenylpropanoids	LJVSOLKVNIGBDE-UHFFFAOYSA-N	C=1C=C(C=CC1C(=C2C(=C(C=3C=CC(=C(C3)O)O)C(=O)O2)O)C(=O)O)O	
+Zopfinol			8	91	P3+P4	species;publication;structure	YES	C18H25ClO4		XQRSBCSTXRDZSA-RXUIJTJXSA-N		
+Asperloxine A			7	1102	P3	species;publication		C21H19N3O5	Alkaloids	YWIHZIZWXOCIAO-KRWDZBQOSA-N	COC=1C=CC2=C(C1)C(N3CCCC3(C4=NC5=C(C=C(C=CO5)OC)C(N24)=O)[H])=O	
+Asterriquinone B/Truncaquinone A			7	561	P3+P4	species;publication;structure	YES	C28H24N2O4		N/A		
+Beuaverolide R			7	236	P3+P4	species;publication;structure	YES	C31H46N4O5		N/A		
+Bis-Heimiomycin C			7	370	P3+P4	species;publication		C36H42O9	Terpenoids	PSLHJDRJKOPNCG-WNRNVDISSA-N	CC(C)C1(CCC(C)(C2=C1C(=C(CO)C(=C2O)O)C3=C(C(C=4C5=C(COC4C3=O)C(=C(C=6C(C)(CCC(C(C)C)(C65)[H])[H])O)O)=O)O)[H])[H]	
+Fragirubrin G			7	14	P3+P4	species;publication;structure	YES	C31H44O7		N/A		
+Hypholomin B			7	897	P3+P4	species;publication		C26H18O10	Shikimates and Phenylpropanoids	CGMQDMKDINCGOB-UHFFFAOYSA-N	C(=C(C1=CC2=C(C(C3=CC(=CC(=O)O3)O)C(C=4C=CC(=C(C4)O)O)O2)C(=O)O1)[H])(C=5C=CC(=C(C5)O)O)[H]	
+(6R9S)-Cyclo(phenylalanylprolyl)			6	55	P4	species;publication;structure	YES	C14H16N2O2		QZBUWPVZSXDWSB-UHFFFAOYSA-N		
+14-Hydroxy-dihydropleurotinic acid			6	489	P3+P4	species;publication;structure	YES	C21H24O6		SUXBYGIWCZZVIR-FJKCABEUSA-N		
+4'7-Dihydroxyisoflavone			6	253	P4	species;publication		C15H10O4	Shikimates and Phenylpropanoids	ZQSIJRDFPHDXIC-UHFFFAOYSA-N	C=1C=C(C=CC1C2=COC=3C=C(C=CC3C2=O)O)O	
+6-Hyxdroxy-3a,5,5,8-tetramethyl-3,3a4,5tetrahydrat			6	101	P3	species;publication;structure	YES	C15H18O3		N/A		
+Aethiopinolone E			6	131	P3	species;publication;structure	YES	C21H26O4		REURLLABAXJJPQ-RDWZXKLLSA-N		
+Alternariol monomethyl ether			6	661	P3+P4	species;publication		C15H12O5	Shikimates and Phenylpropanoids	LCSDQFNUYFTXMT-UHFFFAOYSA-N	CC1=CC(=CC2=C1C=3C=C(C=C(C3C(=O)O2)O)OC)O	
+Beauverolide S			6	38	P3+P4	species;publication;structure	YES	C21H37N3O5		N/A		
+CAS: 24179-83-7			6	226	P3+P4	species;publication;structure	YES	C15H22O3		IFXUIBDOUVPQHB-TYNCELHUSA-N		
+Cytochalasin J4			6	80	P3+P4	species;publication;structure	YES	C28H35NO3		N/A		
+Cytochalasin RKS-1778			6	14	P3+P4	species;publication;structure	YES	C30H39NO4		N/A		
+Deacetyl 19,20-epoxycytochalasin C			6	4	P3+P4	species;publication		C28H35NO6		PJQNNAWRTWTXKU-GCRHBUKQSA-N	C[C@H]1C/C=C/[C@H]2[C@@H](C(=C([C@@H]3[C@@]2([C@@H]([C@@H]4[C@H](O4)[C@@](C1=O)(C)O)O)C(=O)N[C@H]3CC5=CC=CC=C5)C)C)O	
+Epoxycytochalasin C1			6	53	P3+P4	species;publication;structure	YES	C30H37NO8		N/A		
+Heimionone A			6	158	P3+P4	species;publication;structure	YES	C22H28O5		KXBIRHKIESBHKT-QHBQVUQKSA-N		
+Laetiporin B			6	964	P4	species;publication;structure	YES	C34H52O7		MDPWBYGDZIOSBE-PWUJMTERSA-N		
+Microshaeropsone A			6	168	P3+P4	species;publication;structure	YES	C16H14O8		WSFQFDPAWTWVMC-CZUORRHYSA-N		
+Palmarumycin C3-5.8-quinone			6	128	P3+P4	species;publication;structure	YES	C20H10O6		OJAVNHSKBHEAOA-RTBURBONSA-N		
+Pseurotin D			6	338	P3+P4	species;publication		C22H25NO8		GZAYJWNDYQINEI-OLSIJDASSA-N	CCC(C=C[C@@H](C1=C(C(=O)[C@@]2(O1)[C@H]([C@@](NC2=O)(C(=O)C3=CC=CC=C3)OC)O)C)O)O	
+10-Hydroxy-5-methoxy-6-chloroarmillane			5	12	P3+P4	species;publication;structure	YES	C22H27ClO8		N/A		
+Akanthopyrone D			5	252	P4	species;publication;structure	YES	C23H38O10		SIWDDRXALXNKAS-IQBSQLKFSA-N		
+Beauverolide M			5	56	P3+P4	species;publication;structure	YES	C23H41N3O5		N/A		
+Brasilan E			5	131	P3	species;publication;structure	YES	C23H37NO8		PLACAFVTIFFMKX-YKBJNMKISA-N		
+Ergokonin B			5	590	P3+P4	species;publication		C28H42O5		OVRATKCWDGNQGC-IASYKOOYSA-N	C[C@H](/C=C/[C@H](C)C(C)C)C1CCC2=C3[C@H](C4[C@@]5(O4)C[C@H](CC[C@@]5(C3CC[C@]12C(=O)O)C)OC(=O)[C@H]([C@H](C(C)C)OS(=O)(=O)O)N)O	
+Heimionone C			5	285	P4	species;publication;structure	YES	C22H30O4		SKWBHOVTDDABNY-HLNPCMAPSA-N		
+Multiformin E			5	20	P3+P4	species;publication;structure	YES	C24H28O7		N/A		
+Papyracillic acid A			5	244	P3+P4	species;publication		C11H14O5		UEYMIBGYKZFDMD-MQOMDTIOSA-N	C[C@H]1C(=C)[C@]2(C(=CC(=O)O2)OC)O[C@@]1(C)O	
+(R)-Semixanthomegnin			4	314	P4	species;publication;structure	YES	C15H12O6		YPJWDOQDLYENRC-ZCFIWIBFSA-N		
+3-Hydroxy-10-oxodehydrodihydrobotrydial			4	126	P3+P4	species;publication		C15H18O3	Terpenoids	OGKCRIOQDYPIOZ-OAHLLOKOSA-N	CC1=C(C=C2C3=C1C(=O)OCC3(C)CC2(C)C)O	
+Akanthozine			4	149	P3+P4	species;publication		C17H28N2O7	Amino acids and Peptides	QGSUXXMTBWZQKO-DTDLKUBXSA-N	CC(C)C=1C(NC(C(C)C)=C(N1)OC2(C(C(C(C(CO)(O2)[H])(OC)[H])(O)[H])(O)[H])[H])=O	
+Beauverolide I			4	80	P3	species;publication;structure	YES	C27H41N3O5		N/A		
+Beauverolide Q			4	106	P3	species;publication;structure	YES	C29H42N4O5		N/A		
+Cytochalasa-triene-dione			4	557	P3	species;publication;structure	YES	C28H35NO3		DJRDYUOZKZSHPE-RQJKQRGLSA-N		
+Cytochalasin B2			4	70	P3	species;publication;structure	YES	C30H39NO5		N/A		
+Deschlorozopfinol			4	36	P4	species;publication;structure	YES	C18H26O4		SILLWCQCJWWTBA-SQXBUMSNSA-N		
+Erinacin T			4	189	P3+P4	species;publication;structure	YES	C25H38O7		QLXVRMHCIDQLSG-BMMRGBERSA-N		
+Fulvoferruginin D			4	248	P4	species;publication;structure	YES	C15H20O4		MDWIEMNQCKCSKM-QIRZIZBZSA-N		
+Heimionone D			4	190	P3+P4	species;publication;structure	YES	C22H30O3		LOTOIHQTQBRYJP-ABOTWDAHSA-N		
+Lupallene B			4	78	P4	species;publication;structure	YES	C16H24O4		CIIGZSXCGIFGHK-GDOKRMGTSA-N		
+Phomopchalasin D			4	5	P3	species;publication;structure	YES	C30H39NO5		N/A		
+Phomopchalasin N			4	8	P3+P4	species;publication;structure	YES	C28H37NO3		N/A		
+Rutilin C			4	237	P4	species;publication		C42H34O14	Polyketides	HVINFLOKBRBVTE-COCZKOEFSA-N	CC(=C(C1=CC=2C(=C(C(=C(C3=CC4=CC(C(C)(C(C4=CO3)=O)OC(C=5C(C)=CC(=CC5O)O)=O)=O)[H])[H])[H])C(C(C)(C(C2CO1)=O)OC(C=6C(C)=CC(=CC6O)O)=O)=O)[H])[H]	
+Sordarin B			4	628	P3+P4	species;publication		C27H40O8		OGGVRVMISBQNMQ-NYNVPSEMSA-N	C[C@@H]1CC[C@@H]2[C@@H]1C[C@@]3([C@@H]4C[C@]2([C@]3(C(=C4)C(C)C)C(=O)O)C=O)CO[C@H]5[C@H]([C@@H]([C@@H]([C@H](O5)C)OC)O)O	
+Viriditin A			4	254	P4	species;publication;structure	YES	C18H29NO3		DBHVIZGJTLWNTC-GKPPUABTSA-N		
+10-Dehydroxy-Melleolide B			3	571	P3	species;publication;structure	YES	C24H32O6		JFKIKEXCYGLNTH-GNMVUSIZSA-N		
+Akanthopyrone A			3	243	P3	species;publication		C25H42O10	Polyketides	YEZBNJMKRUSNMX-DHRDOYSISA-N	CCCCCCCCCCC(C1=CC(=C(CO)C(=O)O1)OC)(OC2(C(C(C(C(CO)(O2)[H])(OC)[H])(O)[H])(O)[H])[H])[H]	
+Akanthopyrone B			3	266	P4	species;publication;structure	YES	C25H42O11		MBYABXDSJYHYQZ-XSHYYGNTSA-N		
+Daldinin EF			3	222	P3+P4	species;publication;structure	YES	C24H28O9		N/A		
+Fulvoferruginin B			3	111	P4	species;publication;structure	YES	C15H20O3		NIADUYGOMRZDBJ-QIRZIZBZSA-N		
+Heimiomycin D			3	249	P3	species;publication		C22H24O7	Terpenoids	UTFNFJGYVPYTEJ-GXSJLCMTSA-N	CC(C)C1(CCC(C)(C2=C1C(=C(C=O)C(=C2O)O)C=3C(C(=C(C)C(C3O)=O)O)=O)[H])[H]	
+Heimionone B			3	278	P3	species;publication;structure	YES	C22H28O5		UGODOQRMDALGQK-BMBUGPIYSA-N		
+Illudaneol			3	194	P3	species;publication;structure	YES	C15H22O3		GHFRGNHGUDJTGJ-OAHLLOKOSA-N		
+Isochromophilonol A1/A2			3	1230	P3	species;publication;structure	YES	C23H27ClO5		SSNLCVXEGIPQES-DALSRYILSA-N		
+Italicic acid methyl ester			3	98	P4	species;publication		C16H18O6	Polyketides	JXPYUBCGMFPIBF-UHFFFAOYSA-N	CCCCC1(C)C=CC(=C2C(C(=C(C(=O)OC)[H])OC2=O)=O)O1	
+Leucinostatin U			3	1203	P3+P4	species;publication;structure	YES	C58H105N10O13		BNFJBHCORXYILM-JJSZLYBCSA-O		
+Lupallene D			3	62	P3+P4	species;publication;structure	YES	C18H26O5		UGXODBMUJCBGKG-UHFFFAOYSA-N		
+Melleolid J			3	217	P3	species;publication;structure	YES	C24H29ClO7		LNEWYAZEAYTKQI-UEXMDZLUSA-N		
+Methylvermelhotin			3	182	P3+P4	species;publication		C13H13NO3	Polyketides	NBLRSPCFGYCXHJ-UHFFFAOYSA-N	CC(=C(C1=C(C)C=CC(=C2C(CN=C2O)=O)O1)[H])[H]	
+Pyrichalasin J			3	39	P3+P4	species;publication;structure	YES	C29H37NO4		N/A		
+Rickiol F			3	114	P4	species;publication;structure	YES	C24H44O5		WFHNHKIPMIIXND-RWFKHETPSA-N		
+Xanthoquinodin B10			3	589	P3	species;publication		C35H32O12	Polyketides	OFEOEDKSDPBJNK-NKUSYRMFSA-N	CCCC(=O)OC1(C=2C=C(C)C=C(C2C(=C3C(C4(C=CC31CC5=CC(=C6C(C7=C(CCC(C7(C(=O)OC)OC6=C54)(O)[H])O)=O)O)[H])=O)O)O)[H]	
+(R)-Semivioxanthin			2	328	P4	species;publication		C15H14O5	Shikimates and Phenylpropanoids	BWNCKEBBYADFPQ-SSDOTTSWSA-N	CC1(CC2=CC3=CC(=CC(=C3C(=C2C(=O)O1)O)O)OC)[H]	
+19-O-Acetyl chaetoglobosin A			2	93	P3+P4	species;publication;structure	YES	C34H38N2O6		N/A		
+5-Methoxycarbonylmellein			2	67	P4	species;publication		C12H12O5		IJVMFVNOQBFBBA-HKGPVOKGSA-N	C[C@H]1CC2=C(C=CC(=C2C(=O)O1)O)C(=O)OC.C[C@H]1CC2=C(C=CC(=C2C(=O)O1)O)C(=O)OC	
+5-Methoxysterigmatocystin			2	249	P3	species;publication;structure	YES	C19H14O7		VVRUNWFPOWIBDY-WPCRTTGESA-N		
+"6""-Hydroxymitorubrinol"			2	162	P3	species;publication;structure	YES	C21H18O9		N/A		
+6-epi-cytochalasin P1			2	4	P4	species;publication;structure	YES	C30H39NO8		N/A		
+Arthrichitin B			2	5	P4	species;publication;structure	YES	C33H48N4O8		N/A		
+Bis-Heimiomycin B			2	994	P4	species;publication		C36H40O9	Terpenoids	RJFIFLLNROWBAM-WNRNVDISSA-N	CC(C)C1(CCC(C)(C2=C1C(=C(C=O)C(=C2O)O)C3=C(C(C=4C5=C(COC4C3=O)C(=C(C=6C(C)(CCC(C(C)C)(C65)[H])[H])O)O)=O)O)[H])[H]	
+Cordyanhydrid B			2	724	P3	species;publication;structure	YES	C29H32O11		PHRCULZLDFTOFU-BQYQJAHWSA-N		
+cyclo(L-Phe-L-Pro)			2	52	P3+P4	species;publication		C14H16N2O2		QZBUWPVZSXDWSB-RYUDHWBXSA-N	C1C[C@H]2C(=O)N[C@H](C(=O)N2C1)CC3=CC=CC=C3	
+Engleromycin			2	4	P4	species;publication		C28H35NO6		KHXIYTOCQZQSDM-XYOKQWHBSA-N	CC1C/C=C/C2C(C(=C)C(C3C2(CC4(C(O4)C(C1=O)(C)O)O)C(=O)NC3CC5=CC=CC=C5)C)O	
+Ergokonin A			2	349	P3	species;publication;structure	YES	C34H53NO10S		ISIMKBKTIVYXIT-CXCWBWGXSA-N		
+Heimiocalamene A			2	64	P3+P4	species;publication;structure	YES	C15H22O2		RCGTUQOTSVCVCF-CMPLNLGQSA-N		
+Macrocidin Z			2	82	P3	species;publication		C20H23NO4	Shikimates and Phenylpropanoids	QEPWVSUNMKZYAH-CJNGLKHVSA-N	CC1(CCCC(=C(COC2=CC=C(C=C2)CC3(C(C(=C1O)C(=N3)O)=O)[H])[H])[H])[H]	
+Massarilactone H			2	38	P3+P4	species;publication		C11H12O5		ZVRUDYNVKYYNCW-ONEGZZNKSA-N	C/C=C/C1C(C(C2=C(O1)C(=C)OC2=O)O)O	
+Melledonal C			2	377	P4	species;publication		C24H29ClO8		RCBZBPPFXBBNCD-IQEKTTGQSA-N	CC1=C(C(=CC(=C1Cl)OC)O)C(=O)O[C@@H]2C[C@]3([C@@]2(C(=C[C@]4([C@@H]3[C@H](C(C4)(C)C)O)O)C=O)O)C	
+Melleolide BH			2	308	P3+P4	species;publication;structure	YES	C48H60O13		N/A		
+Melleolide linoleate			2	66	P3+P4	species;publication;structure	YES	C41H58O7		N/A		
+Multifromin I			2	18	P3	species;publication;structure	YES	C23H30O6		N/A		
+Rickenyl E or D?			2	418	P3	species;publication;structure	YES	C21H18O6		N/A		
+Terphenyl-Derivat C			2	146	P3	species;publication;structure	YES	C21H20O6		SKKUPTPBYKRTOQ-UHFFFAOYSA-N		
+Terphenyl-Derivat D			2	1010	P4	species;publication;structure	YES	C21H18O6		QOFOPUXDBNNMHW-UHFFFAOYSA-N		
+Xanthoquinodin A11			2	714	P4	species;publication;structure	YES	C35H32O12		NNDQQXKLLBQGJV-PFPMWLNGSA-N		
+Xanthoquinodin B11			2	1102	P4	species;publication;structure	YES	C35H32O12		DMNVAUVBGPZALF-NNDCRWLCSA-N		
+Xanthoquinodin B12			2	1123	P3+P4	species;publication;structure	YES	C35H32O13		FMBSYEPYXXBTGH-ZIYRBHPRSA-N		
+Xanthoquinodin B13			2	1543	P4	species;publication;structure	YES	C33H28O12		MIXHWSDHAMCPPR-AXBVMLDUSA-N		
+19;20-epoxycytochalasin D			1	8	P3	species;publication;structure	YES	C30H37NO7		WHJRAYUHVRYTTH-MQQXPATASA-N		
+Akanthopyrone C			1	256	P3	species;publication;structure	YES	C25H42O10		XXUPZZCHTILLMJ-XSHYYGNTSA-N		
+CBS123585-F2-1-2			1	329	P3	species;publication;structure	YES	C20H28O4		BUWDNPHDSFZGPW-MPCUKPJOSA-N		
+Fumigaclavine A			1	295	P4	species;publication		C18H22N2O2	Alkaloids	GJSSYQDXZLZOLR-ONUGHKICSA-N	CC1(CN(C)C2(CC3=CNC4=CC=CC(=C34)C2(C1(OC(C)=O)[H])[H])[H])[H]	
+Heimiocalamene B			1	68	P4	species;publication		C15H18O4	Shikimates and Phenylpropanoids / Terpenoids	YXEBTVUHQLPMEL-UHFFFAOYSA-N	CC(C)C1=C2C=C(CCC2=C(C)C(=C1O)O)C(=O)O	
+Isocochliodinol			1	32	P3	species;publication;structure	YES	C32H30N2O4		DMPXDLRQZYXVHL-UHFFFAOYSA-N		
+Libertellenon C			1	279	P3	species;publication;structure	YES	C20H28O5		YFSWTQQLSUEQBY-CNVPOBLBSA-N		
+Multiformin H			1	20	P4	species;publication;structure	YES	C24H26O7		N/A		
+Ophiotine			1	3	P3	species;publication;structure	YES	C45H62N8O10		N/A		
