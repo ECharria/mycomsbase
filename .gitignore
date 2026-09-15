@@ -24,3 +24,9 @@
 .DS_Store/
 .vscode/
 data
+# Paper analyses — not part of the MycoMSBase platform
+/masst/
+/chemspace/
+/figures/
+/MANUSCRIPT_draft.md
+/RESULTS_draft.md

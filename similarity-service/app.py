@@ -1,4 +1,5 @@
 import os
+import tempfile
 import logging
 import numpy as np
 from contextlib import asynccontextmanager
@@ -124,9 +125,16 @@ def _build_library(data_dir: str, tolerance: float) -> tuple[list[Spectrum], Fla
     raw = _load_massbank_dir(data_dir)
 
     processor = SpectrumProcessor(DEFAULT_FILTERS)
+    # Unique per-process path: with multiple replicas a shared fixed filename
+    # makes every replica after the first fail with FileExistsError.
+    cleaned_file = os.path.join(
+        tempfile.gettempdir(), f"library_cleaned_{os.getpid()}.mgf"
+    )
+    if os.path.exists(cleaned_file):
+        os.remove(cleaned_file)
     cleaned, _ = processor.process_spectra(
         raw,
-        cleaned_spectra_file="/tmp/library_cleaned.mgf",
+        cleaned_spectra_file=cleaned_file,
         create_report=False,
     )
 
